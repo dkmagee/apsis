@@ -1,9 +1,0 @@
-export PIPE=$HOME/Dropbox/Working/apsis
-export PIPELINE=/Users/magee/Data/PIPELINE
-export DATASETS=$PIPELINE/DATASETS
-export INGEST=$PIPELINE/INGEST
-export DUST_DIR=$PIPELINE
-export jref=$PIPELINE/reffiles/
-export NUMERIX=numpy
-export PATH=$PATH:$PIPE/bin
-export PYTHONPATH=$PYTHONPATH:$PIPE/python:$PIPE/python/apsis:$PIPE/python/utils

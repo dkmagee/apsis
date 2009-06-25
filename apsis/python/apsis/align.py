@@ -856,7 +856,7 @@ class FitsFile:
         return 0
 
     # def _process_transfit(self, fields, default_scale_tol, maxfitrms):
-    #     """Parse, process and write out mrmatch TRANS output line."""
+    #     """Parse, process and write out match TRANS output line."""
     #     if len(fields) != 12 or fields[0] != 'TRANS:':
     #         errtxt = "Error in parsing match TRANS output: \n"+str(fields)
     #         self.logfile.write(errtxt)
@@ -938,7 +938,7 @@ class FitsFile:
     def _bail_out(self, matchf, quiet=0):
         """ This function is for damage control in the event of a total
         match failure, or for populating extra MatchDict elements when using
-        a default.shifts and mrmatch is not being run.
+        a default.shifts and match is not being run.
         It has to do the following:
           1) write a dummy line to the matchf file
           3) populate with dummy values all the MatchDict
@@ -1014,8 +1014,8 @@ class FitsFile:
         # fire up simplematch ... which tries to perform a match against the
         # super star file ... which is trivial because the solution has
         # already been determined by superalign ... and simplematch merely
-        # verifies it, writes the output in appropriate format for mrmatch to
-        # read it, and then mrmatch is called with an input guess which
+        # verifies it, writes the output in appropriate format for match to
+        # read it, and then match is called with an input guess which
         # should be exactly right
 
         logtxt = "hdr_xshift = %.3f, hdr_yshift = %.3f, orient_shift=%.2f" % (hdr_dx,hdr_dy,hdr_rot)
@@ -1043,7 +1043,7 @@ class FitsFile:
         # return -1
 
     def DetermineShift(self,AlignParam,refim,refMatchFile,matchf,defShiftDict):
-#      run_match = 'mrmatch'
+#      run_match = 'match'
       outfile   = os.path.join(self.GlobalBlock.obsAlign,'match')
       hdr_dx = self.MatchDict['hdr_xshift']
       hdr_dy = self.MatchDict['hdr_yshift']
@@ -1424,7 +1424,7 @@ class FitsFile:
         self.refcdmat['CD2_2'] = self.refwcs[0].wcs['CD2_2']
         if self.simpleimage == 1:
             self.refcdmat['EXTREF'] = 1
-        else
+        else:
             self.refcdmat['EXTREF'] = 0
         rf.close()            
 	del rf
