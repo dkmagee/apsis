@@ -40,7 +40,7 @@ __version_date__ = '$Date: 2002/09/10 23:23:56 $ '[7:-3]
 
 import math,sys
 import matutil
-from   numarray import *
+from numpy import *
 
 # define a few general conveniences
 yes,no = 1,0

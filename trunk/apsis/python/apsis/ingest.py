@@ -91,6 +91,16 @@ class DataSet:
         environment for the pipeline, removing dependency on the user's environment,
         hopefully.
         """
+        datasets_dir = self.base.getenv('DATASETS')
+        if not os.path.isdir(datasets_dir):
+            print 'Cannot find the $DATASETS directory....Apsis will try to create it.'
+            try:
+               os.makedirs(datasets_dir)
+               print 'Created $DATASETS directory %s' % datasets_dir
+            except OSError, error:
+               print error
+               sys.exit()
+
         if not os.path.isdir(self.newobspath):
             os.mkdir(self.newobspath)
             os.mkdir(self.newfits)

@@ -37,7 +37,7 @@ class Env:
 
         print "Testing availability of required executables..."
 
-        test_exes = [ "mrmatch","sex","dust_getval"]
+        test_exes = [ "match","sex","dust_getval"]
 
         for exe in test_exes:
             if self.which(exe): continue

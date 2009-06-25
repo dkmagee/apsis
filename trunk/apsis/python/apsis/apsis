@@ -12,8 +12,14 @@ __author__       = "Ken Anderson, <anderson@pha.jhu.edu>"
 #                               Handle Cl Options                  
 #-------------------------------------------------------------------------------------------#
 
-apsis_release = __version__
-print "Apsis, v"+ apsis_release
+try:
+    import apsisVersion
+    apsis_ver = apsisVersion.version
+    apsis_ver_date = apsisVersion.version_date
+    print 'Apsis v' + apsis_ver + ' (' + apsis_ver_date + ')'
+except ImportError:
+    print "This is not a released version of Apsis."
+    print "This is revision " +  __version__ + " of apsis."
 
 import sys,path,os,string,getopt
 

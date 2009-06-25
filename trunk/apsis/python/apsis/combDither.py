@@ -329,39 +329,39 @@ class drizzleImage:
         for key in crmasks.keys():
             self.outputList[crmasks[key][0]] = [key]   # can't get at any predecessor info here.
 
-            if not self.notrim:
-                self.logfile.write('Assembling Edge mask...')
-                auger = augmask.augmask(self.augimdict,self.edgeMaskName,logfile=self.logfile,clean_up=clean_up)
-                auger.make()
-                # test to see if edge mask has been made.
-                if os.path.isfile(os.path.join(self.obsFits,self.edgeMaskName)):
-                    self.outputList[self.edgeMaskName] = []
-            else:
-                self.logfile.write('Skipping Edge mask construction.')
+        if not self.notrim:
+            self.logfile.write('Assembling Edge mask...')
+            auger = augmask.augmask(self.augimdict,self.edgeMaskName,logfile=self.logfile,clean_up=clean_up)
+            auger.make()
+            # test to see if edge mask has been made.
+            if os.path.isfile(os.path.join(self.obsFits,self.edgeMaskName)):
+                self.outputList[self.edgeMaskName] = []
+        else:
+            self.logfile.write('Skipping Edge mask construction.')
 
-            self.logfile.write('Starting second drizzle process...')
-            if asecpix:
-                self.logfile.write('  using requested output scale: '+str(asecpix)+' asec/pix.')
-            if pixfrac:
-                self.logfile.write('  using requested drizzle pixfrac: '+str(pixfrac))
-            if not kernel:
-                ## kernel = 'square' # default to lanczos3, Feb 25 02, anderson
-                kernel = "lanczos3"
+        self.logfile.write('Starting second drizzle process...')
+        if asecpix:
+            self.logfile.write('  using requested output scale: '+str(asecpix)+' asec/pix.')
+        if pixfrac:
+            self.logfile.write('  using requested drizzle pixfrac: '+str(pixfrac))
+        if not kernel:
+            ## kernel = 'square' # default to lanczos3, Feb 25 02, anderson
+            kernel = "lanczos3"
 
-            if userKeepBits:
-                self.logfile.write('  using bits parameter = '+str(userKeepBits))
-                self.run_drizzle(deltmp=clean_up, bits=userKeepBits,separDriz=0,crmasks=crmasks,units=units,\
-                             asecpix=asecpix, pixfrac=pixfrac, kernel=kernel, delwght=0)
-            else:
-                self.logfile.write('  using bits parameter = '+str(_goodBits_))
-                self.run_drizzle(deltmp=clean_up, bits=_goodBits_,separDriz=0,crmasks=crmasks,units=units,\
-                             asecpix=asecpix, pixfrac=pixfrac, kernel=kernel, delwght=0)
+        if userKeepBits:
+            self.logfile.write('  using bits parameter = '+str(userKeepBits))
+            self.run_drizzle(deltmp=clean_up, bits=userKeepBits,separDriz=0,crmasks=crmasks,units=units,\
+                         asecpix=asecpix, pixfrac=pixfrac, kernel=kernel, delwght=0)
+        else:
+            self.logfile.write('  using bits parameter = '+str(_goodBits_))
+            self.run_drizzle(deltmp=clean_up, bits=_goodBits_,separDriz=0,crmasks=crmasks,units=units,\
+                         asecpix=asecpix, pixfrac=pixfrac, kernel=kernel, delwght=0)
 
-            if clean_up:
-                self.logfile.write('Removing 1st pass output files.')
-                self._clean_driz()
-            else:
-                self.logfile.write('Keeping 1st pass drizzle output files.')
+        if clean_up:
+            self.logfile.write('Removing 1st pass output files.')
+            self._clean_driz()
+        else:
+            self.logfile.write('Keeping 1st pass drizzle output files.')
 
         self.logfile.write('Full drizzle cycle complete.')
         del PyBlOb

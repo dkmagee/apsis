@@ -172,7 +172,7 @@ class gscMatchup:
         for cat in self.projcats:
             self.logfile.write("Beginning match attempt for %s" %cat)
             nobj = max(80,self.Nrefobjs)
-            base = 'mrmatch %s 1 2 3 %s 1 2 3 identity recalc nobj=%d medtf medsigclip=2.7 '\
+            base = 'match %s 1 2 3 %s 1 2 3 identity recalc nobj=%d medtf medsigclip=2.7 '\
                    %(cat,self.GSCmatchin,nobj)
             converged=0
             mrad=4.5
@@ -301,7 +301,7 @@ class gscMatchup:
 
 
     def _process_median(self, medianline,mrad,xsh,ysh):
-        """Parse, process and write out mrmatch MEDTF output line."""
+        """Parse, process and write out match MEDTF output line."""
         fields = string.split(medianline)
         mdict={}
         if len(fields) != 8 or fields[0] != 'MEDTF:':

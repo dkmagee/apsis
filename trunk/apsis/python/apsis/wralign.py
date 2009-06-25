@@ -146,7 +146,7 @@ class alignImage:
         del outp,sub,name,ver
 
         # match info
-        cmd  = 'mrmatch --version'
+        cmd  = 'match --version'
         sub  = popen2.Popen3(cmd)
         outp = sub.fromchild.readlines()
         name = outp[0].split()[0][:-1]
@@ -156,7 +156,7 @@ class alignImage:
         self.meta['meta'].append(('version',ver))
         # ok, here's the new, post version 0.5 command, where the part in brackets
         # [identity xsh=dx ysh=dy] is only included if the angle is expected to be small
-        cmdline2 = "mrmatch file_matchin 1 2 3 self.refMatchFile 1 2 3 max_iter=10 scale=1.00 nobj=60 matchrad=str(tolmatch) trirad=0.00033 recalc medtf medsigclip=2.7 outfile=outfile [identity xsh=+str(hdr_dx)+ ysh=+str(hdr_dy)]"
+        cmdline2 = "match file_matchin 1 2 3 self.refMatchFile 1 2 3 max_iter=10 scale=1.00 nobj=60 matchrad=str(tolmatch) trirad=0.00033 recalc medtf medsigclip=2.7 outfile=outfile [identity xsh=+str(hdr_dx)+ ysh=+str(hdr_dy)]"
 
         self.meta['meta'].append(('commandline',cmdline2))
         del outp,sub,name,ver
