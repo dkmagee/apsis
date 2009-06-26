@@ -14,10 +14,11 @@ __author__       = "Ken Anderson, <anderson@pha.jhu.edu>"
 
 try:
     import apsisVersion
-    apsis_ver = apsisVersion.version
+    apsis_release = apsisVersion.version
     apsis_ver_date = apsisVersion.version_date
-    print 'Apsis v' + apsis_ver + ' (' + apsis_ver_date + ')'
+    print 'Apsis v' + apsis_release + ' (' + apsis_ver_date + ')'
 except ImportError:
+    apsis_release = __version__
     print "This is not a released version of Apsis."
     print "This is revision " +  __version__ + " of apsis."
 
