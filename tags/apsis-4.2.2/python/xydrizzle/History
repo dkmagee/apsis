@@ -1,0 +1,131 @@
+Version 2.6.2, xydrizzle (14-Jul-2006)
+	- Internal references are now to 'xydrizzle'.
+	- Rename readIDCtab in fileutil to "OBSOLETE_readIDCtab"
+    	- Make __init__.py use matutil._readIDCtab()
+ 	- Make the convert() method write the coefficients as %16.8g
+	- Make PyDrizzle method get values for filter1 and filter2, and
+	   set them to the global values to use for the distortion model
+
+Version 2.6.1  (11-Feb-2003)
+          Change to readIDCtab() function to make it take the first row
+          with the correct chip,direction combination (and then break).
+          Previously, it would have continued to loop over the rows and
+          taken the final row with this chip,direction combination.  This
+          change necessary to ensure that it gets the CLEAR,CLEAR filter
+          combination, rather than some coefficients appropriate for one
+          of the polarizing filter combinations.
+
+Version 2.6  (12-June-2002)
+              - implemented internal changes to support separate output for
+                each input, along with renaming 'shifts' dictionary in PyDrizzle
+                to a more appropriate 'pars'.  This also corrects a bug in 2.5a
+                with creating a final output from 'drizzle' with the same name
+                as the desired combined final output. This version, however,
+                will NOT actually create single outputs or run blot.
+                In addition, 'buildmask' was modified to delete previously
+                existing mask files it finds before re-creating them.
+
+Version 2.5a (6-June-2002)
+              - Corrected WFPC2 alignment problems by manually adjusting the
+                refdata for WFPCObservation class to match output from
+                'wmosaic'.
+
+
+Version 2.5 (31-May-2002)
+              - Fixed final problems with using optional SkyField parameters
+                  such as RA/Dec and shape. Updated ObsGeometry.apply() to 
+                  accurately reflect sub-array offsets now.
+
+Version 2.3 (30-May-2002) 
+              - Output size of product correctly predicted and product
+                  WCS consistent with 'drizzle' product for rotated and 
+                  default conditions. Now correctly works with sub-arrays.
+
+Version 2.2a  - Revised to be consistent with new numpy syntax
+
+Version 2.2   - Reworked use of WCS to compute accurate offsets between
+                  observations from header.  Added 'undistortWCS' to create
+                  linear CD directly from distortion without scaling.
+                  Revised WCSObject to simplify updates of attributes and
+                  formatted output on prints.
+                  Includes new 'convert' method for working with IDCTABs
+                  where NORDER > 3.
+
+Version 2.1c  - Updated ORIENTAT in SCIHDR instead of PRIHDR
+
+Version 2.1b  - Corrected namespace bug in wcsutil, and protected against
+                  creating products with BSCALE and BZERO (in fileutil).
+
+Version 2.1a  - Added separate interface to XYtoSky function in wcsutil.
+                  Corrected slight bug in WCSObject.xy2rd() function.
+                  Changed 'from - import *' to explicit 'import' calls.
+                  Corrected logic problem in 'drutil.buildRootname'.
+                  Created IRAF interface for 'xytosky' task.
+
+Version 2.1   - Fixed bugs in use of numpy to perform XYtoSky on positions
+                  or arrays of positions. Also, changed import calls to
+                  numpy to be explicit rather than using from-import *.
+                  This allows the built-in methods to be used interactively.
+
+Version 2.0   - Reorganized and revised to use PyFITS V0.6.1 with numpy
+                instead of FITS v0.4.2 with Numeric. Required modifying
+                'Obsgeometry.apply' and 'calcNewEdges' to work with arrays
+                instead of a single X,Y tuple. Reconfigured to support
+                installation into STSDAS using Python-tree. Separated out
+                WCS library into a separate callable library for use by
+                other tasks as well.
+
+Version 1.4b  - Corrected a problem for WFPC2 data, not to use DETECTOR
+                  to try and access the groups.  Instead, use logical number.
+
+Version 1.4a  - Fixed a bug in building parameters without a SkyField
+                Automatically deletes previous product now.   
+
+Version 1.4   - Updated Exposure class to understand subarrays and
+                  offsets (based on LTV keywords)
+                  Also, updated to rely solely on the version of 
+                  'drizzle' in STSDAS (since it was updated to 
+                  TDRIZZLE Version 2.6).
+                  Applies corrections provided in ASN table as well.
+                  Updates EXPTIME in 'drizzle' products.
+                  Updates EXPSTART/EXPEND in Dither product.
+                  Added 'build' parameter to '.run()', if set to 
+                  'no', will not create multi-extension FITS product.
+
+Version 1.3f  - Worked out bugs in IRAF interface function for 
+                  SkyField parameters.
+Version 1.3e  - SkyField object use for specifying output frame 
+                  finally works as intended! 
+Version 1.3d - Fixes bugs in the IRAF interface to include usage
+                  of the SkyField object for user specified parameters
+                  for the output frame. Also, updates ORIENTAT in 
+                  primary header only in output DTH product.
+Version 1.3c - Corrects total exptime in output MEF image
+Version 1.3b - Fixes bugs in SkyField usage and in building the WCS for
+                  PyDrizzle product objects.
+              In addition, 'readIDCTable' was updated to accept tables
+              with either 'A'/'B' or 'CX'/'CY' coefficients column names.
+
+Version 1.3  - This version contains the final working interface for
+              user-specified SkyField and it works with the EPAR interface.
+Version 1.2  - First Version with ACS, WFPC2, and STIS support
+               Can use cubic,Trauger, and IDCTAB files for STIS and WFPC2
+               This version also overwrites any existing output file with 
+               the new dither-product file.
+
+Version 1.1  - Added WFPC2 support.
+Version 1.0b - Revised to work with PyFITS 0.4.2.
+Version 1.0a - Revised to work with CALACS.
+Version 1.0 - IRAF enabled version with complete drizzle
+              functionality.
+Version 0.5 - Revised to combine drizzle output products
+              into a single multi-extension FITS file.
+              Has optional keyword to PyDrizzle.run() to
+              control whether the separate drizzle products
+              are saved or not (default: save=no).
+Version 0.4 - Revised calculation of output size to account
+              for shifts by drizzle coefficients. 
+Version 0.3 - Added arbitrary user rotation, output pixel size,
+              kernel choice to wrapper.  Also, added automatic
+              use of 'tdrizzle' if available (defaults to 'drizzle'
+              V1.41 in STSDAS) and some on-line help.
