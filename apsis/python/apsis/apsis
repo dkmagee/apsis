@@ -773,8 +773,9 @@ if justDriz:
     print nfiles,"files removed successfully."
     msg.runMessage(cl_switches,errorList,obs,alImage,drzImage)
     obs.logfile.write("End of pipeline run as requested: Quit after drizzling.")
-    obs.logfile.write("Apsis, v "+apsis_release+", finished processing "+obs.newobs+" at "+ptime()+"\n")
-    print "Apsis, v",",finished processing",obs.newobs,"at",ptime()    
+    donestr = "Apsis, v" + apsis_release + ", finished processing " + obs.newobs + " at " + ptime()
+    obs.logfile.write(donestr + "\n")
+    print donestr
     sys.exit("End of pipeline run as requested: Quit after drizzling.")
 
     
@@ -995,8 +996,9 @@ if nocats:
     print nfiles,"files removed successfully."
     msg.runMessage(cl_switches,errorList,obs,alImage,drzImage,detImage)
     obs.logfile.write("End of pipeline run as requested. No catalogs written.")
-    obs.logfile.write("Apsis, v "+apsis_release+", finished processing "+obs.newobs+" at "+ptime()+"\n")
-    print "Apsis, v",",finished processing",obs.newobs,"at",ptime()    
+    donestr = "Apsis, v" + apsis_release + ", finished processing " + obs.newobs + " at " + ptime()
+    obs.logfile.write(donestr + "\n")
+    print donestr
     sys.exit("End of pipeline run as requested. No catalogs written.")
 
 
@@ -1276,14 +1278,13 @@ print "Writing run-level message..."
 
 # the runMessage function takes any number of objects as arguments to make the run message.
 
-msgfile = msg.runMessage(apsis_release, cl_switches,errorList,obs,alImage,drzImage,detImage,dcat,fcat,ccat)
+msgfile = msg.runMessage(cl_switches,errorList,obs,alImage,drzImage,detImage,dcat,fcat,ccat)
 
 obs.logfile.write("runMessage.xml file written for "+obs.newobs)
-obs.logfile.write("Apsis release "+apsis_release+", finished processing "+obs.newobs+" at "+ptime()+"\n")
+donestr = "Apsis, v" + apsis_release + ", finished processing " + obs.newobs + " at " + ptime()
+obs.logfile.write(donestr + "\n")
 print "run message written."
-
-    
-sys.exit("Apsis, v"+apsis_release+",finished processing "+obs.newobs+" at "+ptime())
+sys.exit(donestr)
 
 
 #---------------------------------------------------------------------------------------#

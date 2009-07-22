@@ -8,6 +8,12 @@ __version_date__ = '$Date: 2004/10/18 22:32:44 $ '[7:-3]
 __author__       = "Ken Anderson, anderson@pha.jhu.edu"
 
 
+try:
+    import apsisVersion
+    apsis_release = apsisVersion.version
+except ImportError:
+    apsis_release = __version__
+
 import os, os.path
 import string
 import path
@@ -139,7 +145,7 @@ class pMessage:
 # I need to refactor this into the pMessage class somehow.  
 ####################################################################################################
 
-def runMessage(version,switches,errorlist=None,*pObjs):
+def runMessage(switches,errorlist=None,*pObjs):
     """make a run-level message for a run of the pipeline.  The caller
     (pipeline) sends this function a couple lists (command line switches, errorList)
     and a bunch of pipeline module objects which have everything needed to build the 
@@ -161,7 +167,7 @@ def runMessage(version,switches,errorlist=None,*pObjs):
         obsname = "N/A"
     runMsg = xmlMessage()
     runMsg.docTypeTag("Runmessage")
-    runMsg.startTag("pipelinemessage",version=version,date=ptime(),dataset=obsname)
+    runMsg.startTag("pipelinemessage",version=apsis_release,date=ptime(),dataset=obsname)
     runMsg.startTag("meta")
     runMsg.startTag("user",os.environ['USER'])
     runMsg.startTag("host",os.uname()[1])
