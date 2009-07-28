@@ -462,7 +462,7 @@ class colorCatalog:
         self.meta['meta'].append(('name','python'))
         self.meta['meta'].append(('version',pyversion.split()[0]))
         self.meta['meta'].append(('pkg',))
-        self.meta['meta'].append(('name','Numeric'))
+        self.meta['meta'].append(('name','numpy.oldnumeric'))
         self.meta['meta'].append(('version',numver))
         self.meta['meta'].append(('pkg',))
         self.meta['meta'].append(('name','tableio.py'))

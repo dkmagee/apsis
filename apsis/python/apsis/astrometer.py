@@ -12,6 +12,7 @@ import wcsclass,pyfits
 from   msg   import pMessage
 import xmlUtil
 import time
+import subprocess
 pyversion = sys.version
 # Host and URL information for search will need to be changed when
 # new catalog version is released.
@@ -813,11 +814,10 @@ class gscMatchup:
         self.meta['meta'].append(('version',_URL_.split("/")[-1].split("q")[0]))
     
         # SExtractor info
-        sub  = popen2.Popen3('sex',1)
-        outp = sub.childerr.readlines()
-    
-        name = outp[1].split()[0]
-        ver  = outp[1].split()[2]
+        sub  = subprocess.Popen(['sex', '--version'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
+        outp = sub.stdout.readlines()
+        name = outp[0].split()[0]
+        ver  = outp[0].split()[2]
         self.meta['meta'].append(('pkg',))
         self.meta['meta'].append(('name',name))
         self.meta['meta'].append(('version',ver))

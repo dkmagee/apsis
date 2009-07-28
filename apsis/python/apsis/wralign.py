@@ -8,6 +8,7 @@ from align import *
 from sys import version
 from msg import pMessage
 import os,pyfits,popen2
+import subprocess
 pyversion = version
 
 __version__      = '$Revision: 1.34 $ '[11:-3]
@@ -134,10 +135,10 @@ class alignImage:
 
 
         # SExtractor info
-        sub  = popen2.Popen3('sex',1)
-        outp = sub.childerr.readlines()
-        name = outp[1].split()[0]
-        ver  = outp[1].split()[2]
+        sub  = subprocess.Popen(['sex', '--version'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
+        outp = sub.stdout.readlines()
+        name = outp[0].split()[0]
+        ver  = outp[0].split()[2]
         self.meta['meta'].append(('pkg',))
         self.meta['meta'].append(('name',name))
         self.meta['meta'].append(('version',ver))
@@ -146,9 +147,8 @@ class alignImage:
         del outp,sub,name,ver
 
         # match info
-        cmd  = 'match --version'
-        sub  = popen2.Popen3(cmd)
-        outp = sub.fromchild.readlines()
+        sub  = subprocess.Popen(['match', '--version'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
+        outp = sub.stdout.readlines()
         name = outp[0].split()[0][:-1]
         ver  = outp[0].split()[2]
         self.meta['meta'].append(('pkg',))
