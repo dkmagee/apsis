@@ -1,7 +1,7 @@
 import types,string,os,copy
 
-from pyraf.iraf import dither
-import iraf
+from pyraf import iraf
+from iraf import stsdas, dither
 
 # Import PyDrizzle utility modules
 import buildmask, fileutil, wcsutil, drutil, matutil

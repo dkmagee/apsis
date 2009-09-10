@@ -310,10 +310,13 @@ class colorCatalog:
                 one_sigma_mags = Numeric.compress(Numeric.less_equal(abs(em[i,:]-0.7526),dm),m[i,:])
                 n_one  = len(one_sigma_mags)
                 dm += 0.01
-                if dm > 0.03:
+                if dm > 0.03 and dm < 1.1:
                     message="Warning: not enough 1-sigma objects in the catalog. Using dm=+-%.2f" % dm
-                    print message
                     self.logfile.write(message)
+                if dm >= 1.1:
+                    message="Warning: Stopped searching for 1-sigma objects at dm=+-%.2f" % dm
+                    self.logfile.write(message)
+                    break
 
             try:
                 limMag = MLab.median(Numeric.sort(one_sigma_mags)[-20:])
