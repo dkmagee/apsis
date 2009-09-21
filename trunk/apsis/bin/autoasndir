@@ -1,0 +1,42 @@
+#!/usr/bin/env python
+import glob
+from optparse import OptionParser
+import pyfits
+import mkasntable as buildasn
+import os, sys
+from sets import Set
+
+usage = 'usage: %prog dataset_name input_dir'
+version = '%prog 0.0'
+parser = OptionParser(usage=usage, version=version)
+(options, args) = parser.parse_args()
+if len(args) != 2:
+    parser.print_help()
+    sys.exit()
+dsname = args[0]
+indir = args[1]
+if not os.path.exists(args[1]):
+    parser.error('Directory %s not found!' % (args[1]))
+    sys.exit()
+fimgs = glob.glob(os.path.join(indir, '*flt.fits'))
+filts = []
+# get all filters
+for f in fimgs:
+    fobj = pyfits.open(f)
+    hdr = fobj[0].header
+    flt = hdr['filter1']
+    if 'CLEAR' in flt:
+        flt = hdr['filter2']
+    filts.append(flt)
+# get unique filter names
+uflts = Set(filts)
+ff = zip(fimgs, filts)
+# build asn for each filter
+for uf in uflts:
+    asns = []
+    for f in ff:
+        fn, flt = f
+        if flt == uf:
+            asns.append(os.path.basename(fn))
+    name = '%s_%s' % (dsname, uf)
+    buildasn.buildAsnTable(name, flist=asns, asntype='DRIZZLE')

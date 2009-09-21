@@ -1,0 +1,310 @@
+SIMPLE  =                    T / Fits standard                                  BITPIX  =                   16 / Bits per pixel                                 NAXIS   =                    0 / Number of axes                                 EXTEND  =                    T / File may contain extensions                    ORIGIN  = 'NOAO-IRAF FITS Image Kernel July 2003' / FITS file originator        DATE    = '2006-06-08T14:42:32'                                                 IRAF-TLM= '10:11:55 (09/06/2006)'                                               FILENAME= 'q692007bj_idc.fits' / name of file                                   NEXTEND =                    1 / number of extensions in file                   DETECTOR= 'HRC     '                                                            NORDER  =                    4                                                  DESCRIP = 'Created using texpand'                                               COMMENT = 'Now includes all filter combinations'                                PEDIGREE= 'INFLIGHT 01/06/2002 01/09/2002'                                      FILETYPE= 'DISTORTION COEFFICIENTS'                                             INSTRUME= 'ACS     '                                                            USEAFTER= 'Oct 21 2002'                                                         HISTORY   File created June 9th by Colin Cox                                    HISTORY   Expanded version (using texpand) of previous file to                  HISTORY   cover all possible filter combinations.                               HISTORY   Duplicate rows removed plus a few rows that referred                  HISTORY   to WFC-only filters and erroneously included in                       HISTORY   previous tables.                                                      HISTORY trim_hrcallmodes_idc.fits renamed to q692007bj_idc.fits on Jun 9 2006                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   END                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             XTENSION= 'BINTABLE'           / binary table extension                         BITPIX  =                    8 / array data type                                NAXIS   =                    2 / number of array dimensions                     NAXIS1  =                  166 / length of dimension 1                          NAXIS2  =                  251 / length of dimension 2                          PCOUNT  =                    0 / number of group parameters                     GCOUNT  =                    1 / number of groups                               TFIELDS =                   39 / number of table fields                         TTYPE1  = 'DETCHIP '                                                            TFORM1  = 'I       '                                                            TUNIT1  = 'chip    '                                                            TNULL1  =               -32767                                                  TDISP1  = 'I4      '                                                            TTYPE2  = 'DIRECTION'                                                           TFORM2  = '8A      '                                                            TDISP2  = 'A8      '                                                            TTYPE3  = 'FILTER1 '                                                            TFORM3  = '8A      '                                                            TDISP3  = 'A8      '                                                            TTYPE4  = 'FILTER2 '                                                            TFORM4  = '8A      '                                                            TDISP4  = 'A8      '                                                            TTYPE5  = 'XSIZE   '                                                            TFORM5  = 'J       '                                                            TNULL5  =          -2147483647                                                  TDISP5  = 'I8      '                                                            TTYPE6  = 'YSIZE   '                                                            TFORM6  = 'J       '                                                            TNULL6  =          -2147483647                                                  TDISP6  = 'I8      '                                                            TTYPE7  = 'XREF    '                                                            TFORM7  = 'E       '                                                            TDISP7  = 'F10.2   '                                                            TTYPE8  = 'YREF    '                                                            TFORM8  = 'E       '                                                            TDISP8  = 'F10.2   '                                                            TTYPE9  = 'V2REF   '                                                            TFORM9  = 'E       '                                                            TDISP9  = 'F12.4   '                                                            TTYPE10 = 'V3REF   '                                                            TFORM10 = 'E       '                                                            TDISP10 = 'F12.4   '                                                            TTYPE11 = 'SCALE   '                                                            TFORM11 = 'E       '                                                            TUNIT11 = 'arcsec  '                                                            TDISP11 = 'F12.4   '                                                            TTYPE12 = 'CX10    '                                                            TFORM12 = 'E       '                                                            TDISP12 = 'E20.7   '                                                            TTYPE13 = 'CX11    '                                                            TFORM13 = 'E       '                                                            TDISP13 = 'E20.7   '                                                            TTYPE14 = 'CX20    '                                                            TFORM14 = 'E       '                                                            TDISP14 = 'E20.7   '                                                            TTYPE15 = 'CX21    '                                                            TFORM15 = 'E       '                                                            TDISP15 = 'E20.7   '                                                            TTYPE16 = 'CX22    '                                                            TFORM16 = 'E       '                                                            TDISP16 = 'E20.7   '                                                            TTYPE17 = 'CX30    '                                                            TFORM17 = 'E       '                                                            TDISP17 = 'E20.7   '                                                            TTYPE18 = 'CX31    '                                                            TFORM18 = 'E       '                                                            TDISP18 = 'E20.7   '                                                            TTYPE19 = 'CX32    '                                                            TFORM19 = 'E       '                                                            TDISP19 = 'E20.7   '                                                            TTYPE20 = 'CX33    '                                                            TFORM20 = 'E       '                                                            TDISP20 = 'E20.7   '                                                            TTYPE21 = 'CX40    '                                                            TFORM21 = 'E       '                                                            TDISP21 = 'E20.7   '                                                            TTYPE22 = 'CX41    '                                                            TFORM22 = 'E       '                                                            TDISP22 = 'E20.7   '                                                            TTYPE23 = 'CX42    '                                                            TFORM23 = 'E       '                                                            TDISP23 = 'E20.7   '                                                            TTYPE24 = 'CX43    '                                                            TFORM24 = 'E       '                                                            TDISP24 = 'E20.7   '                                                            TTYPE25 = 'CX44    '                                                            TFORM25 = 'E       '                                                            TDISP25 = 'E20.7   '                                                            TTYPE26 = 'CY10    '                                                            TFORM26 = 'E       '                                                            TDISP26 = 'E20.7   '                                                            TTYPE27 = 'CY11    '                                                            TFORM27 = 'E       '                                                            TDISP27 = 'E20.7   '                                                            TTYPE28 = 'CY20    '                                                            TFORM28 = 'E       '                                                            TDISP28 = 'E20.7   '                                                            TTYPE29 = 'CY21    '                                                            TFORM29 = 'E       '                                                            TDISP29 = 'E20.7   '                                                            TTYPE30 = 'CY22    '                                                            TFORM30 = 'E       '                                                            TDISP30 = 'E20.7   '                                                            TTYPE31 = 'CY30    '                                                            TFORM31 = 'E       '                                                            TDISP31 = 'E20.7   '                                                            TTYPE32 = 'CY31    '                                                            TFORM32 = 'E       '                                                            TDISP32 = 'E20.7   '                                                            TTYPE33 = 'CY32    '                                                            TFORM33 = 'E       '                                                            TDISP33 = 'E20.7   '                                                            TTYPE34 = 'CY33    '                                                            TFORM34 = 'E       '                                                            TDISP34 = 'E20.7   '                                                            TTYPE35 = 'CY40    '                                                            TFORM35 = 'E       '                                                            TDISP35 = 'E20.7   '                                                            TTYPE36 = 'CY41    '                                                            TFORM36 = 'E       '                                                            TDISP36 = 'E20.7   '                                                            TTYPE37 = 'CY42    '                                                            TFORM37 = 'E       '                                                            TDISP37 = 'E20.7   '                                                            TTYPE38 = 'CY43    '                                                            TFORM38 = 'E       '                                                            TDISP38 = 'E20.7   '                                                            TTYPE39 = 'CY44    '                                                            TFORM39 = 'E       '                                                            TDISP39 = 'E20.7   '                                                            HISTORY Created Fri 10:19:01 01-Apr-2005                                        END                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              FORWARD CLEAR1S F220W         D   D   CNNëCì–<ÌÌÍ¸ ‰F<ç¹R²—%>4€±ˆ³Ë+…õ~,p[¬ºjY­"	ý¨“æs(O¨ÞÐ`'´W1§ó&<Ëv÷;>¯S4Šï³6Úo3%…,˜n­œ—=,îhn-fÝu(ÕI¦¨ØÅž)”§©T÷(”ªŠ FORWARD CLEAR1S F330W         D   D   CNPCì½<ÌÌÍ¸"¢Ê<çÅ²¶‹f4‚Ë¢³Ýf-&ÛX„¬Ù%¬‡eë­Ÿ®§”'Ì´Ð¨.8š¨h“®(vhÛ<Ë„Ù;>¼\4Œž?³P_Ý3Ê6+Š½s­¦¿«0åg-#4Z(Sa¨€³)Fl¨9šª( Ì½ FORWARD CLEAR1S F435W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F475W   CLEAR2S       D   D   CNRòCì)<ÌÌÍ¸$L<ç¶²®Ép4‡¨³ÈT ª•3-@C{+$ê8,eùù&¨)4'‚/Î©8'©kE['útV<Ë|Á;>¦ë4—l³+6H3(-Ì-Z;'­Hþ-ž-HoÚ¨õ‹¨x·(¹Ô ©7ÀN(<·„ FORWARD F475W   CLEAR2L       D   D   CNRòCì)<ÌÌÍ¸$L<ç¶²®Ép4‡¨³ÈT ª•3-@C{+$ê8,eùù&¨)4'‚/Î©8'©kE['útV<Ë|Á;>¦ë4—l³+6H3(-Ì-Z;'­Hþ-ž-HoÚ¨õ‹¨x·(¹Ô ©7ÀN(<·„ FORWARD F555W   CLEAR2S       D   D   CNQõCì+<ÌÌÍ¸$Øu<çÀ²›Î4 ³Ä,,?.ì,%ÿ²¬s,e­[ç§ã.(‡:©Î¶'JG¨y‡à<Ë…°;>¢84ˆ%ß³0-T3Ýç¬nL`­õ«9¸-;i†)<Ï±¨ðÑ‡)€·ê©¿B(¶E FORWARD F555W   CLEAR2L       D   D   CNQõCì+<ÌÌÍ¸$Øu<çÀ²›Î4 ³Ä,,?.ì,%ÿ²¬s,e­[ç§ã.(‡:©Î¶'JG¨y‡à<Ë…°;>¢84ˆ%ß³0-T3Ýç¬nL`­õ«9¸-;i†)<Ï±¨ðÑ‡)€·ê©¿B(¶E FORWARD F606W   CLEAR2S       D   D   CNOÌCì"<ÌÌÍ¸"a|<ç¿'²¥jÛ4½ ³Çòp+°3,g	“¬l9†¬äjª§Æ¼
+(†c¤©£¨*ò¨_òt<Ë‚Ë;>©o4Œ}³9 ƒ3Û,BŠ­–:
+,qoú-7;½(v4Ö©œ)ˆÍ¨ÜÎÆ(’ì& FORWARD F606W   CLEAR2L       D   D   CNOÌCì"<ÌÌÍ¸"a|<ç¿'²¥jÛ4½ ³Çòp+°3,g	“¬l9†¬äjª§Æ¼
+(†c¤©£¨*ò¨_òt<Ë‚Ë;>©o4Œ}³9 ƒ3Û,BŠ­–:
+,qoú-7;½(v4Ö©œ)ˆÍ¨ÜÎÆ(’ì& FORWARD F625W   CLEAR2S       D   D   CNQCìz<ÌÌÍ¸$Û<ç¼­²¡b4€éq³ËŒ|,ÕÕ,¤ˆR¬‡W­<˜¨ P(‡  ©(4¦Æ/¨œ<ËÛ;>¡%4Œ¯f³7’Ä3
+˜¹,@­ˆz,Ÿkæ-kí(/Ùì¨ô/)‘Æ¨Ü[(ªö FORWARD F625W   CLEAR2L       D   D   CNQCìz<ÌÌÍ¸$Û<ç¼­²¡b4€éq³ËŒ|,ÕÕ,¤ˆR¬‡W­<˜¨ P(‡  ©(4¦Æ/¨œ<ËÛ;>¡%4Œ¯f³7’Ä3
+˜¹,@­ˆz,Ÿkæ-kí(/Ùì¨ô/)‘Æ¨Ü[(ªö FORWARD F775W   CLEAR2S       D   D   CNQ(Cìä<ÌÌÍ¸$àã<çÂÇ²¥4Ù4oa³É&+‰’¤+¹Ï¢¬:…­X†ª§¹[¨(€Ï7¨ÿCt'&©7§J|³<ËƒÂ;>©o4‹-³=ø3°0+w"7­—Yp,;ÿr-6tþ(žjn¨êû°)Ž !¨¾	ò(Æ> FORWARD F775W   CLEAR2L       D   D   CNQ(Cìä<ÌÌÍ¸$àã<çÂÇ²¥4Ù4oa³É&+‰’¤+¹Ï¢¬:…­X†ª§¹[¨(€Ï7¨ÿCt'&©7§J|³<ËƒÂ;>©o4‹-³=ø3°0+w"7­—Yp,;ÿr-6tþ(žjn¨êû°)Ž !¨¾	ò(Æ> FORWARD CLEAR1S F814W         D   D   CNOÑCìS<ÌÌÍ¸"¹8<ç½‰²§ôã4`w³Ðgb*Iµ¯,ÀÈ6¬|R¬Ÿ‹!§ÜE:(h³€¨ä…®§„G¡§ˆP½<Ë€œ;>®^4Œºo³BKq3‰",ÅðN­“ô½,¾¡-!£­()Ÿ¨Éýö)… ¨È[g(½"™ FORWARD F850LP  CLEAR2S       D   D   CNS©Cìš<ÌÌÍ¸#p=<çÅ²m4l³µç+•mæ,>­vÇ®€­¨h½(•zŒ©…‡9'Ì–µ¨=ÿ<Ë~~;>›\4Šˆ ³w3œØ,çÑ‚­†`/¬¿C--E0(µp©Ið)œ!Å©Ì(©y® FORWARD F850LP  CLEAR2L       D   D   CNS©Cìš<ÌÌÍ¸#p=<çÅ²m4l³µç+•mæ,>­vÇ®€­¨h½(•zŒ©…‡9'Ì–µ¨=ÿ<Ë~~;>›\4Šˆ ³w3œØ,çÑ‚­†`/¬¿C--E0(µp©Ið)œ!Å©Ì(©y® FORWARD CLEAR1S CLEAR2S       D   D   CNRòCì)<ÌÌÍ¸$L<ç¶²®Ép4‡¨³ÈT ª•3-@C{+$ê8,eùù&¨)4'‚/Î©8'©kE['útV<Ë|Á;>¦ë4—l³+6H3(-Ì-Z;'­Hþ-ž-HoÚ¨õ‹¨x·(¹Ô ©7ÀN(<·„ FORWARD CLEAR1S F660N         D   D   CNRòCì)<ÌÌÍ¸$L<ç¶²®Ép4‡¨³ÈT ª•3-@C{+$ê8,eùù&¨)4'‚/Î©8'©kE['útV<Ë|Á;>¦ë4—l³+6H3(-Ì-Z;'­Hþ-ž-HoÚ¨õ‹¨x·(¹Ô ©7ÀN(<·„ FORWARD CLEAR1S FR388N        D   D   CNRòCì)<ÌÌÍ¸$L<ç¶²®Ép4‡¨³ÈT ª•3-@C{+$ê8,eùù&¨)4'‚/Î©8'©kE['útV<Ë|Á;>¦ë4—l³+6H3(-Ì-Z;'­Hþ-ž-HoÚ¨õ‹¨x·(¹Ô ©7ÀN(<·„ FORWARD CLEAR1S FR656N        D   D   CNRòCì)<ÌÌÍ¸$L<ç¶²®Ép4‡¨³ÈT ª•3-@C{+$ê8,eùù&¨)4'‚/Î©8'©kE['útV<Ë|Á;>¦ë4—l³+6H3(-Ì-Z;'­Hþ-ž-HoÚ¨õ‹¨x·(¹Ô ©7ÀN(<·„ FORWARD CLEAR1S F250W         D   D   CNRòCì)<ÌÌÍ¸$L<ç¶²®Ép4‡¨³ÈT ª•3-@C{+$ê8,eùù&¨)4'‚/Î©8'©kE['útV<Ë|Á;>¦ë4—l³+6H3(-Ì-Z;'­Hþ-ž-HoÚ¨õ‹¨x·(¹Ô ©7ÀN(<·„ FORWARD CLEAR1S PR200L        D   D   CNRòCì)<ÌÌÍ¸$L<ç¶²®Ép4‡¨³ÈT ª•3-@C{+$ê8,eùù&¨)4'‚/Î©8'©kE['útV<Ë|Á;>¦ë4—l³+6H3(-Ì-Z;'­Hþ-ž-HoÚ¨õ‹¨x·(¹Ô ©7ÀN(<·„ FORWARD CLEAR1S F344N         D   D   CNRòCì)<ÌÌÍ¸$L<ç¶²®Ép4‡¨³ÈT ª•3-@C{+$ê8,eùù&¨)4'‚/Î©8'©kE['útV<Ë|Á;>¦ë4—l³+6H3(-Ì-Z;'­Hþ-ž-HoÚ¨õ‹¨x·(¹Ô ©7ÀN(<·„ FORWARD CLEAR1S FR914M        D   D   CNRòCì)<ÌÌÍ¸$L<ç¶²®Ép4‡¨³ÈT ª•3-@C{+$ê8,eùù&¨)4'‚/Î©8'©kE['útV<Ë|Á;>¦ë4—l³+6H3(-Ì-Z;'­Hþ-ž-HoÚ¨õ‹¨x·(¹Ô ©7ÀN(<·„ FORWARD CLEAR1S FR459M        D   D   CNRòCì)<ÌÌÍ¸$L<ç¶²®Ép4‡¨³ÈT ª•3-@C{+$ê8,eùù&¨)4'‚/Î©8'©kE['útV<Ë|Á;>¦ë4—l³+6H3(-Ì-Z;'­Hþ-ž-HoÚ¨õ‹¨x·(¹Ô ©7ÀN(<·„ FORWARD CLEAR1S FR505N        D   D   CNRòCì)<ÌÌÍ¸$L<ç¶²®Ép4‡¨³ÈT ª•3-@C{+$ê8,eùù&¨)4'‚/Î©8'©kE['útV<Ë|Á;>¦ë4—l³+6H3(-Ì-Z;'­Hþ-ž-HoÚ¨õ‹¨x·(¹Ô ©7ÀN(<·„ FORWARD F550M   CLEAR2S       D   D   CNRòCì)<ÌÌÍ¸$L<ç¶²®Ép4‡¨³ÈT ª•3-@C{+$ê8,eùù&¨)4'‚/Î©8'©kE['útV<Ë|Á;>¦ë4—l³+6H3(-Ì-Z;'­Hþ-ž-HoÚ¨õ‹¨x·(¹Ô ©7ÀN(<·„ FORWARD F892N   CLEAR2S       D   D   CNRòCì)<ÌÌÍ¸$L<ç¶²®Ép4‡¨³ÈT ª•3-@C{+$ê8,eùù&¨)4'‚/Î©8'©kE['útV<Ë|Á;>¦ë4—l³+6H3(-Ì-Z;'­Hþ-ž-HoÚ¨õ‹¨x·(¹Ô ©7ÀN(<·„ FORWARD F502N   CLEAR2S       D   D   CNRòCì)<ÌÌÍ¸$L<ç¶²®Ép4‡¨³ÈT ª•3-@C{+$ê8,eùù&¨)4'‚/Î©8'©kE['útV<Ë|Á;>¦ë4—l³+6H3(-Ì-Z;'­Hþ-ž-HoÚ¨õ‹¨x·(¹Ô ©7ÀN(<·„ FORWARD G800L   CLEAR2S       D   D   CNRòCì)<ÌÌÍ¸$L<ç¶²®Ép4‡¨³ÈT ª•3-@C{+$ê8,eùù&¨)4'‚/Î©8'©kE['útV<Ë|Á;>¦ë4—l³+6H3(-Ì-Z;'­Hþ-ž-HoÚ¨õ‹¨x·(¹Ô ©7ÀN(<·„ FORWARD F658N   CLEAR2S       D   D   CNRòCì)<ÌÌÍ¸$L<ç¶²®Ép4‡¨³ÈT ª•3-@C{+$ê8,eùù&¨)4'‚/Î©8'©kE['útV<Ë|Á;>¦ë4—l³+6H3(-Ì-Z;'­Hþ-ž-HoÚ¨õ‹¨x·(¹Ô ©7ÀN(<·„ FORWARD F658N   CLEAR2L       D   D   CNRòCì)<ÌÌÍ¸$L<ç¶²®Ép4‡¨³ÈT ª•3-@C{+$ê8,eùù&¨)4'‚/Î©8'©kE['útV<Ë|Á;>¦ë4—l³+6H3(-Ì-Z;'­Hþ-ž-HoÚ¨õ‹¨x·(¹Ô ©7ÀN(<·„ FORWARD F550M   CLEAR2L       D   D   CNRòCì)<ÌÌÍ¸$L<ç¶²®Ép4‡¨³ÈT ª•3-@C{+$ê8,eùù&¨)4'‚/Î©8'©kE['útV<Ë|Á;>¦ë4—l³+6H3(-Ì-Z;'­Hþ-ž-HoÚ¨õ‹¨x·(¹Ô ©7ÀN(<·„ FORWARD F892N   CLEAR2L       D   D   CNRòCì)<ÌÌÍ¸$L<ç¶²®Ép4‡¨³ÈT ª•3-@C{+$ê8,eùù&¨)4'‚/Î©8'©kE['útV<Ë|Á;>¦ë4—l³+6H3(-Ì-Z;'­Hþ-ž-HoÚ¨õ‹¨x·(¹Ô ©7ÀN(<·„ FORWARD F502N   CLEAR2L       D   D   CNRòCì)<ÌÌÍ¸$L<ç¶²®Ép4‡¨³ÈT ª•3-@C{+$ê8,eùù&¨)4'‚/Î©8'©kE['útV<Ë|Á;>¦ë4—l³+6H3(-Ì-Z;'­Hþ-ž-HoÚ¨õ‹¨x·(¹Ô ©7ÀN(<·„ FORWARDG800L   CLEAR2L       D   D   CNRòCì)<ÌÌÍ¸$L<ç¶²®Ép4‡¨³ÈT ª•3-@C{+$ê8,eùù&¨)4'‚/Î©8'©kE['útV<Ë|Á;>¦ë4—l³+6H3(-Ì-Z;'­Hþ-ž-HoÚ¨õ‹¨x·(¹Ô ©7ÀN(<·„ FORWARD POL0UV  F330W         D   D   CNZÁCì"*<ÌÌÍ¸[Ô<èw¹²·kN4ƒG³Þ“q©,uú¬ÿ
+¬‡÷'­!ìú§•¼û'Îü]¨0Mù¨kRê(yTö<Ì 4;?†“4uÊ³Q•3nÚ+›>¥­©Xªî´–-"st(U’N¨jZ)H½¿¨;|•(¢· FORWARD POL60UV F330W         D   D   CNPHCìì<ÌÌÍ¸"J‚<è{²·™´4ƒ•0³Þ·º(ícà¬"¬‡Žf­É¿§•¾Ó'Ï$¨0MÕ¨ko(yqŽ<Ì,;?mê4p³Q<è3¨[+÷­¦ò|«Xð-$ñ×(U”&¨„i)HÌ¼¨;Ãš(¢È” FORWARD POL120UVF330W         D   D   CNS×Cì×<ÌÌÍ¸/Ç;<è”²·æä4ƒ¥Ñ³ÞÏ])]ñ=¬#A9¬…¿­÷§•äE'Ïkø¨0c‚¨kŸî(y™­<Ì#;?44€_³Qnð3«§+r6î­¦Ø$«z-$¨(UÈ¹¨Äƒ)Hùî¨<CY(¢à FORWARD POL0UV  F435W         D   D   CNZXCì ¤<ÌÌÍ¸˜,<èpb²«~4L†³Ïäû+î=0,)Š­ Àç­D|A§Â¡”(šoÁ¨ù’Â&}R1¨wô<Ì´;?y'4³B3‰d,2Ö±­——,7Û-
+ýó(Vž>¨ÎŽ)œ*Ä¨Ç Ü(¼Ã FORWARD POL60UV F435W         D   D   CNPìCìÅ<ÌÌÍ¸!îë<ès‡²«MÍ4K³ÏþS+û0ë,Òi­„Ž­E<§Â¨ (š|p¨ù£!&~ðà¨„<Ìv;?g´4Ÿ³A¶Õ3¬",%ðy­”,.-2é(V ¨Î¬)œ53¨ÇÎI(¼×b FORWARD POL120UVF435W         D   D   CNTFCìü<ÌÌÍ¸0Ö><èzs²«³Ö4ZÑ³Ð+þ–§,Ÿ­#­E9§Âã†(š±¨ùà<&Wd¨•1<Ìn;?+$4#w³Aø•3­,"¿­“×Í,vF- æ(VÙ¼¨ÏC)œZ&¨È6½(¼÷o FORWARD F475W   POL0V         D   D   CNœÍCëå2<ÌÌÍ·X”*<ëTã²²ø64‹£³ÏHiª×ú-UÎ€,(Ì,Œï°&³‰+'‡RW©DÇÞ©z(Ñ[<Î£g;@¾÷4œ!O³0"ˆ3+l^-ƒ¬Q­‘×ø-#ÓG-V%k©½Æ¨ƒg@(ÄÒ—©Cy…(IEè FORWARD F475W   POL60V        D   D   CNœÓCëå)<ÌÌÍ·¨ÿ£<ëƒq²³Ô4‹äU³Ï¶•ªÚGÍ-VMó,?–,Ay&³ÿ™'ˆ…ð©E;Ú©zÍŸ(m½<ÎÍù;@‘Ö4œeW³0þ‹3+¸É-„%­’Pã-$+-Vª©):¨ƒºC(ÅÔ'©D.L(J6 FORWARD F475W   POL120V       D   D   CNœÆCëå2<ÌÌÍ·eKQ<ëF5²³/4‹š@³Ï)ÊªØ#L-U¼ï,:,Œ×G&³Ê'‡^›©D§Ñ©yãY(§{<Î¢%;@Á&4œï³0j3+Uœ-ƒ«1­‘Êè-#²ü-Uÿ–©º©¨ƒh£(Ä¼t©CS´(I¹ FORWARD F606W   POL0V         D   D   CN«…Cëö¥<ÌÌÍ¸ <ëX©²ª¦å4…ÆÃ³ÍŒm+¿9Å,ƒšµ¬.*-¬ÔP§ÓB¸(ŽÀ©O¨5Xv¨n8z<Î¨o;AÖÐ4‰Ý³=<3iû+ý<­£„,_”Ê-5wû(‚ã\©
+·#)–yï¨ê}Û(œ<v FORWARD F606W   POL60V        D   D   CNœJCëìŸ<ÌÌÍ¸Uç<ë‰†²«dt4† Z³Î!+ÏEi,sHv¬#»/¬×‚Ï§Ôî(]i©Ì€¨5ˆâ¨nÿ³<ÎÌí;A±4½®³=|²3ïv+Ùéé­žÄ‰,5J-9ýÛ(ƒZW©T‚)—¸¨ë¤(œÑ0 FORWARD F606W   POL120V       D   D   CNš†Cëå¬<ÌÌÍ·÷8<ëH²ª õ4…¶i³Í…+Ö£…,j>T¬,Ô¬Öƒç§Ó6-(Ž¬É©@â¨5NÆ¨n¿<Î¡ï;AÖz4k³<<h3™&+ÅØì­œF',™-:²ç(‚Üç©
+¢ö)–eK¨êIH(œV FORWARD F775W   POL0V         D   D   CN«=Cëöà<ÌÌÍ¸…Z<ëU²ª÷4…oÄ³Î;±+•Áâ+è%Ü«Ïû·­`‘Z§Äñ*(ˆÁØ©«à'09‹§W=*<Î¤=;AÔÌ4¢³A,„3>e+ø­¥_£,´n-.âê(¨dã¨ù[0)–é"¨É‘(Ó! FORWARD F775W   POL60V        D   D   CNœ"Cëìû<ÌÌÍ¸…æ<ë…²ªÌ4…ªº³ÎØÝ+¤¢Ù+Â«±RØ­a´H§Å¦Æ(‰Tõ©'³'1ÚÏ§Wÿ—<ÎÇy;A­Š4ÕÒ³AqÉ3Â«*Jwä­ î{+ê†c-4‰(¨õ<¨ú‚Ì)—vl¨Ê£ï(ÓÍ5 FORWARD F775W   POL120V       D   D   CN™üCëæc<ÌÌÍ·ú“|<ëD²ª†4…bØ³ÎR-+«Q"+±º›« +§­a%§Äã³(ˆ¯f©šZ'0|§WÕ<Îœæ;AÐ4™6³@9¢3qÚ(J@R­ž£6+¿ð-4¿U(¨\–¨ù6‡)–Óë¨ÉaÏ(ÒÝÜ FORWARD POL0UV  F660N         D   D   CNZXCì ¤<ÌÌÍ¸˜,<èpb²«~4L†³Ïäû+î=0,)Š­ Àç­D|A§Â¡”(šoÁ¨ù’Â&}R1¨wô<Ì´;?y'4³B3‰d,2Ö±­——,7Û-
+ýó(Vž>¨ÎŽ)œ*Ä¨Ç Ü(¼Ã FORWARD POL0UV  F814W         D   D   CNZXCì ¤<ÌÌÍ¸˜,<èpb²«~4L†³Ïäû+î=0,)Š­ Àç­D|A§Â¡”(šoÁ¨ù’Â&}R1¨wô<Ì´;?y'4³B3‰d,2Ö±­——,7Û-
+ýó(Vž>¨ÎŽ)œ*Ä¨Ç Ü(¼Ã FORWARD POL0UV  FR388N        D   D   CNZXCì ¤<ÌÌÍ¸˜,<èpb²«~4L†³Ïäû+î=0,)Š­ Àç­D|A§Â¡”(šoÁ¨ù’Â&}R1¨wô<Ì´;?y'4³B3‰d,2Ö±­——,7Û-
+ýó(Vž>¨ÎŽ)œ*Ä¨Ç Ü(¼Ã FORWARD POL0UV  FR656N        D   D   CNZXCì ¤<ÌÌÍ¸˜,<èpb²«~4L†³Ïäû+î=0,)Š­ Àç­D|A§Â¡”(šoÁ¨ù’Â&}R1¨wô<Ì´;?y'4³B3‰d,2Ö±­——,7Û-
+ýó(Vž>¨ÎŽ)œ*Ä¨Ç Ü(¼Ã FORWARD POL0UV  F250W         D   D   CNZXCì ¤<ÌÌÍ¸˜,<èpb²«~4L†³Ïäû+î=0,)Š­ Àç­D|A§Â¡”(šoÁ¨ù’Â&}R1¨wô<Ì´;?y'4³B3‰d,2Ö±­——,7Û-
+ýó(Vž>¨ÎŽ)œ*Ä¨Ç Ü(¼Ã FORWARD POL0UV  PR200L        D   D   CNZXCì ¤<ÌÌÍ¸˜,<èpb²«~4L†³Ïäû+î=0,)Š­ Àç­D|A§Â¡”(šoÁ¨ù’Â&}R1¨wô<Ì´;?y'4³B3‰d,2Ö±­——,7Û-
+ýó(Vž>¨ÎŽ)œ*Ä¨Ç Ü(¼Ã FORWARD POL0UV  F344N         D   D   CNZXCì ¤<ÌÌÍ¸˜,<èpb²«~4L†³Ïäû+î=0,)Š­ Àç­D|A§Â¡”(šoÁ¨ù’Â&}R1¨wô<Ì´;?y'4³B3‰d,2Ö±­——,7Û-
+ýó(Vž>¨ÎŽ)œ*Ä¨Ç Ü(¼Ã FORWARD POL0UV  F220W         D   D   CNZXCì ¤<ÌÌÍ¸˜,<èpb²«~4L†³Ïäû+î=0,)Š­ Àç­D|A§Â¡”(šoÁ¨ù’Â&}R1¨wô<Ì´;?y'4³B3‰d,2Ö±­——,7Û-
+ýó(Vž>¨ÎŽ)œ*Ä¨Ç Ü(¼Ã FORWARD POL0UV  FR914M        D   D   CNZXCì ¤<ÌÌÍ¸˜,<èpb²«~4L†³Ïäû+î=0,)Š­ Àç­D|A§Â¡”(šoÁ¨ù’Â&}R1¨wô<Ì´;?y'4³B3‰d,2Ö±­——,7Û-
+ýó(Vž>¨ÎŽ)œ*Ä¨Ç Ü(¼Ã FORWARD POL0UV  FR459M        D   D   CNZXCì ¤<ÌÌÍ¸˜,<èpb²«~4L†³Ïäû+î=0,)Š­ Àç­D|A§Â¡”(šoÁ¨ù’Â&}R1¨wô<Ì´;?y'4³B3‰d,2Ö±­——,7Û-
+ýó(Vž>¨ÎŽ)œ*Ä¨Ç Ü(¼Ã FORWARD POL0UV  FR505N        D   D   CNZXCì ¤<ÌÌÍ¸˜,<èpb²«~4L†³Ïäû+î=0,)Š­ Àç­D|A§Â¡”(šoÁ¨ù’Â&}R1¨wô<Ì´;?y'4³B3‰d,2Ö±­——,7Û-
+ýó(Vž>¨ÎŽ)œ*Ä¨Ç Ü(¼Ã FORWARD POL60UV F660N         D   D   CNPìCìÅ<ÌÌÍ¸!îë<ès‡²«MÍ4K³ÏþS+û0ë,Òi­„Ž­E<§Â¨ (š|p¨ù£!&~ðà¨„<Ìv;?g´4Ÿ³A¶Õ3¬",%ðy­”,.-2é(V ¨Î¬)œ53¨ÇÎI(¼×b FORWARD POL60UV F814W         D   D   CNPìCìÅ<ÌÌÍ¸!îë<ès‡²«MÍ4K³ÏþS+û0ë,Òi­„Ž­E<§Â¨ (š|p¨ù£!&~ðà¨„<Ìv;?g´4Ÿ³A¶Õ3¬",%ðy­”,.-2é(V ¨Î¬)œ53¨ÇÎI(¼×b FORWARD POL60UV FR388N        D   D   CNPìCìÅ<ÌÌÍ¸!îë<ès‡²«MÍ4K³ÏþS+û0ë,Òi­„Ž­E<§Â¨ (š|p¨ù£!&~ðà¨„<Ìv;?g´4Ÿ³A¶Õ3¬",%ðy­”,.-2é(V ¨Î¬)œ53¨ÇÎI(¼×b FORWARD POL60UV FR656N        D   D   CNPìCìÅ<ÌÌÍ¸!îë<ès‡²«MÍ4K³ÏþS+û0ë,Òi­„Ž­E<§Â¨ (š|p¨ù£!&~ðà¨„<Ìv;?g´4Ÿ³A¶Õ3¬",%ðy­”,.-2é(V ¨Î¬)œ53¨ÇÎI(¼×b FORWARD POL60UV F250W         D   D   CNPìCìÅ<ÌÌÍ¸!îë<ès‡²«MÍ4K³ÏþS+û0ë,Òi­„Ž­E<§Â¨ (š|p¨ù£!&~ðà¨„<Ìv;?g´4Ÿ³A¶Õ3¬",%ðy­”,.-2é(V ¨Î¬)œ53¨ÇÎI(¼×b FORWARD POL60UV PR200L        D   D   CNPìCìÅ<ÌÌÍ¸!îë<ès‡²«MÍ4K³ÏþS+û0ë,Òi­„Ž­E<§Â¨ (š|p¨ù£!&~ðà¨„<Ìv;?g´4Ÿ³A¶Õ3¬",%ðy­”,.-2é(V ¨Î¬)œ53¨ÇÎI(¼×b FORWARD POL60UV F344N         D   D   CNPìCìÅ<ÌÌÍ¸!îë<ès‡²«MÍ4K³ÏþS+û0ë,Òi­„Ž­E<§Â¨ (š|p¨ù£!&~ðà¨„<Ìv;?g´4Ÿ³A¶Õ3¬",%ðy­”,.-2é(V ¨Î¬)œ53¨ÇÎI(¼×b FORWARD POL60UV F220W         D   D   CNPìCìÅ<ÌÌÍ¸!îë<ès‡²«MÍ4K³ÏþS+û0ë,Òi­„Ž­E<§Â¨ (š|p¨ù£!&~ðà¨„<Ìv;?g´4Ÿ³A¶Õ3¬",%ðy­”,.-2é(V ¨Î¬)œ53¨ÇÎI(¼×b FORWARD POL60UV FR914M        D   D   CNPìCìÅ<ÌÌÍ¸!îë<ès‡²«MÍ4K³ÏþS+û0ë,Òi­„Ž­E<§Â¨ (š|p¨ù£!&~ðà¨„<Ìv;?g´4Ÿ³A¶Õ3¬",%ðy­”,.-2é(V ¨Î¬)œ53¨ÇÎI(¼×b FORWARD POL60UV FR459M        D   D   CNPìCìÅ<ÌÌÍ¸!îë<ès‡²«MÍ4K³ÏþS+û0ë,Òi­„Ž­E<§Â¨ (š|p¨ù£!&~ðà¨„<Ìv;?g´4Ÿ³A¶Õ3¬",%ðy­”,.-2é(V ¨Î¬)œ53¨ÇÎI(¼×b FORWARD POL60UV FR505N        D   D   CNPìCìÅ<ÌÌÍ¸!îë<ès‡²«MÍ4K³ÏþS+û0ë,Òi­„Ž­E<§Â¨ (š|p¨ù£!&~ðà¨„<Ìv;?g´4Ÿ³A¶Õ3¬",%ðy­”,.-2é(V ¨Î¬)œ53¨ÇÎI(¼×b FORWARD POL120UVF660N         D   D   CNTFCìü<ÌÌÍ¸0Ö><èzs²«³Ö4ZÑ³Ð+þ–§,Ÿ­#­E9§Âã†(š±¨ùà<&Wd¨•1<Ìn;?+$4#w³Aø•3­,"¿­“×Í,vF- æ(VÙ¼¨ÏC)œZ&¨È6½(¼÷o FORWARD POL120UVF814W         D   D   CNTFCìü<ÌÌÍ¸0Ö><èzs²«³Ö4ZÑ³Ð+þ–§,Ÿ­#­E9§Âã†(š±¨ùà<&Wd¨•1<Ìn;?+$4#w³Aø•3­,"¿­“×Í,vF- æ(VÙ¼¨ÏC)œZ&¨È6½(¼÷o FORWARD POL120UVFR388N        D   D   CNTFCìü<ÌÌÍ¸0Ö><èzs²«³Ö4ZÑ³Ð+þ–§,Ÿ­#­E9§Âã†(š±¨ùà<&Wd¨•1<Ìn;?+$4#w³Aø•3­,"¿­“×Í,vF- æ(VÙ¼¨ÏC)œZ&¨È6½(¼÷o FORWARD POL120UVFR656N        D   D   CNTFCìü<ÌÌÍ¸0Ö><èzs²«³Ö4ZÑ³Ð+þ–§,Ÿ­#­E9§Âã†(š±¨ùà<&Wd¨•1<Ìn;?+$4#w³Aø•3­,"¿­“×Í,vF- æ(VÙ¼¨ÏC)œZ&¨È6½(¼÷o FORWARD POL120UVF250W         D   D   CNTFCìü<ÌÌÍ¸0Ö><èzs²«³Ö4ZÑ³Ð+þ–§,Ÿ­#­E9§Âã†(š±¨ùà<&Wd¨•1<Ìn;?+$4#w³Aø•3­,"¿­“×Í,vF- æ(VÙ¼¨ÏC)œZ&¨È6½(¼÷o FORWARD POL120UVPR200L        D   D   CNTFCìü<ÌÌÍ¸0Ö><èzs²«³Ö4ZÑ³Ð+þ–§,Ÿ­#­E9§Âã†(š±¨ùà<&Wd¨•1<Ìn;?+$4#w³Aø•3­,"¿­“×Í,vF- æ(VÙ¼¨ÏC)œZ&¨È6½(¼÷o FORWARD POL120UVF344N         D   D   CNTFCìü<ÌÌÍ¸0Ö><èzs²«³Ö4ZÑ³Ð+þ–§,Ÿ­#­E9§Âã†(š±¨ùà<&Wd¨•1<Ìn;?+$4#w³Aø•3­,"¿­“×Í,vF- æ(VÙ¼¨ÏC)œZ&¨È6½(¼÷o FORWARD POL120UVF220W         D   D   CNTFCìü<ÌÌÍ¸0Ö><èzs²«³Ö4ZÑ³Ð+þ–§,Ÿ­#­E9§Âã†(š±¨ùà<&Wd¨•1<Ìn;?+$4#w³Aø•3­,"¿­“×Í,vF- æ(VÙ¼¨ÏC)œZ&¨È6½(¼÷o FORWARD POL120UVFR914M        D   D   CNTFCìü<ÌÌÍ¸0Ö><èzs²«³Ö4ZÑ³Ð+þ–§,Ÿ­#­E9§Âã†(š±¨ùà<&Wd¨•1<Ìn;?+$4#w³Aø•3­,"¿­“×Í,vF- æ(VÙ¼¨ÏC)œZ&¨È6½(¼÷o FORWARD POL120UVFR459M        D   D   CNTFCìü<ÌÌÍ¸0Ö><èzs²«³Ö4ZÑ³Ð+þ–§,Ÿ­#­E9§Âã†(š±¨ùà<&Wd¨•1<Ìn;?+$4#w³Aø•3­,"¿­“×Í,vF- æ(VÙ¼¨ÏC)œZ&¨È6½(¼÷o FORWARD POL120UVFR505N        D   D   CNTFCìü<ÌÌÍ¸0Ö><èzs²«³Ö4ZÑ³Ð+þ–§,Ÿ­#­E9§Âã†(š±¨ùà<&Wd¨•1<Ìn;?+$4#w³Aø•3­,"¿­“×Í,vF- æ(VÙ¼¨ÏC)œZ&¨È6½(¼÷o FORWARD F555W   POL0V         D   D   CNœÍCëå2<ÌÌÍ·X”*<ëTã²²ø64‹£³ÏHiª×ú-UÎ€,(Ì,Œï°&³‰+'‡RW©DÇÞ©z(Ñ[<Î£g;@¾÷4œ!O³0"ˆ3+l^-ƒ¬Q­‘×ø-#ÓG-V%k©½Æ¨ƒg@(ÄÒ—©Cy…(IEè FORWARD F625W   POL0V         D   D   CNœÍCëå2<ÌÌÍ·X”*<ëTã²²ø64‹£³ÏHiª×ú-UÎ€,(Ì,Œï°&³‰+'‡RW©DÇÞ©z(Ñ[<Î£g;@¾÷4œ!O³0"ˆ3+l^-ƒ¬Q­‘×ø-#ÓG-V%k©½Æ¨ƒg@(ÄÒ—©Cy…(IEè FORWARD F550M   POL0V         D   D   CNœÍCëå2<ÌÌÍ·X”*<ëTã²²ø64‹£³ÏHiª×ú-UÎ€,(Ì,Œï°&³‰+'‡RW©DÇÞ©z(Ñ[<Î£g;@¾÷4œ!O³0"ˆ3+l^-ƒ¬Q­‘×ø-#ÓG-V%k©½Æ¨ƒg@(ÄÒ—©Cy…(IEè FORWARD F850LP  POL0V         D   D   CNœÍCëå2<ÌÌÍ·X”*<ëTã²²ø64‹£³ÏHiª×ú-UÎ€,(Ì,Œï°&³‰+'‡RW©DÇÞ©z(Ñ[<Î£g;@¾÷4œ!O³0"ˆ3+l^-ƒ¬Q­‘×ø-#ÓG-V%k©½Æ¨ƒg@(ÄÒ—©Cy…(IEè FORWARD F892N   POL0V         D   D   CNœÍCëå2<ÌÌÍ·X”*<ëTã²²ø64‹£³ÏHiª×ú-UÎ€,(Ì,Œï°&³‰+'‡RW©DÇÞ©z(Ñ[<Î£g;@¾÷4œ!O³0"ˆ3+l^-ƒ¬Q­‘×ø-#ÓG-V%k©½Æ¨ƒg@(ÄÒ—©Cy…(IEè FORWARD F502N   POL0V         D   D   CNœÍCëå2<ÌÌÍ·X”*<ëTã²²ø64‹£³ÏHiª×ú-UÎ€,(Ì,Œï°&³‰+'‡RW©DÇÞ©z(Ñ[<Î£g;@¾÷4œ!O³0"ˆ3+l^-ƒ¬Q­‘×ø-#ÓG-V%k©½Æ¨ƒg@(ÄÒ—©Cy…(IEè FORWARD G800L   POL0V         D   D   CNœÍCëå2<ÌÌÍ·X”*<ëTã²²ø64‹£³ÏHiª×ú-UÎ€,(Ì,Œï°&³‰+'‡RW©DÇÞ©z(Ñ[<Î£g;@¾÷4œ!O³0"ˆ3+l^-ƒ¬Q­‘×ø-#ÓG-V%k©½Æ¨ƒg@(ÄÒ—©Cy…(IEè FORWARD F658N   POL0V         D   D   CNœÍCëå2<ÌÌÍ·X”*<ëTã²²ø64‹£³ÏHiª×ú-UÎ€,(Ì,Œï°&³‰+'‡RW©DÇÞ©z(Ñ[<Î£g;@¾÷4œ!O³0"ˆ3+l^-ƒ¬Q­‘×ø-#ÓG-V%k©½Æ¨ƒg@(ÄÒ—©Cy…(IEè FORWARD F555W   POL60V        D   D   CNœÓCëå)<ÌÌÍ·¨ÿ£<ëƒq²³Ô4‹äU³Ï¶•ªÚGÍ-VMó,?–,Ay&³ÿ™'ˆ…ð©E;Ú©zÍŸ(m½<ÎÍù;@‘Ö4œeW³0þ‹3+¸É-„%­’Pã-$+-Vª©):¨ƒºC(ÅÔ'©D.L(J6 FORWARD F625W   POL60V        D   D   CNœÓCëå)<ÌÌÍ·¨ÿ£<ëƒq²³Ô4‹äU³Ï¶•ªÚGÍ-VMó,?–,Ay&³ÿ™'ˆ…ð©E;Ú©zÍŸ(m½<ÎÍù;@‘Ö4œeW³0þ‹3+¸É-„%­’Pã-$+-Vª©):¨ƒºC(ÅÔ'©D.L(J6 FORWARD F550M   POL60V        D   D   CNœÓCëå)<ÌÌÍ·¨ÿ£<ëƒq²³Ô4‹äU³Ï¶•ªÚGÍ-VMó,?–,Ay&³ÿ™'ˆ…ð©E;Ú©zÍŸ(m½<ÎÍù;@‘Ö4œeW³0þ‹3+¸É-„%­’Pã-$+-Vª©):¨ƒºC(ÅÔ'©D.L(J6 FORWARD F850LP  POL60V        D   D   CNœÓCëå)<ÌÌÍ·¨ÿ£<ëƒq²³Ô4‹äU³Ï¶•ªÚGÍ-VMó,?–,Ay&³ÿ™'ˆ…ð©E;Ú©zÍŸ(m½<ÎÍù;@‘Ö4œeW³0þ‹3+¸É-„%­’Pã-$+-Vª©):¨ƒºC(ÅÔ'©D.L(J6 FORWARD F892N   POL60V        D   D   CNœÓCëå)<ÌÌÍ·¨ÿ£<ëƒq²³Ô4‹äU³Ï¶•ªÚGÍ-VMó,?–,Ay&³ÿ™'ˆ…ð©E;Ú©zÍŸ(m½<ÎÍù;@‘Ö4œeW³0þ‹3+¸É-„%­’Pã-$+-Vª©):¨ƒºC(ÅÔ'©D.L(J6 FORWARD F502N   POL60V        D   D   CNœÓCëå)<ÌÌÍ·¨ÿ£<ëƒq²³Ô4‹äU³Ï¶•ªÚGÍ-VMó,?–,Ay&³ÿ™'ˆ…ð©E;Ú©zÍŸ(m½<ÎÍù;@‘Ö4œeW³0þ‹3+¸É-„%­’Pã-$+-Vª©):¨ƒºC(ÅÔ'©D.L(J6 FORWARD G800L   POL60V        D   D   CNœÓCëå)<ÌÌÍ·¨ÿ£<ëƒq²³Ô4‹äU³Ï¶•ªÚGÍ-VMó,?–,Ay&³ÿ™'ˆ…ð©E;Ú©zÍŸ(m½<ÎÍù;@‘Ö4œeW³0þ‹3+¸É-„%­’Pã-$+-Vª©):¨ƒºC(ÅÔ'©D.L(J6 FORWARD F658N   POL60V        D   D   CNœÓCëå)<ÌÌÍ·¨ÿ£<ëƒq²³Ô4‹äU³Ï¶•ªÚGÍ-VMó,?–,Ay&³ÿ™'ˆ…ð©E;Ú©zÍŸ(m½<ÎÍù;@‘Ö4œeW³0þ‹3+¸É-„%­’Pã-$+-Vª©):¨ƒºC(ÅÔ'©D.L(J6 FORWARD F555W   POL120V       D   D   CNœÆCëå2<ÌÌÍ·eKQ<ëF5²³/4‹š@³Ï)ÊªØ#L-U¼ï,:,Œ×G&³Ê'‡^›©D§Ñ©yãY(§{<Î¢%;@Á&4œï³0j3+Uœ-ƒ«1­‘Êè-#²ü-Uÿ–©º©¨ƒh£(Ä¼t©CS´(I¹ FORWARD F625W   POL120V       D   D   CNœÆCëå2<ÌÌÍ·eKQ<ëF5²³/4‹š@³Ï)ÊªØ#L-U¼ï,:,Œ×G&³Ê'‡^›©D§Ñ©yãY(§{<Î¢%;@Á&4œï³0j3+Uœ-ƒ«1­‘Êè-#²ü-Uÿ–©º©¨ƒh£(Ä¼t©CS´(I¹ FORWARD F550M   POL120V       D   D   CNœÆCëå2<ÌÌÍ·eKQ<ëF5²³/4‹š@³Ï)ÊªØ#L-U¼ï,:,Œ×G&³Ê'‡^›©D§Ñ©yãY(§{<Î¢%;@Á&4œï³0j3+Uœ-ƒ«1­‘Êè-#²ü-Uÿ–©º©¨ƒh£(Ä¼t©CS´(I¹ FORWARD F850LP  POL120V       D   D   CNœÆCëå2<ÌÌÍ·eKQ<ëF5²³/4‹š@³Ï)ÊªØ#L-U¼ï,:,Œ×G&³Ê'‡^›©D§Ñ©yãY(§{<Î¢%;@Á&4œï³0j3+Uœ-ƒ«1­‘Êè-#²ü-Uÿ–©º©¨ƒh£(Ä¼t©CS´(I¹ FORWARD F892N   POL120V       D   D   CNœÆCëå2<ÌÌÍ·eKQ<ëF5²³/4‹š@³Ï)ÊªØ#L-U¼ï,:,Œ×G&³Ê'‡^›©D§Ñ©yãY(§{<Î¢%;@Á&4œï³0j3+Uœ-ƒ«1­‘Êè-#²ü-Uÿ–©º©¨ƒh£(Ä¼t©CS´(I¹ FORWARD F502N   POL120V       D   D   CNœÆCëå2<ÌÌÍ·eKQ<ëF5²³/4‹š@³Ï)ÊªØ#L-U¼ï,:,Œ×G&³Ê'‡^›©D§Ñ©yãY(§{<Î¢%;@Á&4œï³0j3+Uœ-ƒ«1­‘Êè-#²ü-Uÿ–©º©¨ƒh£(Ä¼t©CS´(I¹ FORWARD G800L   POL120V       D   D   CNœÆCëå2<ÌÌÍ·eKQ<ëF5²³/4‹š@³Ï)ÊªØ#L-U¼ï,:,Œ×G&³Ê'‡^›©D§Ñ©yãY(§{<Î¢%;@Á&4œï³0j3+Uœ-ƒ«1­‘Êè-#²ü-Uÿ–©º©¨ƒh£(Ä¼t©CS´(I¹ FORWARD F658N   POL120V       D   D   CNœÆCëå2<ÌÌÍ·eKQ<ëF5²³/4‹š@³Ï)ÊªØ#L-U¼ï,:,Œ×G&³Ê'‡^›©D§Ñ©yãY(§{<Î¢%;@Á&4œï³0j3+Uœ-ƒ«1­‘Êè-#²ü-Uÿ–©º©¨ƒh£(Ä¼t©CS´(I¹ FORWARD F555W   F660N         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F555W   F814W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F555W   FR388N        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F555W   F435W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F555W   FR656N        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F555W   F330W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F555W   F250W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F555W   PR200L        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F555W   F344N         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F555W   F220W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F555W   FR914M        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F555W   FR459M        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F555W   FR505N        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F775W   F660N         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F775W   F814W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F775W   FR388N        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F775W   F435W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F775W   FR656N        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F775W   F330W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F775W   F250W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F775W   PR200L        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F775W   F344N         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F775W   F220W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F775W   FR914M        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F775W   FR459M        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F775W   FR505N        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F625W   F660N         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F625W   F814W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F625W   FR388N        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F625W   F435W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F625W   FR656N        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F625W   F330W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F625W   F250W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F625W   PR200L        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F625W   F344N         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F625W   F220W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F625W   FR914M        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F625W   FR459M        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F625W   FR505N        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F550M   F660N         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F550M   F814W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F550M   FR388N        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F550M   F435W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F550M   FR656N        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F550M   F330W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F550M   F250W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F550M   PR200L        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F550M   F344N         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F550M   F220W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F550M   FR914M        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F550M   FR459M        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F550M   FR505N        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F850LP  F660N         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F850LP  F814W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F850LP  FR388N        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F850LP  F435W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F850LP  FR656N        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F850LP  F330W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F850LP  F250W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F850LP  PR200L        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F850LP  F344N         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F850LP  F220W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F850LP  FR914M        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F850LP  FR459M        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F850LP  FR505N        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F892N   F660N         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F892N   F814W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F892N   FR388N        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F892N   F435W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F892N   FR656N        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F892N   F330W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F892N   F250W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F892N   PR200L        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F892N   F344N         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F892N   F220W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F892N   FR914M        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F892N   FR459M        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F892N   FR505N        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F606W   F660N         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F606W   F814W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F606W   FR388N        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F606W   F435W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F606W   FR656N        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F606W   F330W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F606W   F250W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F606W   PR200L        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F606W   F344N         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F606W   F220W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F606W   FR914M        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F606W   FR459M        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F606W   FR505N        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F502N   F660N         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F502N   F814W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F502N   FR388N        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F502N   F435W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F502N   FR656N        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F502N   F330W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F502N   F250W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F502N   PR200L        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F502N   F344N         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F502N   F220W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F502N   FR914M        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F502N   FR459M        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F502N   FR505N        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD G800L   F660N         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD G800L   F814W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD G800L   FR388N        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD G800L   F435W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD G800L   FR656N        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD G800L   F330W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD G800L   F250W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD G800L   PR200L        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD G800L   F344N         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD G800L   F220W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD G800L   FR914M        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD G800L   FR459M        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD G800L   FR505N        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F658N   F660N         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F658N   F814W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F658N   FR388N        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F658N   F435W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F658N   FR656N        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F658N   F330W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F658N   F250W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F658N   PR200L        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F658N   F344N         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F658N   F220W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F658N   FR914M        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F658N   FR459M        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F658N   FR505N        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F475W   F660N         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F475W   F814W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F475W   FR388N        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F475W   F435W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F475W   FR656N        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F475W   F330W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F475W   F250W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F475W   PR200L        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F475W   F344N         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F475W   F220W         D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F475W   FR914M        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F475W   FR459M        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º FORWARD F475W   FR505N        D   D   CNP-Cì±<ÌÌÍ¸"H
+<ç¾æ²ªAX4€ˆ‚³ÎËž+ô§F,Œ­•E­Cua§Àkƒ(˜²Ý¨ö¶&|ãž¨ îÁ<Ë
+;>·ÿ4ŒEu³@ëô3æÖ,)o­“Ž,T«-v\(T(Ë¨ÌK&)š^ù¨Å}Ç(º                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
