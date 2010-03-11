@@ -1,0 +1,402 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Modules &mdash; Apsis v4.2.5 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '4.2.5',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Apsis v4.2.5 documentation" href="index.html" />
+    <link rel="next" title="Citation" href="citation.html" />
+    <link rel="prev" title="Running Apsis" href="running.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="citation.html" title="Citation"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="running.html" title="Running Apsis"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Apsis v4.2.5 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="modules">
+<h1>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h1>
+<p>The <em>Apsis</em> pipeline produces science quality data from ACS image data
+that have been pre-processed with the <em>CALACS</em> calibration pipeline from
+STScI.  The main processing steps are registration of images to a common
+coordinate system (taking in to account the strong geometric distortion
+of the ACS detectors), removal of the sky background, combining of
+images taken with the same filter with an iterative cosmic ray (CR)
+rejection scheme, astrometric calibration, creation of noise (RMS)
+images, combining the different filter images to create a higher signal
+to noise ratio &#8220;detection image&#8221;, cataloging sources in the detection
+image while performing photometry of the filter images on all the found
+sources using <em>SExtractor</em>, and correction of the photometry for
+Galactic dust extinction and aperture size effects.</p>
+<div class="section" id="apsis-modules">
+<h2>Apsis modules<a class="headerlink" href="#apsis-modules" title="Permalink to this headline">¶</a></h2>
+<p>The modules called by <em>Apsis</em> are briefly described in the following
+table, which is arranged in the order of processing.  The modules
+correspond to python scripts in the <tt class="docutils literal"><span class="pre">python/apsis</span></tt> directory of the
+<em>Apsis</em> distribution.  Click on the module name to see the <em>pydoc</em>
+documentation on the modules.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="4%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Module</th>
+<th class="head">msg?</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><a class="reference external" href="pydoc/ingest.html">ingest</a></td>
+<td>Y</td>
+<td>set up directory structure, prepare for processing</td>
+</tr>
+<tr><td><a class="reference external" href="pydoc/filter.html">filters</a></td>
+<td>N</td>
+<td>define attributes for filters in general, and the ACS filters specifically</td>
+</tr>
+<tr><td><a class="reference external" href="pydoc/wralign.html">wralign</a></td>
+<td>N</td>
+<td>wrapper module for align</td>
+</tr>
+<tr><td><a class="reference external" href="pydoc/align.html">align</a></td>
+<td>Y</td>
+<td>determine frame offsets using <a class="reference external" href="appendix.html#superalign">superalign</a> and remove sky background</td>
+</tr>
+<tr><td><a class="reference external" href="pydoc/combDither.html">combDither</a></td>
+<td>Y</td>
+<td>create filter images, rejecting CRs</td>
+</tr>
+<tr><td><a class="reference external" href="pydoc/pyblot.html">pyblot</a></td>
+<td>N</td>
+<td>workhorse routines to drizzle and blot images using <em>iraf</em></td>
+</tr>
+<tr><td><a class="reference external" href="pydoc/astrometer.html">astrometer</a></td>
+<td>N</td>
+<td>perform astrometric calibration</td>
+</tr>
+<tr><td><a class="reference external" href="pydoc/combFilter.html">combFilter</a></td>
+<td>Y</td>
+<td>make detection image and corresponding weight image</td>
+</tr>
+<tr><td><a class="reference external" href="pydoc/detectionCatalog.html">detectionCatalog</a></td>
+<td>Y</td>
+<td>catalog the detection image</td>
+</tr>
+<tr><td><a class="reference external" href="pydoc/catalog.html">catalog</a></td>
+<td>N</td>
+<td>methods for setting parameters and running <em>SExtractor</em></td>
+</tr>
+<tr><td><a class="reference external" href="pydoc/filterCatalog.html">filterCatalog</a></td>
+<td>Y</td>
+<td>photometer filter images, correct for zeropoint</td>
+</tr>
+<tr><td><a class="reference external" href="pydoc/colorCatalog.html">colorCatalog</a></td>
+<td>Y</td>
+<td>gather photometry, correct for E(B-V) and aperture size</td>
+</tr>
+</tbody>
+</table>
+<p>The second column in the above table marks which modules write an XML
+<a class="reference external" href="running.html#Messages">module message</a> to the <tt class="docutils literal"><span class="pre">&lt;dataset&gt;/Messages</span></tt>
+directory of each <em>Apsis</em> run.</p>
+</div>
+<div class="section" id="xydrizzle-modules">
+<h2>xydrizzle modules<a class="headerlink" href="#xydrizzle-modules" title="Permalink to this headline">¶</a></h2>
+<p>Drizzling within <em>Apsis</em> is done using <em>pyraf</em> calls within the
+<em>xydrizzle</em> module, which can be found in the <tt class="docutils literal"><span class="pre">python/xydrizzle</span></tt>
+directory of the <em>Apsis</em> distribution. Most of the code is in
+<tt class="docutils literal"><span class="pre">__init__.py</span></tt>.  Other modules are listed in the following table.
+Click on the module name to see its <em>pydoc</em> documentation
+(where available).</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Module</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><a class="reference external" href="pydoc/buildasn.html">buildasn</a></td>
+<td>generates an association table from the files in a directory</td>
+</tr>
+<tr><td>buildmask</td>
+<td>functions to build mask files for PyDrizzle</td>
+</tr>
+<tr><td>drutil</td>
+<td>drizzle utility functions</td>
+</tr>
+<tr><td>fileutil</td>
+<td>general file functions designed for use with PyDrizzle</td>
+</tr>
+<tr><td>pydriz_iraf</td>
+<td>does drizzling with pyraf.iraf</td>
+</tr>
+<tr><td>wcsutil</td>
+<td>utilities to work with World Coordinate Systems</td>
+</tr>
+<tr><td>wcsutil_iraf</td>
+<td>iraf based utilities to work with World Coordinate Systems</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="utility-modules">
+<h2>Utility modules<a class="headerlink" href="#utility-modules" title="Permalink to this headline">¶</a></h2>
+<p><em>Apsis</em> uses a variety of miscellaneous python classes, functions, and
+methods which can be found in the <tt class="docutils literal"><span class="pre">python/utils</span></tt> directory of the
+<em>Apsis</em> distribution. Click on the module name to see its <em>pydoc</em>
+documentation (where available).</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="88%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Module</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><a class="reference external" href="pydoc/amputil.html">amputil</a></td>
+<td>functions for measuring the amplifier discontinuity in WFC frames</td>
+</tr>
+<tr><td><a class="reference external" href="pydoc/augmask.html">augmask</a></td>
+<td>masks where only a single image contributes to a filter image</td>
+</tr>
+<tr><td><a class="reference external" href="pydoc/extinction.html">extinction</a></td>
+<td>functions to calculate Galactic dust extinction from <a class="reference external" href="http://adsabs.harvard.edu/abs/1998ApJ...500..525S">SFD</a> dust maps</td>
+</tr>
+<tr><td><a class="reference external" href="pydoc/fUtil.html">fUtil</a></td>
+<td>various functions to work with fits images (using pyfits)</td>
+</tr>
+<tr><td><a class="reference external" href="pydoc/matutil.html">matutil</a></td>
+<td>functions to work with Instrument Distortion Coefficient (IDC) tables</td>
+</tr>
+<tr><td><a class="reference external" href="pydoc/msg.html">msg</a></td>
+<td>utlities for writing XML messages for <em>Apsis</em></td>
+</tr>
+<tr><td><a class="reference external" href="pydoc/pUtil.html">pUtil</a></td>
+<td>utlities for working with <em>SExtractor</em> parameter and catalog files</td>
+</tr>
+<tr><td><a class="reference external" href="pydoc/path.html">path</a></td>
+<td>defines the ACS pipeline environment</td>
+</tr>
+<tr><td><a class="reference external" href="pydoc/tableio.html">tableio</a></td>
+<td>functions for working with ASCII tables</td>
+</tr>
+<tr><td><a class="reference external" href="pydoc/wcsclass.html">wcsclass</a></td>
+<td>class and functions to work with World Coordinate System (WCS) headers</td>
+</tr>
+<tr><td><a class="reference external" href="pydoc/xmlUtil.html">xmlUtil</a></td>
+<td>methods for marking up various types of files into XML messages</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="c-code">
+<h2>C code<a class="headerlink" href="#c-code" title="Permalink to this headline">¶</a></h2>
+<p><em>Apsis</em> uses a number of C routines to speed up the data
+processing. Source code for these can be found in the
+<tt class="docutils literal"><span class="pre">src/apsis_utils</span></tt> directory of the <em>Apsis</em> distribution.  A brief
+description of the routines is given in the following table.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">C source code file</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>arrays</td>
+<td>routines for allocating, freeing and copying 2-D arrays</td>
+</tr>
+<tr><td>chdecomp</td>
+<td>matrix decomposition?? used by superalign</td>
+</tr>
+<tr><td>chsvx</td>
+<td>??</td>
+</tr>
+<tr><td>error</td>
+<td>write an error message to stderr</td>
+</tr>
+<tr><td>fillnoise</td>
+<td>places random noise in pixels that have valid weights(?)</td>
+</tr>
+<tr><td>findlines</td>
+<td>find and remove streaks (satellite trails) (?)</td>
+</tr>
+<tr><td>findpedest</td>
+<td>find pedestal in NICMOS images (?)</td>
+</tr>
+<tr><td>maskreg</td>
+<td>utility to mask polygon regions in fits files</td>
+</tr>
+<tr><td>matchup</td>
+<td>match positions (?)</td>
+</tr>
+<tr><td>medianfilter</td>
+<td>median filter a list of files</td>
+</tr>
+<tr><td>mt19937ar</td>
+<td>??</td>
+</tr>
+<tr><td>parser</td>
+<td>parse functions ??</td>
+</tr>
+<tr><td>simplealign</td>
+<td>simple alignment algorithm</td>
+</tr>
+<tr><td>simplematch</td>
+<td>simple match algorithm</td>
+</tr>
+<tr><td>sort</td>
+<td>routines to sort arrays</td>
+</tr>
+<tr><td><a class="reference external" href="appendix.html#superalign">superalign</a></td>
+<td>the workhorse package for the <em>Apsis</em> align module</td>
+</tr>
+<tr><td>whmedian</td>
+<td>??</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="stand-alone-programs">
+<h2>Stand-alone programs<a class="headerlink" href="#stand-alone-programs" title="Permalink to this headline">¶</a></h2>
+<p>stand alone <em>Apsis</em> related programs can be found in the the <tt class="docutils literal"><span class="pre">bin</span></tt>
+directory of the <em>Apsis</em> distribution.  A brief description of these
+programs is given in the following table.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="82%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">program</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>apsis</td>
+<td>this is a symbolic link to the <em>Apsis</em> executable</td>
+</tr>
+<tr><td>apsis_setup.csh</td>
+<td>source this script to set up the <em>Apsis</em> environment for csh or tcsh</td>
+</tr>
+<tr><td>apsis_setup.sh</td>
+<td>source this script to set up the <em>Apsis</em> environment for bash</td>
+</tr>
+<tr><td>autoasndir</td>
+<td>routine to make association tables for all the fits files in a directory</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="">Modules</a><ul>
+<li><a class="reference external" href="#apsis-modules">Apsis modules</a></li>
+<li><a class="reference external" href="#xydrizzle-modules">xydrizzle modules</a></li>
+<li><a class="reference external" href="#utility-modules">Utility modules</a></li>
+<li><a class="reference external" href="#c-code">C code</a></li>
+<li><a class="reference external" href="#stand-alone-programs">Stand-alone programs</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="running.html"
+                                  title="previous chapter">Running Apsis</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="citation.html"
+                                  title="next chapter">Citation</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/modules.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="citation.html" title="Citation"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="running.html" title="Running Apsis"
+             >previous</a> |</li>
+        <li><a href="index.html">Apsis v4.2.5 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009, Ken Anderson, John Blakeslee, Rychard Bouwens, Dan Magee, Gerhardt Meurer.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.3.
+    </div>
+  </body>
+</html>

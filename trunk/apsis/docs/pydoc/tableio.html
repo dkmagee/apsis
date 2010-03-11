@@ -1,0 +1,90 @@
+
+<!doctype html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module tableio</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>tableio</strong></big></big> (version 1.2)</font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/meurer/ACS/Pipeline/Apsis/apsis-4.2.4/python/utils/tableio.py">/home/meurer/ACS/Pipeline/Apsis/apsis-4.2.4/python/utils/tableio.py</a></font></td></tr></table>
+    <p><tt>License<br>
+=======<br>
+&nbsp;<br>
+Copyright&nbsp;(c)&nbsp;2009,&nbsp;The&nbsp;Johns&nbsp;Hopkins&nbsp;University<br>
+&nbsp;<br>
+All&nbsp;rights&nbsp;reserved.<br>
+&nbsp;<br>
+Redistribution&nbsp;and&nbsp;use&nbsp;in&nbsp;source&nbsp;and&nbsp;binary&nbsp;forms,&nbsp;with&nbsp;or&nbsp;without<br>
+modification,&nbsp;are&nbsp;permitted&nbsp;provided&nbsp;that&nbsp;the&nbsp;following&nbsp;conditions&nbsp;are&nbsp;met:<br>
+&nbsp;<br>
+Redistributions&nbsp;of&nbsp;source&nbsp;code&nbsp;must&nbsp;retain&nbsp;the&nbsp;above&nbsp;copyright&nbsp;notice,&nbsp;this<br>
+list&nbsp;of&nbsp;conditions&nbsp;and&nbsp;the&nbsp;following&nbsp;disclaimer.&nbsp;&nbsp;Redistributions&nbsp;in&nbsp;binary<br>
+form&nbsp;must&nbsp;reproduce&nbsp;the&nbsp;above&nbsp;copyright&nbsp;notice,&nbsp;this&nbsp;list&nbsp;of&nbsp;conditions&nbsp;and<br>
+the&nbsp;following&nbsp;disclaimer&nbsp;in&nbsp;the&nbsp;documentation&nbsp;and/or&nbsp;other&nbsp;materials&nbsp;provided<br>
+with&nbsp;the&nbsp;distribution.&nbsp;&nbsp;Neither&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;Johns&nbsp;Hopkins&nbsp;University&nbsp;nor<br>
+the&nbsp;names&nbsp;of&nbsp;its&nbsp;contributors&nbsp;may&nbsp;be&nbsp;used&nbsp;to&nbsp;endorse&nbsp;or&nbsp;promote&nbsp;products<br>
+derived&nbsp;from&nbsp;this&nbsp;software&nbsp;without&nbsp;specific&nbsp;prior&nbsp;written&nbsp;permission.<br>
+&nbsp;<br>
+THIS&nbsp;SOFTWARE&nbsp;IS&nbsp;PROVIDED&nbsp;BY&nbsp;THE&nbsp;COPYRIGHT&nbsp;HOLDERS&nbsp;AND&nbsp;CONTRIBUTORS&nbsp;'AS<br>
+IS'&nbsp;AND&nbsp;ANY&nbsp;EXPRESS&nbsp;OR&nbsp;IMPLIED&nbsp;WARRANTIES,&nbsp;INCLUDING,&nbsp;BUT&nbsp;NOT&nbsp;LIMITED<br>
+TO,&nbsp;THE&nbsp;IMPLIED&nbsp;WARRANTIES&nbsp;OF&nbsp;MERCHANTABILITY&nbsp;AND&nbsp;FITNESS&nbsp;FOR&nbsp;A<br>
+PARTICULAR&nbsp;PURPOSE&nbsp;ARE&nbsp;DISCLAIMED.&nbsp;IN&nbsp;NO&nbsp;EVENT&nbsp;SHALL&nbsp;THE&nbsp;COPYRIGHT<br>
+HOLDER&nbsp;OR&nbsp;CONTRIBUTORS&nbsp;BE&nbsp;LIABLE&nbsp;FOR&nbsp;ANY&nbsp;DIRECT,&nbsp;INDIRECT,&nbsp;INCIDENTAL,<br>
+SPECIAL,&nbsp;EXEMPLARY,&nbsp;OR&nbsp;CONSEQUENTIAL&nbsp;DAMAGES&nbsp;(INCLUDING,&nbsp;BUT&nbsp;NOT&nbsp;LIMITED<br>
+TO,&nbsp;PROCUREMENT&nbsp;OF&nbsp;SUBSTITUTE&nbsp;GOODS&nbsp;OR&nbsp;SERVICES;&nbsp;LOSS&nbsp;OF&nbsp;USE,&nbsp;DATA,&nbsp;OR<br>
+PROFITS;&nbsp;OR&nbsp;BUSINESS&nbsp;INTERRUPTION)&nbsp;HOWEVER&nbsp;CAUSED&nbsp;AND&nbsp;ON&nbsp;ANY&nbsp;THEORY&nbsp;OF<br>
+LIABILITY,&nbsp;WHETHER&nbsp;IN&nbsp;CONTRACT,&nbsp;STRICT&nbsp;LIABILITY,&nbsp;OR&nbsp;TORT&nbsp;(INCLUDING<br>
+NEGLIGENCE&nbsp;OR&nbsp;OTHERWISE)&nbsp;ARISING&nbsp;IN&nbsp;ANY&nbsp;WAY&nbsp;OUT&nbsp;OF&nbsp;THE&nbsp;USE&nbsp;OF&nbsp;THIS<br>
+SOFTWARE,&nbsp;EVEN&nbsp;IF&nbsp;ADVISED&nbsp;OF&nbsp;THE&nbsp;POSSIBILITY&nbsp;OF&nbsp;SUCH&nbsp;DAMAGE.<br>
+&nbsp;<br>
+(This&nbsp;license&nbsp;is&nbsp;based&nbsp;on&nbsp;the&nbsp;BSD&nbsp;license<br>
+&nbsp;<a href="http://www.opensource.org/licenses/bsd-license.html">http://www.opensource.org/licenses/bsd-license.html</a>)</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top><a href="string.html">string</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-get_data"><strong>get_data</strong></a>(file, cols<font color="#909090">=0</font>, nrows<font color="#909090">='all'</font>)</dt><dd><tt>Returns&nbsp;data&nbsp;in&nbsp;the&nbsp;columns&nbsp;defined&nbsp;by&nbsp;the&nbsp;tuple<br>
+(or&nbsp;single&nbsp;integer)&nbsp;cols&nbsp;as&nbsp;a&nbsp;tuple&nbsp;of&nbsp;float&nbsp;arrays&nbsp;<br>
+(or&nbsp;a&nbsp;single&nbsp;float&nbsp;array)</tt></dd></dl>
+ <dl><dt><a name="-get_header"><strong>get_header</strong></a>(file)</dt><dd><tt>Returns&nbsp;a&nbsp;string&nbsp;containing&nbsp;all&nbsp;the&nbsp;lines&nbsp;<br>
+at&nbsp;the&nbsp;top&nbsp;of&nbsp;a&nbsp;file&nbsp;which&nbsp;start&nbsp;by&nbsp;'#'</tt></dd></dl>
+ <dl><dt><a name="-get_str"><strong>get_str</strong></a>(file, cols<font color="#909090">=0</font>, nrows<font color="#909090">='all'</font>)</dt><dd><tt>Reads&nbsp;strings&nbsp;from&nbsp;a&nbsp;file<br>
+Usage:&nbsp;<br>
+&nbsp;x,y,z=<a href="#-get_str">get_str</a>('myfile.cat',(0,1,2))<br>
+x,y,z&nbsp;are&nbsp;returned&nbsp;as&nbsp;string&nbsp;lists</tt></dd></dl>
+ <dl><dt><a name="-put_data"><strong>put_data</strong></a>(file, variables, header<font color="#909090">=''</font>, format<font color="#909090">=''</font>, append<font color="#909090">='no'</font>)</dt><dd><tt>Writes&nbsp;tuple&nbsp;of&nbsp;float&nbsp;variables&nbsp;to&nbsp;a&nbsp;file&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Usage:<br>
+&nbsp;&nbsp;<a href="#-put_data">put_data</a>(file,(x,y,z),header,format)<br>
+where&nbsp;header&nbsp;is&nbsp;any&nbsp;string&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;format&nbsp;is&nbsp;a&nbsp;string&nbsp;of&nbsp;the&nbsp;type:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'%f&nbsp;%f&nbsp;%i&nbsp;'</tt></dd></dl>
+ <dl><dt><a name="-put_header"><strong>put_header</strong></a>(file, text)</dt><dd><tt>Adds&nbsp;text&nbsp;(starting&nbsp;by&nbsp;'#'&nbsp;and&nbsp;ending&nbsp;by&nbsp;'<br>
+')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;the&nbsp;top&nbsp;of&nbsp;a&nbsp;file.</tt></dd></dl>
+ <dl><dt><a name="-put_str"><strong>put_str</strong></a>(file, tupla)</dt><dd><tt>Writes&nbsp;tuple&nbsp;of&nbsp;string&nbsp;lists&nbsp;to&nbsp;a&nbsp;file<br>
+&nbsp;&nbsp;Usage:<br>
+<a href="#-put_str">put_str</a>(file,(x,y,z))</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>__version__</strong> = '1.2'<br>
+<strong>__version_date__</strong> = '2003/11/11 21:51:02'</td></tr></table>
+</body></html>

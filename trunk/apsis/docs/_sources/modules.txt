@@ -1,0 +1,33 @@
+Modules
+=======
+
+The *Apsis* pipeline produces science quality data from ACS image data
+that have been pre-processed with the *CALACS* calibration pipeline from
+STScI.  The main processing steps are registration of images to a common
+coordinate system (taking in to account the strong geometric distortion
+of the ACS detectors), removal of the sky background, combining of
+images taken with the same filter with an iterative cosmic ray (CR)
+rejection scheme, astrometric calibration, creation of noise (RMS)
+images, combining the different filter images to create a higher signal
+to noise ratio "detection image", cataloging sources in the detection image while
+performing photometry of the filter images on all the found sources
+using *SExtractor*, and correction of the photometry for Galactic dust
+extinction and aperture size effects.  
+
+.. index:: modules
+
+.. tabularcolumns:: |r|l|
+
+==================== ===========
+Module               Description
+==================== ===========
+``ingest``           set up directory structure, prepare for processing
+``align``            Determine frame offsets, remove sky background 
+``combDither``       create filter images, rejecting CRs
+``astrometer``       perform astrometric calibration
+``combFilter``       make detection image and corresponding weight image
+``detectionCatalog`` catalog the detection image
+``filterCatalog``    photometer filter images, correct for zeropoint 
+``colorCatalog``     gather photometry, corrects for E(B-V) and aperture size
+==================== ===========
+

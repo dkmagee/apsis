@@ -1,0 +1,6 @@
+Reference Data
+==============
+
+Apsis requires a number of files in order to operate. These include geometric 
+distortion reference files and the maps needed to calculate foreground dust extinction.
+ow where to go t find these files (hmmmmm.).

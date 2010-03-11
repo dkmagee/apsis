@@ -1,0 +1,192 @@
+
+<!doctype html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module xmlUtil</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>xmlUtil</strong></big></big> (version 1.16)</font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/meurer/ACS/Pipeline/Apsis/apsis-4.2.4/python/utils/xmlUtil.py">/home/meurer/ACS/Pipeline/Apsis/apsis-4.2.4/python/utils/xmlUtil.py</a></font></td></tr></table>
+    <p><tt>License<br>
+=======<br>
+&nbsp;<br>
+Copyright&nbsp;(c)&nbsp;2009,&nbsp;The&nbsp;Johns&nbsp;Hopkins&nbsp;University<br>
+&nbsp;<br>
+All&nbsp;rights&nbsp;reserved.<br>
+&nbsp;<br>
+Redistribution&nbsp;and&nbsp;use&nbsp;in&nbsp;source&nbsp;and&nbsp;binary&nbsp;forms,&nbsp;with&nbsp;or&nbsp;without<br>
+modification,&nbsp;are&nbsp;permitted&nbsp;provided&nbsp;that&nbsp;the&nbsp;following&nbsp;conditions&nbsp;are&nbsp;met:<br>
+&nbsp;<br>
+Redistributions&nbsp;of&nbsp;source&nbsp;code&nbsp;must&nbsp;retain&nbsp;the&nbsp;above&nbsp;copyright&nbsp;notice,&nbsp;this<br>
+list&nbsp;of&nbsp;conditions&nbsp;and&nbsp;the&nbsp;following&nbsp;disclaimer.&nbsp;&nbsp;Redistributions&nbsp;in&nbsp;binary<br>
+form&nbsp;must&nbsp;reproduce&nbsp;the&nbsp;above&nbsp;copyright&nbsp;notice,&nbsp;this&nbsp;list&nbsp;of&nbsp;conditions&nbsp;and<br>
+the&nbsp;following&nbsp;disclaimer&nbsp;in&nbsp;the&nbsp;documentation&nbsp;and/or&nbsp;other&nbsp;materials&nbsp;provided<br>
+with&nbsp;the&nbsp;distribution.&nbsp;&nbsp;Neither&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;Johns&nbsp;Hopkins&nbsp;University&nbsp;nor<br>
+the&nbsp;names&nbsp;of&nbsp;its&nbsp;contributors&nbsp;may&nbsp;be&nbsp;used&nbsp;to&nbsp;endorse&nbsp;or&nbsp;promote&nbsp;products<br>
+derived&nbsp;from&nbsp;this&nbsp;software&nbsp;without&nbsp;specific&nbsp;prior&nbsp;written&nbsp;permission.<br>
+&nbsp;<br>
+THIS&nbsp;SOFTWARE&nbsp;IS&nbsp;PROVIDED&nbsp;BY&nbsp;THE&nbsp;COPYRIGHT&nbsp;HOLDERS&nbsp;AND&nbsp;CONTRIBUTORS&nbsp;'AS<br>
+IS'&nbsp;AND&nbsp;ANY&nbsp;EXPRESS&nbsp;OR&nbsp;IMPLIED&nbsp;WARRANTIES,&nbsp;INCLUDING,&nbsp;BUT&nbsp;NOT&nbsp;LIMITED<br>
+TO,&nbsp;THE&nbsp;IMPLIED&nbsp;WARRANTIES&nbsp;OF&nbsp;MERCHANTABILITY&nbsp;AND&nbsp;FITNESS&nbsp;FOR&nbsp;A<br>
+PARTICULAR&nbsp;PURPOSE&nbsp;ARE&nbsp;DISCLAIMED.&nbsp;IN&nbsp;NO&nbsp;EVENT&nbsp;SHALL&nbsp;THE&nbsp;COPYRIGHT<br>
+HOLDER&nbsp;OR&nbsp;CONTRIBUTORS&nbsp;BE&nbsp;LIABLE&nbsp;FOR&nbsp;ANY&nbsp;DIRECT,&nbsp;INDIRECT,&nbsp;INCIDENTAL,<br>
+SPECIAL,&nbsp;EXEMPLARY,&nbsp;OR&nbsp;CONSEQUENTIAL&nbsp;DAMAGES&nbsp;(INCLUDING,&nbsp;BUT&nbsp;NOT&nbsp;LIMITED<br>
+TO,&nbsp;PROCUREMENT&nbsp;OF&nbsp;SUBSTITUTE&nbsp;GOODS&nbsp;OR&nbsp;SERVICES;&nbsp;LOSS&nbsp;OF&nbsp;USE,&nbsp;DATA,&nbsp;OR<br>
+PROFITS;&nbsp;OR&nbsp;BUSINESS&nbsp;INTERRUPTION)&nbsp;HOWEVER&nbsp;CAUSED&nbsp;AND&nbsp;ON&nbsp;ANY&nbsp;THEORY&nbsp;OF<br>
+LIABILITY,&nbsp;WHETHER&nbsp;IN&nbsp;CONTRACT,&nbsp;STRICT&nbsp;LIABILITY,&nbsp;OR&nbsp;TORT&nbsp;(INCLUDING<br>
+NEGLIGENCE&nbsp;OR&nbsp;OTHERWISE)&nbsp;ARISING&nbsp;IN&nbsp;ANY&nbsp;WAY&nbsp;OUT&nbsp;OF&nbsp;THE&nbsp;USE&nbsp;OF&nbsp;THIS<br>
+SOFTWARE,&nbsp;EVEN&nbsp;IF&nbsp;ADVISED&nbsp;OF&nbsp;THE&nbsp;POSSIBILITY&nbsp;OF&nbsp;SUCH&nbsp;DAMAGE.<br>
+&nbsp;<br>
+(This&nbsp;license&nbsp;is&nbsp;based&nbsp;on&nbsp;the&nbsp;BSD&nbsp;license<br>
+&nbsp;<a href="http://www.opensource.org/licenses/bsd-license.html">http://www.opensource.org/licenses/bsd-license.html</a>)</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="fUtil.html">fUtil</a><br>
+<a href="filters.html">filters</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+<a href="pyfits.html">pyfits</a><br>
+</td><td width="25%" valign=top><a href="string.html">string</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="xmlUtil.html#xmlMessage">xmlMessage</a>
+</font></dt></dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="xmlMessage">class <strong>xmlMessage</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>provide&nbsp;for&nbsp;an&nbsp;<a href="#xmlMessage">xmlMessage</a>&nbsp;object&nbsp;with&nbsp;methods&nbsp;to&nbsp;build&nbsp;your&nbsp;own<br>
+xml&nbsp;message.&nbsp;&nbsp;Call&nbsp;the&nbsp;StartTag&nbsp;method&nbsp;to&nbsp;add&nbsp;a&nbsp;start&nbsp;tag&nbsp;with&nbsp;optional<br>
+value&nbsp;and&nbsp;attributes.&nbsp;&nbsp;EndTag&nbsp;adds&nbsp;an&nbsp;end&nbsp;tag.&nbsp;&nbsp;This&nbsp;is&nbsp;a&nbsp;dumb&nbsp;class,&nbsp;you&nbsp;<br>
+have&nbsp;to&nbsp;build&nbsp;a&nbsp;well-formed&nbsp;xml&nbsp;doc.&nbsp;&nbsp;<br>
+Eg.,<br>
+archmessage&nbsp;=&nbsp;<a href="#xmlMessage">xmlMessage</a>()&nbsp;&nbsp;&nbsp;#&nbsp;get&nbsp;an&nbsp;<a href="#xmlMessage">xmlMessage</a>&nbsp;object<br>
+archmsg&nbsp;=&nbsp;<a href="#xmlMessage">xmlMessage</a>()<br>
+archmsg.<a href="#xmlMessage-startTag">startTag</a>('ArchiveMessage')<br>
+archmsg.<a href="#xmlMessage-startTag">startTag</a>('run',pipeType='Imaging',version='dPipe')<br>
+archmsg.<a href="#xmlMessage-startTag">startTag</a>('date',ptime())<br>
+archmsg.<a href="#xmlMessage-endTag">endTag</a>('run')<br>
+archmsg.<a href="#xmlMessage-endTag">endTag</a>('ArchiveMessage')<br>
+file&nbsp;=&nbsp;'/tmp/egmessage.xml'<br>
+archmsg.<a href="#xmlMessage-write">write</a>(file)<br>
+&nbsp;<br>
+This&nbsp;will&nbsp;write&nbsp;a&nbsp;file&nbsp;named&nbsp;egmessage.xml&nbsp;in&nbsp;/tmp&nbsp;and&nbsp;will&nbsp;look&nbsp;like&nbsp;this:<br>
+&nbsp;<br>
+&lt;?xml&nbsp;version="1.0"?&gt;<br>
+&lt;ArchiveMessage&gt;<br>
+&lt;run&nbsp;version="dPipe"&nbsp;pipeType="Imaging"&gt;<br>
+&lt;date&gt;2001-08-24T12:19:49EDT&lt;/date&gt;<br>
+&lt;/run&gt;<br>
+&lt;/ArchiveMessage&gt;<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="xmlMessage-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>Initiate&nbsp;the&nbsp;<a href="#xmlMessage">xmlMessage</a>&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="xmlMessage-docTypeTag"><strong>docTypeTag</strong></a>(self, dtd_type)</dt><dd><tt>adds&nbsp;a&nbsp;doctype&nbsp;tag&nbsp;of&nbsp;the&nbsp;form&nbsp;&lt;!DOCTYPE&nbsp;docRoot&nbsp;SYSTEM&nbsp;...<br>
+to&nbsp;the&nbsp;xml&nbsp;document.&nbsp;The&nbsp;passed&nbsp;dtd&nbsp;specifies&nbsp;which&nbsp;dtd&nbsp;type&nbsp;is&nbsp;to<br>
+referenced&nbsp;in&nbsp;the&nbsp;DOCTYPE&nbsp;tag.&nbsp;&nbsp;This&nbsp;dtd&nbsp;type&nbsp;must&nbsp;be&nbsp;one&nbsp;of&nbsp;<br>
+&nbsp;<br>
+Catalog<br>
+Colorcatalog<br>
+Image<br>
+Module<br>
+Runmessage<br>
+&nbsp;<br>
+This&nbsp;should&nbsp;only&nbsp;be&nbsp;called&nbsp;once.&nbsp;This&nbsp;tag&nbsp;will&nbsp;be&nbsp;inserted&nbsp;into&nbsp;the<br>
+beginning&nbsp;of&nbsp;the&nbsp;document&nbsp;no&nbsp;matter&nbsp;when&nbsp;it&nbsp;is&nbsp;called&nbsp;but&nbsp;for<br>
+clarity,&nbsp;the&nbsp;caller&nbsp;should&nbsp;call&nbsp;this&nbsp;method&nbsp;once&nbsp;and&nbsp;then&nbsp;only<br>
+at&nbsp;the&nbsp;beginning&nbsp;of&nbsp;the&nbsp;markup&nbsp;process.</tt></dd></dl>
+
+<dl><dt><a name="xmlMessage-emptyTag"><strong>emptyTag</strong></a>(self, tag, **attr)</dt><dd><tt>add&nbsp;an&nbsp;empty&nbsp;tag,&nbsp;i.e.&nbsp;&lt;tag/&gt;,&nbsp;to&nbsp;the&nbsp;msg&nbsp;list.</tt></dd></dl>
+
+<dl><dt><a name="xmlMessage-endTag"><strong>endTag</strong></a>(self, tag)</dt><dd><tt>add&nbsp;an&nbsp;end&nbsp;tag,&nbsp;i.e&nbsp;&lt;/tag&gt;,&nbsp;to&nbsp;the&nbsp;msg&nbsp;list.</tt></dd></dl>
+
+<dl><dt><a name="xmlMessage-startTag"><strong>startTag</strong></a>(self, tag, value<font color="#909090">=''</font>, **attr)</dt><dd><tt>adds&nbsp;a&nbsp;tag,&nbsp;a&nbsp;tag-value&nbsp;pair&nbsp;or&nbsp;a&nbsp;tag-value&nbsp;pair&nbsp;w/&nbsp;attributes&nbsp;to&nbsp;<br>
+the&nbsp;msg&nbsp;list.&nbsp;&nbsp;Only&nbsp;add&nbsp;the&nbsp;attributes&nbsp;if&nbsp;present.&nbsp;Value&nbsp;is&nbsp;converted<br>
+to&nbsp;StringType&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="xmlMessage-write"><strong>write</strong></a>(self, file)</dt><dd><tt>Write&nbsp;the&nbsp;file&nbsp;as&nbsp;an&nbsp;xml&nbsp;message,&nbsp;where&nbsp;each&nbsp;item&nbsp;of&nbsp;the&nbsp;msg&nbsp;list<br>
+is&nbsp;a&nbsp;line&nbsp;in&nbsp;the&nbsp;xml&nbsp;doc.&nbsp;Interpreted&nbsp;thusly:<br>
+a&nbsp;single&nbsp;tag&nbsp;(no&nbsp;value&nbsp;nor&nbsp;attributes):&nbsp;&lt;tag&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tag-value&nbsp;pair&nbsp;(no&nbsp;attributes)&nbsp;:&nbsp;&lt;tag&gt;&nbsp;value&nbsp;&lt;/tag&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tag-value&nbsp;w/&nbsp;attributes&nbsp;:&nbsp;&lt;tag&nbsp;attr='blah'&gt;&nbsp;value&nbsp;&lt;/tag&gt;<br>
+end&nbsp;tag&nbsp;(added&nbsp;via&nbsp;the&nbsp;endTag&nbsp;method)&nbsp;:&nbsp;&lt;/tag&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;empty&nbsp;tag&nbsp;:&nbsp;&lt;tag/&gt;</tt></dd></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-markupImage"><strong>markupImage</strong></a>(fitsfile, dataset<font color="#909090">=None</font>, datalist<font color="#909090">=None</font>)</dt><dd><tt>mark&nbsp;up&nbsp;a&nbsp;fits&nbsp;file&nbsp;header&nbsp;with&nbsp;xml&nbsp;tags.</tt></dd></dl>
+ <dl><dt><a name="-markupTable"><strong>markupTable</strong></a>(fitstable, dataset<font color="#909090">=None</font>)</dt><dd><tt>receives&nbsp;a&nbsp;fits&nbsp;binary&nbsp;table&nbsp;and&nbsp;converts&nbsp;it&nbsp;to&nbsp;xml&nbsp;markup.</tt></dd></dl>
+ <dl><dt><a name="-xmlColorData"><strong>xmlColorData</strong></a>(infile, outfile, excludeList<font color="#909090">=None</font>)</dt><dd><tt>xmlColorData&nbsp;takes&nbsp;a&nbsp;color&nbsp;catalog&nbsp;file&nbsp;produced&nbsp;by&nbsp;the&nbsp;colorCatalog&nbsp;module&nbsp;and&nbsp;marks&nbsp;it&nbsp;with&nbsp;the&nbsp;<br>
+pipeline/archive&nbsp;protocol&nbsp;markup.&nbsp;Must&nbsp;use&nbsp;at&nbsp;least&nbsp;the&nbsp;xmlStartCat&nbsp;function&nbsp;above&nbsp;to&nbsp;initialise<br>
+the&nbsp;xml&nbsp;file&nbsp;and&nbsp;use&nbsp;the&nbsp;xmlEndCat&nbsp;function&nbsp;to&nbsp;close&nbsp;things&nbsp;up&nbsp;nicely.<br>
+This&nbsp;function&nbsp;is&nbsp;a&nbsp;variation&nbsp;of&nbsp;the&nbsp;xmlData&nbsp;function&nbsp;above&nbsp;but&nbsp;designed&nbsp;specifically&nbsp;for&nbsp;<br>
+the&nbsp;multicolor&nbsp;catalog&nbsp;produced&nbsp;by&nbsp;the&nbsp;colorCatalog&nbsp;module.&nbsp;&nbsp;This&nbsp;was&nbsp;necessitated&nbsp;by&nbsp;the<br>
+non-generalised&nbsp;nature&nbsp;of&nbsp;the&nbsp;multicolor&nbsp;catalog,&nbsp;where&nbsp;column&nbsp;headers&nbsp;were&nbsp;dependant&nbsp;on&nbsp;<br>
+the&nbsp;nature&nbsp;of&nbsp;the&nbsp;data&nbsp;(i.e.&nbsp;different&nbsp;filter&nbsp;names).<br>
+&nbsp;<br>
+Usage:<br>
+&nbsp;&nbsp;<a href="#-xmlColorData">xmlColorData</a>('catalogfile','outputfile')<br>
+&nbsp;<br>
+K&nbsp;Anderson&nbsp;02-01-02</tt></dd></dl>
+ <dl><dt><a name="-xmlData"><strong>xmlData</strong></a>(infile, outfile, excludeList<font color="#909090">=None</font>)</dt><dd><tt>xmlData&nbsp;takes&nbsp;a&nbsp;SExtractor&nbsp;catalog&nbsp;file&nbsp;and&nbsp;marks&nbsp;it&nbsp;with&nbsp;the&nbsp;pipeline/archive<br>
+protocol&nbsp;markup.&nbsp;Must&nbsp;use&nbsp;at&nbsp;least&nbsp;the&nbsp;xmlStartCat&nbsp;function&nbsp;above&nbsp;to&nbsp;initialise<br>
+the&nbsp;xml&nbsp;file&nbsp;and&nbsp;use&nbsp;the&nbsp;xmlEndCat&nbsp;function&nbsp;to&nbsp;close&nbsp;things&nbsp;up&nbsp;nicely.<br>
+Caller&nbsp;can&nbsp;pass&nbsp;a&nbsp;list&nbsp;of&nbsp;fields&nbsp;to&nbsp;exclude&nbsp;from&nbsp;the&nbsp;xml&nbsp;markup,&nbsp;if&nbsp;that&nbsp;is<br>
+desired,&nbsp;if&nbsp;not,&nbsp;the&nbsp;list&nbsp;is&nbsp;None.<br>
+&nbsp;<br>
+Usage:<br>
+&nbsp;&nbsp;<a href="#-xmlData">xmlData</a>('catalog','outputfile'[,excludeList=['blah']])<br>
+&nbsp;<br>
+&nbsp;&nbsp;where&nbsp;catalogType&nbsp;is&nbsp;one&nbsp;of&nbsp;SExtractor,&nbsp;BPZ,&nbsp;etc.<br>
+&nbsp;&nbsp;(maybe&nbsp;more&nbsp;later),&nbsp;catalog&nbsp;is&nbsp;the&nbsp;catalog's<br>
+&nbsp;&nbsp;filename,&nbsp;and&nbsp;outputfile&nbsp;is&nbsp;just&nbsp;that.</tt></dd></dl>
+ <dl><dt><a name="-xmlEndCat"><strong>xmlEndCat</strong></a>(outfile)</dt><dd><tt>close&nbsp;off&nbsp;an&nbsp;xml&nbsp;catalog&nbsp;file.</tt></dd></dl>
+ <dl><dt><a name="-xmlEndConfig"><strong>xmlEndConfig</strong></a>(outfile)</dt><dd><tt>Write&nbsp;the&nbsp;end&nbsp;tag&nbsp;for&nbsp;the&nbsp;configuration&nbsp;element.&nbsp;This&nbsp;should&nbsp;only<br>
+be&nbsp;called&nbsp;once.</tt></dd></dl>
+ <dl><dt><a name="-xmlPars"><strong>xmlPars</strong></a>(pardict, outfile)</dt><dd><tt>This&nbsp;function&nbsp;prepends&nbsp;xml&nbsp;markup&nbsp;of&nbsp;the&nbsp;input&nbsp;paramaters&nbsp;of&nbsp;a&nbsp;catalog-type&nbsp;file.<br>
+function&nbsp;receives&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;keyword-value&nbsp;pairs&nbsp;and&nbsp;an&nbsp;output&nbsp;filename.&nbsp;This&nbsp;will&nbsp;be<br>
+the&nbsp;same&nbsp;filename&nbsp;the&nbsp;xmlify&nbsp;function&nbsp;receives&nbsp;and&nbsp;appends&nbsp;the&nbsp;catalog&nbsp;markup.</tt></dd></dl>
+ <dl><dt><a name="-xmlStartCat"><strong>xmlStartCat</strong></a>(outfile, name, imgfile<font color="#909090">=None</font>)</dt><dd><tt>Initialise&nbsp;the&nbsp;xml&nbsp;header&nbsp;of&nbsp;a&nbsp;catalog&nbsp;file.&nbsp;imgfile&nbsp;is&nbsp;a&nbsp;passed&nbsp;fits&nbsp;file.</tt></dd></dl>
+ <dl><dt><a name="-xmlStartConfig"><strong>xmlStartConfig</strong></a>(outfile)</dt><dd><tt>Write&nbsp;the&nbsp;start&nbsp;tag&nbsp;for&nbsp;the&nbsp;configuration&nbsp;element.&nbsp;&nbsp;This&nbsp;allows<br>
+multiple&nbsp;sets&nbsp;of&nbsp;parameters&nbsp;to&nbsp;be&nbsp;sent&nbsp;to&nbsp;the&nbsp;markup.&nbsp;&nbsp;This&nbsp;should&nbsp;only<br>
+be&nbsp;called&nbsp;once.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>StringTypes</strong> = (&lt;type 'str'&gt;, &lt;type 'unicode'&gt;)<br>
+<strong>__author__</strong> = 'Ken Anderson, anderson@pha.jhu.edu'<br>
+<strong>__version__</strong> = '1.16'<br>
+<strong>__version_date__</strong> = '2005/10/27 20:05:41'</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#7799ee">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Author</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#7799ee"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Ken&nbsp;Anderson,&nbsp;anderson@pha.jhu.edu</td></tr></table>
+</body></html>

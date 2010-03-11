@@ -1,0 +1,211 @@
+
+<!doctype html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module fUtil</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>fUtil</strong></big></big> (version 1.24)</font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/meurer/ACS/Pipeline/Apsis/apsis-4.2.4/python/utils/fUtil.py">/home/meurer/ACS/Pipeline/Apsis/apsis-4.2.4/python/utils/fUtil.py</a></font></td></tr></table>
+    <p><tt>License<br>
+=======<br>
+&nbsp;<br>
+Copyright&nbsp;(c)&nbsp;2009,&nbsp;The&nbsp;Johns&nbsp;Hopkins&nbsp;University<br>
+&nbsp;<br>
+All&nbsp;rights&nbsp;reserved.<br>
+&nbsp;<br>
+Redistribution&nbsp;and&nbsp;use&nbsp;in&nbsp;source&nbsp;and&nbsp;binary&nbsp;forms,&nbsp;with&nbsp;or&nbsp;without<br>
+modification,&nbsp;are&nbsp;permitted&nbsp;provided&nbsp;that&nbsp;the&nbsp;following&nbsp;conditions&nbsp;are&nbsp;met:<br>
+&nbsp;<br>
+Redistributions&nbsp;of&nbsp;source&nbsp;code&nbsp;must&nbsp;retain&nbsp;the&nbsp;above&nbsp;copyright&nbsp;notice,&nbsp;this<br>
+list&nbsp;of&nbsp;conditions&nbsp;and&nbsp;the&nbsp;following&nbsp;disclaimer.&nbsp;&nbsp;Redistributions&nbsp;in&nbsp;binary<br>
+form&nbsp;must&nbsp;reproduce&nbsp;the&nbsp;above&nbsp;copyright&nbsp;notice,&nbsp;this&nbsp;list&nbsp;of&nbsp;conditions&nbsp;and<br>
+the&nbsp;following&nbsp;disclaimer&nbsp;in&nbsp;the&nbsp;documentation&nbsp;and/or&nbsp;other&nbsp;materials&nbsp;provided<br>
+with&nbsp;the&nbsp;distribution.&nbsp;&nbsp;Neither&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;Johns&nbsp;Hopkins&nbsp;University&nbsp;nor<br>
+the&nbsp;names&nbsp;of&nbsp;its&nbsp;contributors&nbsp;may&nbsp;be&nbsp;used&nbsp;to&nbsp;endorse&nbsp;or&nbsp;promote&nbsp;products<br>
+derived&nbsp;from&nbsp;this&nbsp;software&nbsp;without&nbsp;specific&nbsp;prior&nbsp;written&nbsp;permission.<br>
+&nbsp;<br>
+THIS&nbsp;SOFTWARE&nbsp;IS&nbsp;PROVIDED&nbsp;BY&nbsp;THE&nbsp;COPYRIGHT&nbsp;HOLDERS&nbsp;AND&nbsp;CONTRIBUTORS&nbsp;'AS<br>
+IS'&nbsp;AND&nbsp;ANY&nbsp;EXPRESS&nbsp;OR&nbsp;IMPLIED&nbsp;WARRANTIES,&nbsp;INCLUDING,&nbsp;BUT&nbsp;NOT&nbsp;LIMITED<br>
+TO,&nbsp;THE&nbsp;IMPLIED&nbsp;WARRANTIES&nbsp;OF&nbsp;MERCHANTABILITY&nbsp;AND&nbsp;FITNESS&nbsp;FOR&nbsp;A<br>
+PARTICULAR&nbsp;PURPOSE&nbsp;ARE&nbsp;DISCLAIMED.&nbsp;IN&nbsp;NO&nbsp;EVENT&nbsp;SHALL&nbsp;THE&nbsp;COPYRIGHT<br>
+HOLDER&nbsp;OR&nbsp;CONTRIBUTORS&nbsp;BE&nbsp;LIABLE&nbsp;FOR&nbsp;ANY&nbsp;DIRECT,&nbsp;INDIRECT,&nbsp;INCIDENTAL,<br>
+SPECIAL,&nbsp;EXEMPLARY,&nbsp;OR&nbsp;CONSEQUENTIAL&nbsp;DAMAGES&nbsp;(INCLUDING,&nbsp;BUT&nbsp;NOT&nbsp;LIMITED<br>
+TO,&nbsp;PROCUREMENT&nbsp;OF&nbsp;SUBSTITUTE&nbsp;GOODS&nbsp;OR&nbsp;SERVICES;&nbsp;LOSS&nbsp;OF&nbsp;USE,&nbsp;DATA,&nbsp;OR<br>
+PROFITS;&nbsp;OR&nbsp;BUSINESS&nbsp;INTERRUPTION)&nbsp;HOWEVER&nbsp;CAUSED&nbsp;AND&nbsp;ON&nbsp;ANY&nbsp;THEORY&nbsp;OF<br>
+LIABILITY,&nbsp;WHETHER&nbsp;IN&nbsp;CONTRACT,&nbsp;STRICT&nbsp;LIABILITY,&nbsp;OR&nbsp;TORT&nbsp;(INCLUDING<br>
+NEGLIGENCE&nbsp;OR&nbsp;OTHERWISE)&nbsp;ARISING&nbsp;IN&nbsp;ANY&nbsp;WAY&nbsp;OUT&nbsp;OF&nbsp;THE&nbsp;USE&nbsp;OF&nbsp;THIS<br>
+SOFTWARE,&nbsp;EVEN&nbsp;IF&nbsp;ADVISED&nbsp;OF&nbsp;THE&nbsp;POSSIBILITY&nbsp;OF&nbsp;SUCH&nbsp;DAMAGE.<br>
+&nbsp;<br>
+(This&nbsp;license&nbsp;is&nbsp;based&nbsp;on&nbsp;the&nbsp;BSD&nbsp;license<br>
+&nbsp;<a href="http://www.opensource.org/licenses/bsd-license.html">http://www.opensource.org/licenses/bsd-license.html</a>)</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="filters.html">filters</a><br>
+<a href="glob.html">glob</a><br>
+<a href="math.html">math</a><br>
+</td><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+<a href="os.html">os</a><br>
+<a href="pyfits.html">pyfits</a><br>
+</td><td width="25%" valign=top><a href="re.html">re</a><br>
+<a href="string.html">string</a><br>
+<a href="types.html">types</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="exceptions.html#Exception">exceptions.Exception</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="fUtil.html#filterError">filterError</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="filterError">class <strong>filterError</strong></a>(<a href="exceptions.html#Exception">exceptions.Exception</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>raise&nbsp;a&nbsp;filter&nbsp;error&nbsp;exception.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods inherited from <a href="exceptions.html#Exception">exceptions.Exception</a>:<br>
+<dl><dt><a name="filterError-__getitem__"><strong>__getitem__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="filterError-__init__"><strong>__init__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="filterError-__str__"><strong>__str__</strong></a>(...)</dt></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-convertExtension"><strong>convertExtension</strong></a>(fitsfile, extension<font color="#909090">=1</font>)</dt><dd><tt>Takes&nbsp;a&nbsp;full&nbsp;path&nbsp;to&nbsp;a&nbsp;fits&nbsp;file,&nbsp;breaks&nbsp;out&nbsp;the&nbsp;passed&nbsp;extension&nbsp;into&nbsp;simple&nbsp;fits<br>
+file&nbsp;and&nbsp;returns&nbsp;the&nbsp;full&nbsp;path&nbsp;name&nbsp;of&nbsp;this&nbsp;file&nbsp;to&nbsp;the&nbsp;caller.&nbsp;&nbsp;This&nbsp;file&nbsp;will&nbsp;be&nbsp;written<br>
+in&nbsp;the&nbsp;same&nbsp;dir&nbsp;as&nbsp;the&nbsp;passed&nbsp;fitsfile.&nbsp;&nbsp;Returns&nbsp;None&nbsp;if&nbsp;the&nbsp;passed&nbsp;fitsfile&nbsp;does&nbsp;not&nbsp;have<br>
+multiple&nbsp;extensions.</tt></dd></dl>
+ <dl><dt><a name="-convertFile"><strong>convertFile</strong></a>(fitsfile)</dt><dd><tt>Takes&nbsp;a&nbsp;full&nbsp;path&nbsp;to&nbsp;a&nbsp;fits&nbsp;file&nbsp;and&nbsp;converts&nbsp;it&nbsp;to&nbsp;simple&nbsp;fits&nbsp;format&nbsp;if&nbsp;it&nbsp;can.<br>
+Names&nbsp;the&nbsp;converted&nbsp;extensions&nbsp;to&nbsp;be&nbsp;like<br>
+&nbsp;&nbsp;&nbsp;<br>
+j1570d10t_crj.fits&nbsp;===&gt;&nbsp;NEXTEND&nbsp;number&nbsp;of&nbsp;files&nbsp;named&nbsp;like&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j1570d10t_crj_EXTNAME_EXTVER.fits</tt></dd></dl>
+ <dl><dt><a name="-createfits"><strong>createfits</strong></a>(newfile, NX, NY, bitpix)</dt><dd><tt>Create&nbsp;a&nbsp;new&nbsp;simple&nbsp;FITS&nbsp;disk&nbsp;file&nbsp;of&nbsp;specified&nbsp;size&nbsp;and&nbsp;type;<br>
+return&nbsp;the&nbsp;file&nbsp;ojbect&nbsp;in&nbsp;update&nbsp;mode.&nbsp;&nbsp;The&nbsp;header&nbsp;is&nbsp;minimal,<br>
+and&nbsp;the&nbsp;data&nbsp;array&nbsp;is&nbsp;initialized&nbsp;to&nbsp;all&nbsp;zeros.</tt></dd></dl>
+ <dl><dt><a name="-filterName"><strong>filterName</strong></a>(fitsfile, ext<font color="#909090">=0</font>)</dt><dd><tt>returns&nbsp;a&nbsp;the&nbsp;filter&nbsp;name&nbsp;of&nbsp;the&nbsp;real&nbsp;(i.e.&nbsp;not&nbsp;clear)&nbsp;filter&nbsp;used<br>
+in&nbsp;the&nbsp;image.&nbsp;&nbsp;Function&nbsp;determines&nbsp;this&nbsp;like&nbsp;the&nbsp;above&nbsp;filterResponseName&nbsp;func<br>
+but&nbsp;only&nbsp;returns&nbsp;the&nbsp;filter&nbsp;name.</tt></dd></dl>
+ <dl><dt><a name="-filterResponseName"><strong>filterResponseName</strong></a>(fitsfile, ext<font color="#909090">=0</font>)</dt><dd><tt>returns&nbsp;a&nbsp;generalised&nbsp;filter&nbsp;name&nbsp;of&nbsp;the&nbsp;form&nbsp;'telescope_instrument_detector_filter'<br>
+Filter&nbsp;will&nbsp;generally&nbsp;be&nbsp;one&nbsp;of&nbsp;FILTER1&nbsp;or&nbsp;FILTER2&nbsp;when&nbsp;one&nbsp;of&nbsp;the&nbsp;filter&nbsp;keywords&nbsp;is&nbsp;<br>
+populated&nbsp;with&nbsp;a&nbsp;'CLEARxxx'&nbsp;value.&nbsp;This&nbsp;employs&nbsp;the&nbsp;ACSFilterInfo&nbsp;class&nbsp;from&nbsp;the&nbsp;filters<br>
+module.&nbsp;This&nbsp;does&nbsp;not&nbsp;employ&nbsp;other&nbsp;fUtil&nbsp;functions&nbsp;to&nbsp;avoid&nbsp;opening&nbsp;and&nbsp;closing&nbsp;fits&nbsp;objects<br>
+for&nbsp;the&nbsp;same&nbsp;fitsfile&nbsp;multiple&nbsp;times.</tt></dd></dl>
+ <dl><dt><a name="-fixDrzHeader"><strong>fixDrzHeader</strong></a>(fpath, module, date, file_type<font color="#909090">='SCI'</font>, addCards<font color="#909090">=None</font>)</dt><dd><tt>Adjust&nbsp;the&nbsp;header&nbsp;of&nbsp;a&nbsp;drizzled&nbsp;image&nbsp;produced&nbsp;by&nbsp;pydrizzle/drizzle.&nbsp;&nbsp;Mostly,<br>
+this&nbsp;means&nbsp;removing&nbsp;a&nbsp;lot&nbsp;of&nbsp;keywords&nbsp;which&nbsp;have&nbsp;no&nbsp;meaning&nbsp;in&nbsp;the&nbsp;context&nbsp;of<br>
+an&nbsp;image&nbsp;which&nbsp;is&nbsp;created&nbsp;from&nbsp;a&nbsp;number&nbsp;of&nbsp;different&nbsp;images&nbsp;from&nbsp;potentially&nbsp;any<br>
+number&nbsp;of&nbsp;sources.&nbsp;&nbsp;This&nbsp;list&nbsp;of&nbsp;keywords&nbsp;can&nbsp;be&nbsp;found&nbsp;in&nbsp;Bugzilla&nbsp;bug&nbsp;#1333.<br>
+The&nbsp;addCards&nbsp;option&nbsp;allows&nbsp;the&nbsp;caller&nbsp;to&nbsp;add&nbsp;new&nbsp;ascards&nbsp;to&nbsp;the&nbsp;header.<br>
+addCards&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;tuples&nbsp;like<br>
+[("newkeyword1","value1"),<br>
+&nbsp;("newkeyword2","value2"),<br>
+&nbsp;]</tt></dd></dl>
+ <dl><dt><a name="-fixDrzHeader2"><strong>fixDrzHeader2</strong></a>(fpath, module, date, file_type<font color="#909090">='SCI'</font>, addCards<font color="#909090">=None</font>)</dt><dd><tt>Adjust&nbsp;the&nbsp;header&nbsp;of&nbsp;a&nbsp;drizzled&nbsp;image&nbsp;produced&nbsp;by&nbsp;pydrizzle/drizzle.&nbsp;&nbsp;Mostly,<br>
+this&nbsp;means&nbsp;removing&nbsp;a&nbsp;lot&nbsp;of&nbsp;keywords&nbsp;which&nbsp;have&nbsp;no&nbsp;meaning&nbsp;in&nbsp;the&nbsp;context&nbsp;of<br>
+an&nbsp;image&nbsp;which&nbsp;is&nbsp;created&nbsp;from&nbsp;a&nbsp;number&nbsp;of&nbsp;different&nbsp;images&nbsp;from&nbsp;potentially&nbsp;any<br>
+number&nbsp;of&nbsp;sources.&nbsp;&nbsp;This&nbsp;list&nbsp;of&nbsp;keywords&nbsp;can&nbsp;be&nbsp;found&nbsp;in&nbsp;Bugzilla&nbsp;bug&nbsp;#1333.<br>
+The&nbsp;addCards&nbsp;option&nbsp;allows&nbsp;the&nbsp;caller&nbsp;to&nbsp;add&nbsp;new&nbsp;ascards&nbsp;to&nbsp;the&nbsp;header.<br>
+addCards&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;tuples&nbsp;like<br>
+[("newkeyword1","value1"),<br>
+&nbsp;("newkeyword2","value2"),<br>
+&nbsp;]</tt></dd></dl>
+ <dl><dt><a name="-fixHeader"><strong>fixHeader</strong></a>(fpath, list)</dt><dd><tt>Adjust&nbsp;the&nbsp;keyword&nbsp;value&nbsp;pairs&nbsp;of&nbsp;a&nbsp;header&nbsp;of&nbsp;an&nbsp;image.<br>
+This&nbsp;function&nbsp;does&nbsp;this&nbsp;'in&nbsp;place',&nbsp;by&nbsp;just&nbsp;overwriting&nbsp;the<br>
+old&nbsp;file&nbsp;with&nbsp;the&nbsp;new&nbsp;one.&nbsp;list&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;tuples&nbsp;which&nbsp;are<br>
+(keyword,value)&nbsp;pairs.</tt></dd></dl>
+ <dl><dt><a name="-getChipId"><strong>getChipId</strong></a>(fitsfile, ext, chipname<font color="#909090">='CCDCHIP'</font>)</dt><dd><tt>return&nbsp;the&nbsp;chip&nbsp;id&nbsp;found&nbsp;for&nbsp;a&nbsp;keyword&nbsp;which&nbsp;identifies&nbsp;the<br>
+chip&nbsp;id&nbsp;in&nbsp;an&nbsp;extension&nbsp;header.&nbsp;For&nbsp;ACS&nbsp;this&nbsp;is&nbsp;CCDCHIP&nbsp;but&nbsp;for&nbsp;WFPC2&nbsp;<br>
+it&nbsp;is&nbsp;DETCHIP.&nbsp;&nbsp;This&nbsp;function&nbsp;requires&nbsp;the&nbsp;extension&nbsp;number.<br>
+returns&nbsp;None&nbsp;if&nbsp;not&nbsp;found.</tt></dd></dl>
+ <dl><dt><a name="-getDetector"><strong>getDetector</strong></a>(fitsfile, ext<font color="#909090">=0</font>)</dt><dd><tt>returns&nbsp;the&nbsp;value&nbsp;of&nbsp;DETECTOR&nbsp;keyword&nbsp;in&nbsp;a&nbsp;fits&nbsp;header.</tt></dd></dl>
+ <dl><dt><a name="-getFilter1"><strong>getFilter1</strong></a>(fitsfile, ext<font color="#909090">=0</font>)</dt><dd><tt>returns&nbsp;the&nbsp;value&nbsp;of&nbsp;FILTER1&nbsp;keyword&nbsp;in&nbsp;a&nbsp;fits&nbsp;header.</tt></dd></dl>
+ <dl><dt><a name="-getFilter2"><strong>getFilter2</strong></a>(fitsfile, ext<font color="#909090">=0</font>)</dt><dd><tt>returns&nbsp;the&nbsp;value&nbsp;of&nbsp;FILTER2&nbsp;keyword&nbsp;in&nbsp;a&nbsp;fits&nbsp;header.</tt></dd></dl>
+ <dl><dt><a name="-getIdcTab"><strong>getIdcTab</strong></a>(fitsfile, ext<font color="#909090">=0</font>)</dt><dd><tt>return&nbsp;a&nbsp;full&nbsp;path&nbsp;to&nbsp;the&nbsp;IDCTAB&nbsp;file&nbsp;specified&nbsp;in&nbsp;the&nbsp;header&nbsp;of&nbsp;the<br>
+passed&nbsp;fitsfile.&nbsp;&nbsp;Will&nbsp;interpret&nbsp;jref$&nbsp;iraf&nbsp;env&nbsp;var&nbsp;if&nbsp;it&nbsp;is&nbsp;present&nbsp;in&nbsp;<br>
+the&nbsp;value&nbsp;of&nbsp;the&nbsp;IDCTAB&nbsp;keyword.&nbsp;&nbsp;This&nbsp;keyword&nbsp;must&nbsp;be&nbsp;in&nbsp;the&nbsp;primary&nbsp;header<br>
+or&nbsp;else&nbsp;raises&nbsp;a&nbsp;FITS_SevereError&nbsp;exception.</tt></dd></dl>
+ <dl><dt><a name="-getInstr"><strong>getInstr</strong></a>(fitsfile, ext<font color="#909090">=0</font>)</dt><dd><tt>returns&nbsp;the&nbsp;value&nbsp;of&nbsp;INSTRUME&nbsp;keyword&nbsp;in&nbsp;a&nbsp;fits&nbsp;header.</tt></dd></dl>
+ <dl><dt><a name="-getKeyVal"><strong>getKeyVal</strong></a>(fitsfile, key, ext<font color="#909090">=0</font>)</dt><dd><tt>get&nbsp;any&nbsp;keyword&nbsp;value&nbsp;from&nbsp;a&nbsp;specified&nbsp;(default&nbsp;=&nbsp;0)&nbsp;extension&nbsp;of<br>
+a&nbsp;fits&nbsp;file.</tt></dd></dl>
+ <dl><dt><a name="-getNX"><strong>getNX</strong></a>(fitsfile, ext<font color="#909090">=0</font>)</dt><dd><tt>Return&nbsp;the&nbsp;NAXIS1&nbsp;keyword&nbsp;value&nbsp;from&nbsp;FITS&nbsp;header.<br>
+Defaults&nbsp;to&nbsp;first&nbsp;extension.</tt></dd></dl>
+ <dl><dt><a name="-getNXNY"><strong>getNXNY</strong></a>(fitsfile)</dt><dd><tt>Return&nbsp;the&nbsp;(NAXIS1,NAXIS2)&nbsp;keyword&nbsp;values&nbsp;as&nbsp;a&nbsp;tuple&nbsp;from&nbsp;FITS&nbsp;header.<br>
+Uses&nbsp;ext=0&nbsp;for&nbsp;simple&nbsp;fits,&nbsp;ext=1&nbsp;for&nbsp;mef</tt></dd></dl>
+ <dl><dt><a name="-getNY"><strong>getNY</strong></a>(fitsfile, ext<font color="#909090">=0</font>)</dt><dd><tt>return&nbsp;the&nbsp;NAXIS2&nbsp;keyword&nbsp;value&nbsp;from&nbsp;FITS&nbsp;header.<br>
+Defaults&nbsp;to&nbsp;first&nbsp;extension.</tt></dd></dl>
+ <dl><dt><a name="-getTableZeroPoint"><strong>getTableZeroPoint</strong></a>(fitsfile)</dt><dd><tt>The&nbsp;ACS/WFC&nbsp;Zeropoints&nbsp;table<br>
+(<a href="http://www.stsci.edu/hst/acs/analysis/zeropoints/#tablestart">http://www.stsci.edu/hst/acs/analysis/zeropoints/#tablestart</a>)<br>
+in&nbsp;dictionary&nbsp;form.&nbsp;&nbsp;We&nbsp;use&nbsp;this&nbsp;to&nbsp;determine&nbsp;the&nbsp;filter&nbsp;dependant<br>
+zeropoint&nbsp;for&nbsp;normalised&nbsp;data.<br>
+&nbsp;<br>
+Updated&nbsp;to&nbsp;be&nbsp;consistent&nbsp;with&nbsp;the&nbsp;PHOTLAM<br>
+keys&nbsp;in&nbsp;the&nbsp;GOODS&nbsp;catalogs.&nbsp;F.&nbsp;Menanteau&nbsp;Mar&nbsp;2005</tt></dd></dl>
+ <dl><dt><a name="-getTarget"><strong>getTarget</strong></a>(fitsfile, ext<font color="#909090">=0</font>)</dt><dd><tt>returns&nbsp;the&nbsp;value&nbsp;of&nbsp;TARGNAME&nbsp;keyword&nbsp;in&nbsp;a&nbsp;fits&nbsp;header.</tt></dd></dl>
+ <dl><dt><a name="-getTel"><strong>getTel</strong></a>(fitsfile, ext<font color="#909090">=0</font>)</dt><dd><tt>returns&nbsp;the&nbsp;value&nbsp;of&nbsp;TELESCOP&nbsp;keyword&nbsp;in&nbsp;a&nbsp;fits&nbsp;header.</tt></dd></dl>
+ <dl><dt><a name="-limitingMag"><strong>limitingMag</strong></a>(fitsfile)</dt><dd><tt>determine&nbsp;the&nbsp;limiting&nbsp;magnitude&nbsp;of&nbsp;the&nbsp;passed&nbsp;fitsfile.</tt></dd></dl>
+ <dl><dt><a name="-makeAsnDict"><strong>makeAsnDict</strong></a>(dir)</dt><dd><tt>Returns&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;asn&nbsp;table&nbsp;names&nbsp;with&nbsp;an&nbsp;embedded&nbsp;list&nbsp;of&nbsp;associated&nbsp;files.<br>
+&nbsp;&nbsp;&nbsp;i.e.&nbsp;{'jsimh400t_asn.fits'&nbsp;:&nbsp;[&nbsp;'jsimh430t_crj.fits','jsimh420t_crj.fits','jsimh410t_crj.fits','jsimh440t_crj.fits'],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'jsimh500t_asn.fits'&nbsp;:&nbsp;[&nbsp;'jsimh530t_crj.fits','jsimh520t_crj.fits','jsimh510t_crj.fits','jsimh540t_crj.fits'],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'jsimh600t_asn.fits'&nbsp;:&nbsp;[&nbsp;'jsimh630t_crj.fits','jsimh620t_crj.fits','jsimh610t_crj.fits','jsimh640t_crj.fits']&nbsp;}<br>
+&nbsp;<br>
+Determined&nbsp;from&nbsp;reading&nbsp;the&nbsp;asn&nbsp;files&nbsp;for&nbsp;an&nbsp;observation.&nbsp;arg&nbsp;is&nbsp;the&nbsp;directory&nbsp;where<br>
+all&nbsp;files,&nbsp;asn&nbsp;and&nbsp;data&nbsp;files&nbsp;are&nbsp;located.</tt></dd></dl>
+ <dl><dt><a name="-pixelScale"><strong>pixelScale</strong></a>(fitsfile, ext<font color="#909090">=0</font>)</dt><dd><tt>Return&nbsp;the&nbsp;pixel&nbsp;scale&nbsp;from&nbsp;the&nbsp;WCS&nbsp;info&nbsp;of&nbsp;the&nbsp;passed&nbsp;fitsfile.</tt></dd></dl>
+ <dl><dt><a name="-printTab"><strong>printTab</strong></a>(fitsfile)</dt><dd><tt>print&nbsp;out&nbsp;the&nbsp;data&nbsp;table&nbsp;of&nbsp;an&nbsp;association&nbsp;table&nbsp;(or&nbsp;any&nbsp;fits&nbsp;really).<br>
+where&nbsp;the&nbsp;association&nbsp;table&nbsp;data&nbsp;is&nbsp;in&nbsp;extension&nbsp;1.</tt></dd></dl>
+ <dl><dt><a name="-twoFilterName"><strong>twoFilterName</strong></a>(fitsfile, ext<font color="#909090">=0</font>)</dt><dd><tt>returns&nbsp;a&nbsp;full&nbsp;filter&nbsp;name&nbsp;of&nbsp;the&nbsp;real&nbsp;filter&nbsp;used&nbsp;in&nbsp;the&nbsp;image.<br>
+This&nbsp;function&nbsp;should&nbsp;be&nbsp;used&nbsp;in&nbsp;conjunction&nbsp;with&nbsp;the&nbsp;filterName&nbsp;fucntion<br>
+when&nbsp;it&nbsp;determines&nbsp;that&nbsp;both&nbsp;filters&nbsp;are&nbsp;populated&nbsp;by&nbsp;non-clear&nbsp;filter<br>
+values.&nbsp;&nbsp;This&nbsp;will&nbsp;then&nbsp;return&nbsp;a&nbsp;filter&nbsp;name&nbsp;like<br>
+HST_ACS_HRC_POL60UV_F435W<br>
+and&nbsp;it&nbsp;is&nbsp;up&nbsp;to&nbsp;the&nbsp;user&nbsp;to&nbsp;use&nbsp;this&nbsp;as&nbsp;they&nbsp;need.&nbsp;Note,&nbsp;there&nbsp;is&nbsp;no&nbsp;checking<br>
+of&nbsp;the&nbsp;filter&nbsp;values&nbsp;here.&nbsp;&nbsp;If&nbsp;one&nbsp;filter&nbsp;is&nbsp;clear,&nbsp;the&nbsp;caller&nbsp;will&nbsp;get&nbsp;it<br>
+back,&nbsp;like<br>
+&nbsp;&nbsp;&nbsp;&nbsp;HST_ACS_HRC_CLEAR1S_F250W</tt></dd></dl>
+ <dl><dt><a name="-zeroPoint"><strong>zeroPoint</strong></a>(fitsfile)</dt><dd><tt>extract&nbsp;zero&nbsp;point&nbsp;information&nbsp;from&nbsp;header&nbsp;of&nbsp;a&nbsp;fitsfile.&nbsp;return&nbsp;the&nbsp;zero&nbsp;point.&nbsp;&nbsp;<br>
+Function&nbsp;will&nbsp;determine&nbsp;whether&nbsp;the&nbsp;image&nbsp;is&nbsp;a&nbsp;COUNT&nbsp;image&nbsp;or&nbsp;a&nbsp;COUNTRATE&nbsp;image&nbsp;from&nbsp;<br>
+the&nbsp;BUNIT&nbsp;header&nbsp;keyword.</tt></dd></dl>
+ <dl><dt><a name="-zeroPointCorrection"><strong>zeroPointCorrection</strong></a>(filter)</dt><dd><tt>Temporary&nbsp;corrections&nbsp;to&nbsp;the&nbsp;zeropoints&nbsp;until&nbsp;new&nbsp;ones&nbsp;are&nbsp;provided&nbsp;by&nbsp;STScI</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>__author__</strong> = 'Ken Anderson, anderson@pha.jhu.edu; J. Blakeslee'<br>
+<strong>__version__</strong> = '1.24'<br>
+<strong>__version_date__</strong> = '2005/11/08 21:30:04'</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#7799ee">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Author</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#7799ee"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Ken&nbsp;Anderson,&nbsp;anderson@pha.jhu.edu;&nbsp;J.&nbsp;Blakeslee</td></tr></table>
+</body></html>

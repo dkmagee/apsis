@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Preliminary steps &mdash; Apsis v5.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '5.0.0',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Apsis v5.0.0 documentation" href="index.html" />
+    <link rel="next" title="Running Apsis" href="running.html" />
+    <link rel="prev" title="Download and Installation" href="install.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="running.html" title="Running Apsis"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="install.html" title="Download and Installation"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Apsis v5.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="preliminary-steps">
+<h1>Preliminary steps<a class="headerlink" href="#preliminary-steps" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="setting-up-the-environment-variables">
+<h2>Setting up the environment variables<a class="headerlink" href="#setting-up-the-environment-variables" title="Permalink to this headline">¶</a></h2>
+<p><em>Apsis</em> needs to have a variety of environment variables set for it to
+run properly.  The <em>Apsis</em> installation comes with a command file
+<tt class="docutils literal"><span class="pre">apsis_setup.csh</span></tt> that sets these variables.  This should be copied to
+some place in your $PATH.  You should edit it so that the environment
+variables point to the right directories, etc. Before you run <em>Apsis</em>
+you should source this file, i.e. <tt class="docutils literal"><span class="pre">source</span> <span class="pre">apsis_setup.csh</span></tt> so that the
+environment variables are set properly.</p>
+<p>The following are the environment variables you will most likely need to
+personalize:</p>
+<dl class="docutils">
+<dt><strong>$ACS_PIPE</strong></dt>
+<dd>is the path to the <em>Apsis</em> root directory, i.e. where you installed
+<em>Apsis</em>.</dd>
+<dt><strong>$INGEST</strong> is the directory where <em>Apsis</em> looks for input</dt>
+<dd>datasets. These will be directories within <tt class="docutils literal"><span class="pre">$INGEST</span></tt>.</dd>
+<dt><strong>$DATASETS</strong></dt>
+<dd>is the directory where <em>Apsis</em> will put the output data. It will
+put the data into a directory it creates in <tt class="docutils literal"><span class="pre">$DATSASETS</span></tt>.</dd>
+</dl>
+<p>The following environment variables are also used, but are less likely
+to require personalization, if you did a standard <em>Apsis</em> installation
+and <tt class="docutils literal"><span class="pre">source</span> <span class="pre">apsis_setup.csh</span></tt>.</p>
+<dl class="docutils">
+<dt><strong>$PATH</strong></dt>
+<dd>is the list of directories that are searched for commands or
+executables that are run on the command line.  Elements in path are
+separated by a colon (:).  The <tt class="docutils literal"><span class="pre">$PATH</span></tt> is read from left to right and
+the first found occurrence of an executable is used.  <tt class="docutils literal"><span class="pre">$PATH</span></tt> must
+include the directory containing the <em>Apsis</em> software as well as any
+other directory where dependent software executables may be
+located.</dd>
+<dt><strong>$PYTHONPATH</strong></dt>
+<dd>is the list of directories that are searched for python scripts.</dd>
+<dt><strong>$PIPELINE</strong></dt>
+<dd>points to the directory containing the <em>Apsis</em> reference data.</dd>
+<dt><strong>$jref</strong></dt>
+<dd>is the directory containing the reference files library. This
+directory contains the IDC tables used to described the geometric
+distortion of ACS.  These files are typically referenced in the fits
+images containing and usually have names like <tt class="docutils literal"><span class="pre">*_idc.fits</span></tt>.</dd>
+<dt><strong>$DUST_DIR</strong></dt>
+<dd>tells <em>dust_getval</em> where to find the dust maps it uses.
+Specifically, <tt class="docutils literal"><span class="pre">$DUST_DIR</span></tt> should point to the directory containing
+the subdirectory <tt class="docutils literal"><span class="pre">maps</span></tt> which containg the dust maps in fits
+format.</dd>
+<dt><strong>$NUMERIX</strong></dt>
+<dd>should be set to <tt class="docutils literal"><span class="pre">numpy</span></tt>.</dd>
+</dl>
+</div>
+<div class="section" id="initial-processing">
+<h2>Initial Processing<a class="headerlink" href="#initial-processing" title="Permalink to this headline">¶</a></h2>
+<p>Before processing with <em>Apsis</em>, raw ACS images should be run through the
+STScI ACS calibration pipeline <a class="reference external" href="http://stsdas.stsci.edu/cgi-bin/gethelp.cgi?calacs">CALACS</a>.  <em>CALACS</em> does
+the basic processing including overscan correction, bias subtraction,
+dark correction, flatfielding, and Cosmic Ray (CR) rejection of CR split
+frames.  <em>Apsis</em> uses the output images from <em>CALACS</em> as its input data.
+<em>Apsis</em> can use either processed single frames, having names
+<tt class="docutils literal"><span class="pre">*_flt.fits</span></tt>, or the CR rejection combined images, having names like
+<tt class="docutils literal"><span class="pre">*_crj.fits</span></tt>.  However, the CR rejection done by <em>Apsis</em> is superior
+to the algorithm used by <em>CALACS</em>, and <em>Apsis</em> can also remove the small
+alignment differences in the images comprising a CR split pair.  Hence,
+better results are obtained by processsing just the <tt class="docutils literal"><span class="pre">*_flt.fits</span></tt>
+images.</p>
+</div>
+<div class="section" id="getting-acs-images">
+<h2>Getting ACS images<a class="headerlink" href="#getting-acs-images" title="Permalink to this headline">¶</a></h2>
+<p>ACS images can be obtained from <a class="reference external" href="http://archive.stsci.edu/hst/">MAST</a>, the Multimission Archive at STScI.
+You will need to have an account on MAST to retrieve data.  While a
+variety of data products from ACS observations can be obtained from
+MAST, the only ones relevant for <em>Apsis</em> are the single frame <em>CALACS</em>
+calibrated images, as discussed above.  These have names like
+<tt class="docutils literal"><span class="pre">*_flt.fits</span></tt>.</p>
+</div>
+<div class="section" id="organizing-the-input-files">
+<h2>Organizing the input files<a class="headerlink" href="#organizing-the-input-files" title="Permalink to this headline">¶</a></h2>
+<p>All the data to be processed in a single <em>Apsis</em> run is organized into a
+a directory known as a &#8220;dataset&#8221;.  This directory must be a subdirectory
+off of the <strong>$INGEST</strong> directory, discussed above. The name of this
+directory is then the dataset name.  The dataset directory should only
+contain <em>CALACS</em> processed input images (<tt class="docutils literal"><span class="pre">_flt.fits</span></tt> files) and
+association tables (<tt class="docutils literal"><span class="pre">_asn.fits</span></tt> files).  A dataset can only contain
+images obtained with the same ACS camera, (i.e. no mixing of WFC, HRC,
+and SBC images), but may contain images using different filters and at
+different telescope offset positions.  For <em>Apsis</em> to work properly, the
+sky area covered should be contiguous.  The fits format association
+tables tell <em>Apsis</em> which ACS images are to be combined together and are
+discussed below.</p>
+</div>
+<div class="section" id="making-association-tables">
+<h2>Making Association tables<a class="headerlink" href="#making-association-tables" title="Permalink to this headline">¶</a></h2>
+<p>In order to determine which images should be combined to produce an
+output frame, <em>Apsis</em> uses <a class="reference external" href="http://www.stsci.edu/hst/acs/documents/handbooks/DataHandbookv5/acs_Ch22.html">association tables</a>.
+For <em>Apsis</em> to work properly, there should be one association table for
+each set of images taken with a given filter.  These images will be
+combined into one output &#8220;filter&#8221; image.  The
+table should list all the <tt class="docutils literal"><span class="pre">_flt.fits</span></tt> frames taken with the filter,
+and there should be one association for each filter used in the
+dataset.  One way to create association tables is to use the script
+<em>autoasndir</em> which determines all the filters used in the images in a
+given directory, and writes an association table for each filter.</p>
+<p>The pyraf module <a class="reference external" href="http://stsdas.stsci.edu/pyraf/stscidocs/pydrizzle_pkg/pydrizzle_api/pydrizzle.buildasn-module.html">buildasn.py</a>
+can also be used to make custom association tables.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="">Preliminary steps</a><ul>
+<li><a class="reference external" href="#setting-up-the-environment-variables">Setting up the environment variables</a></li>
+<li><a class="reference external" href="#initial-processing">Initial Processing</a></li>
+<li><a class="reference external" href="#getting-acs-images">Getting ACS images</a></li>
+<li><a class="reference external" href="#organizing-the-input-files">Organizing the input files</a></li>
+<li><a class="reference external" href="#making-association-tables">Making Association tables</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="install.html"
+                                  title="previous chapter">Download and Installation</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="running.html"
+                                  title="next chapter">Running Apsis</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/prelims.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="running.html" title="Running Apsis"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="install.html" title="Download and Installation"
+             >previous</a> |</li>
+        <li><a href="index.html">Apsis v5.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009, Ken Anderson, John Blakeslee, Rychard Bouwens, Dan Magee.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Download and Installation &mdash; Apsis v4.2.5 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '4.2.5',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Apsis v4.2.5 documentation" href="index.html" />
+    <link rel="next" title="Preliminary steps" href="prelims.html" />
+    <link rel="prev" title="Introduction" href="intro.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="prelims.html" title="Preliminary steps"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="Introduction"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Apsis v4.2.5 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="download-and-installation">
+<h1>Download and Installation<a class="headerlink" href="#download-and-installation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="download">
+<h2>Download<a class="headerlink" href="#download" title="Permalink to this headline">¶</a></h2>
+<p><em>Apsis</em> and its reference files can be obtained from <a class="reference external" href="http://code.google.com/p/apsis">Google Codes</a> .</p>
+</div>
+<div class="section" id="dependent-software">
+<h2>Dependent Software<a class="headerlink" href="#dependent-software" title="Permalink to this headline">¶</a></h2>
+<p>In addition to the <em>Apsis</em> source code, the following packages are
+needed for <em>Apsis</em> to run.  Packages indicated with * are included with
+the <a class="reference external" href="http://web.mac.com/npirzkal/Scisoft/Scisoft.html">Scisoft suite</a>
+of astronomical software for Mac OS X.  <em>Scisoft</em> Version 2009.6.1 for
+intel based macs, <a class="reference external" href="http://www.versiontracker.com/dyn/moreinfo/macosx/20126">available here</a>, contains
+versions of the dependent software that are known to work with <em>Apsis</em>.
+The precise versions listed below have been tested and work with <em>Apsis</em>.
+Earlier or later versions may also work, but we can not guarantee that.
+We note with a <strong>warning</strong> versions of the software that do not work with <em>Apsis</em>.</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.python.org/download/releases/2.5.4/">python 2.5.4</a> *<ul>
+<li><strong>warning:</strong> <em>Apsis</em> will not work with <em>python 2.6</em> or higher</li>
+</ul>
+</li>
+<li>python modules:<ul>
+<li><a class="reference external" href="http://sourceforge.net/projects/numpy/files/NumPy/">numpy 1.3.0</a> *</li>
+<li><a class="reference external" href="http://www.stsci.edu/resources/software_hardware/pyfits/Download">pyfits 2.1.1</a> *</li>
+</ul>
+</li>
+<li><a class="reference external" href="http://www.stsci.edu/resources/software_hardware/pyraf/stsci_python/current/download">stsci_python 2.8</a> *<ul>
+<li>includes <em>pyraf</em> 1.7.1</li>
+<li>includes <a class="reference external" href="http://stsdas.stsci.edu/stsci_python_epydoc/docs/pydrizzle/pydrizzle-module.html">pydrizzle 6.3.1</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="http://iraf.noao.edu/">iraf 2.14.1</a> *<ul>
+<li>should include <a class="reference external" href="http://www.stsci.edu/resources/software_hardware/stsdas/download">tables/stsdas 3.10</a> *</li>
+</ul>
+</li>
+<li><a class="reference external" href="http://astromatic.iap.fr/software/sextractor/">sextractor 2.5.0</a> *</li>
+<li><a class="reference external" href="http://spiff.rit.edu/match/">match 0.10</a> *</li>
+<li><a class="reference external" href="http://www.astro.princeton.edu/~schlegel/dust/data/data.html">dust_getval v2000.07.14, version (C+Fortran code)</a><ul>
+<li>Download dustmaps at 4096 pixel resolution</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="installation-on-a-mac-osx-system">
+<h2>Installation on a Mac OSX system<a class="headerlink" href="#installation-on-a-mac-osx-system" title="Permalink to this headline">¶</a></h2>
+<p>This is realtively easy because most of the required software is
+bundled with <em>Scisoft</em>, which includes executables.  So installation
+amounts to mainly a matter of installing <em>Apsis</em> and <em>Scisoft</em>.  Only
+one additional package is needed, <em>dust_getval</em>; it with its reference
+data must be downloaded and the package compiled.  The following is the
+procedure that worked on my intel MacBook (Aug 2009); variations on this
+may also work.</p>
+<ol class="arabic simple">
+<li>Download and install <a class="reference external" href="http://web.mac.com/npirzkal/Scisoft/Scisoft.html">Scisoft suite</a> .<ul>
+<li>click download link at <em>Scisoft</em> webpage</li>
+<li>click link for intel version</li>
+<li>click &#8220;Download Scisoft now&#8221; link.</li>
+<li>Download the file <tt class="docutils literal"><span class="pre">Scisoft_OSX_macintel_2009.6.1.pkg.zip</span></tt></li>
+<li>double click this file in finder.  This will open the zip file with
+<em>Stuffit</em>.</li>
+<li>double click the pkg file</li>
+<li>follow the instructions to install<ul>
+<li>This should put the software in <tt class="docutils literal"><span class="pre">/Applications/scisoft</span></tt></li>
+</ul>
+</li>
+<li>To run scisoft packages you will need to do<ul>
+<li><tt class="docutils literal"><span class="pre">source</span> <span class="pre">/Applications/scisoft/all/bin/setup.csh</span></tt></li>
+<li>I placed this command at the end of my <tt class="docutils literal"><span class="pre">~/.cshrc</span></tt> file so it is run
+whenever I startup</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Download <em>Apsis</em> and the <em>Apsis</em> reference files and install them.<ul>
+<li>Make a directory for <em>Apsis</em>.  I use <tt class="docutils literal"><span class="pre">~/ACS/Apsis</span></tt></li>
+<li>Go to the <a class="reference external" href="http://code.google.com/p/apsis">Google Codes</a>  web
+site.</li>
+<li>click on the link to the most recent version of <em>Apsis</em>,
+e.g. <tt class="docutils literal"><span class="pre">apsis-4.2.2.tgz</span></tt> to download the source code (and place it in
+the the relevent directory, i.e. <tt class="docutils literal"><span class="pre">~/ACS/Apsis</span></tt>)</li>
+<li>unpack using <tt class="docutils literal"><span class="pre">tar</span> <span class="pre">tvzf</span> <span class="pre">apsis-4.2.2.tgz</span></tt><ul>
+<li>this makes a directory apsis-4.2.2 containing the software</li>
+</ul>
+</li>
+<li>click on the link &#8220;apsis-4.2_reffiles.tgz&#8221; to download the
+reference files (to the relevant directory, i.e. ~/ACS/Apsis)<ul>
+<li>this makes a directory &#8220;reffiles&#8221; containing the reference files</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>compile apsis utilities<ul>
+<li><tt class="docutils literal"><span class="pre">cd</span> <span class="pre">~/ACS/Apsis/apsis-4.2.2/src/apsis_utils</span></tt></li>
+<li>edit Makefile to change CFITSIO path (if necessary)</li>
+<li><tt class="docutils literal"><span class="pre">make</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">make</span> <span class="pre">install</span></tt>
+(NOTE: the binaries are installed in ~/apsis/bin)</li>
+</ul>
+</li>
+<li>make symbolic link for <em>match</em>.  (<em>Apsis</em> calls this program as
+<tt class="docutils literal"><span class="pre">mrmatch</span></tt>).<ul>
+<li><tt class="docutils literal"><span class="pre">cd</span> <span class="pre">~/local/bin</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">/Applications/scisoft/i386/Packages/match-0.10/bin/match</span> <span class="pre">.</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">/Applications/scisoft/i386/Packages/match-0.10/bin/match</span> <span class="pre">mrmatch</span></tt></li>
+</ul>
+</li>
+<li>download, compile and install <em>dust_getval</em><ul>
+<li>go to <a class="reference external" href="http://www.astro.princeton.edu/~schlegel/dust/data/data.html">http://www.astro.princeton.edu/~schlegel/dust/data/data.html</a></li>
+<li>click on link &#8220;C+FORTRAN code&#8221; this will download <tt class="docutils literal"><span class="pre">CodeC.tar.gz</span></tt></li>
+<li>put this somewhere in your $PATH .  I put it in <tt class="docutils literal"><span class="pre">~/local</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">cd</span> <span class="pre">~/local</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">tar</span> <span class="pre">xvzf</span> <span class="pre">CodeC.tar.gz</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">cd</span> <span class="pre">CodeC</span></tt></li>
+<li>Edit Makefile so that it compiles - make sure the code block
+following <tt class="docutils literal"><span class="pre">#</span> <span class="pre">COMPILE</span> <span class="pre">ON</span> <span class="pre">A</span> <span class="pre">DEC</span> <span class="pre">ALPHA</span></tt> is uncommented since it uses
+<em>gcc</em> and <em>g77</em>, and similar blocks for other compilers are commented
+out.</li>
+<li><tt class="docutils literal"><span class="pre">make</span> <span class="pre">all</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">mkdir</span> <span class="pre">~/local/dust_getval-20000714</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">mv</span> <span class="pre">dust_getval</span> <span class="pre">lambert_getval</span> <span class="pre">predict_sync</span> <span class="pre">predict_thermal</span> <span class="pre">~/local/dustgetval-20000714</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">cd</span> <span class="pre">~/local/bin</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">./dust_getval-20000714/dust_getval</span> <span class="pre">.</span></tt></li>
+</ul>
+</li>
+<li>Install dust maps<ul>
+<li>go to <a class="reference external" href="http://www.astro.princeton.edu/~schlegel/dust/data/data.html">http://www.astro.princeton.edu/~schlegel/dust/data/data.html</a></li>
+<li>click on link &#8220;4096 maps&#8221; .  This will download <tt class="docutils literal"><span class="pre">SFD_4096.tar.gz</span></tt></li>
+<li>unpack this into an apropriate directory:<ul>
+<li><tt class="docutils literal"><span class="pre">cd</span> <span class="pre">~/ACS/Apsis/reffiles/maps</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">tar</span> <span class="pre">xvzf</span> <span class="pre">~/Downloads/SFD_4096.tar.gz</span></tt></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="installation-on-a-linux-system">
+<h2>Installation on a linux system<a class="headerlink" href="#installation-on-a-linux-system" title="Permalink to this headline">¶</a></h2>
+<p>Detailed instructions are not yet written.  The basic process would be
+to:</p>
+<ol class="arabic simple">
+<li>download the individual packages listed above</li>
+<li>unpack them in to apropriate directories</li>
+<li>make compiled and executable versions as necessary</li>
+<li>make sure the executables are in your <tt class="docutils literal"><span class="pre">$PATH</span></tt></li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="">Download and Installation</a><ul>
+<li><a class="reference external" href="#download">Download</a></li>
+<li><a class="reference external" href="#dependent-software">Dependent Software</a></li>
+<li><a class="reference external" href="#installation-on-a-mac-osx-system">Installation on a Mac OSX system</a></li>
+<li><a class="reference external" href="#installation-on-a-linux-system">Installation on a linux system</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="intro.html"
+                                  title="previous chapter">Introduction</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="prelims.html"
+                                  title="next chapter">Preliminary steps</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/install.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="prelims.html" title="Preliminary steps"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="Introduction"
+             >previous</a> |</li>
+        <li><a href="index.html">Apsis v4.2.5 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009, Ken Anderson, John Blakeslee, Rychard Bouwens, Dan Magee, Gerhardt Meurer.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.3.
+    </div>
+  </body>
+</html>

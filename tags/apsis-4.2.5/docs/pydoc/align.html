@@ -1,0 +1,513 @@
+
+<!doctype html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module align</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>align</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/meurer/ACS/Pipeline/Apsis/apsis/align.py">/home/meurer/ACS/Pipeline/Apsis/apsis/align.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;------&nbsp;&nbsp;new&nbsp;api<br>
+#&nbsp;<br>
+#&nbsp;--&nbsp;list&nbsp;of&nbsp;fits&nbsp;files<br>
+#&nbsp;--&nbsp;files&nbsp;where&nbsp;the&nbsp;relative&nbsp;alignment&nbsp;should&nbsp;be&nbsp;good&nbsp;and&nbsp;thus&nbsp;can&nbsp;be&nbsp;stacked...<br>
+#&nbsp;--&nbsp;associated&nbsp;with&nbsp;each&nbsp;file&nbsp;is&nbsp;parameters&nbsp;to&nbsp;find&nbsp;stars<br>
+#&nbsp;--&nbsp;some&nbsp;outside&nbsp;reference&nbsp;image??</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="amputil.html">amputil</a><br>
+<a href="fUtil.html">fUtil</a><br>
+<a href="math.html">math</a><br>
+</td><td width="25%" valign=top><a href="matutil.html">matutil</a><br>
+<a href="os.html">os</a><br>
+<a href="pUtil.html">pUtil</a><br>
+</td><td width="25%" valign=top><a href="popen2.html">popen2</a><br>
+<a href="pyfits.html">pyfits</a><br>
+<a href="string.html">string</a><br>
+</td><td width="25%" valign=top><a href="time.html">time</a><br>
+<a href="wcsclass.html">wcsclass</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="align.html#Align">Align</a>
+</font></dt><dt><font face="helvetica, arial"><a href="align.html#AlignParam">AlignParam</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="align.html#StandAlignParam">StandAlignParam</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="align.html#Camera">Camera</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="align.html#ACSHRCCamera">ACSHRCCamera</a>
+</font></dt><dt><font face="helvetica, arial"><a href="align.html#ACSWFCCamera">ACSWFCCamera</a>
+</font></dt><dt><font face="helvetica, arial"><a href="align.html#NIC3Camera">NIC3Camera</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="align.html#Filter">Filter</a>
+</font></dt><dt><font face="helvetica, arial"><a href="align.html#FitsFile">FitsFile</a>
+</font></dt><dt><font face="helvetica, arial"><a href="align.html#GlobalBlock">GlobalBlock</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="align.html#NothingGlobalBlock">NothingGlobalBlock</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="align.html#KWList">KWList</a>
+</font></dt><dt><font face="helvetica, arial"><a href="align.html#MatchParam">MatchParam</a>
+</font></dt><dt><font face="helvetica, arial"><a href="align.html#Nothinglogfile">Nothinglogfile</a>
+</font></dt><dt><font face="helvetica, arial"><a href="align.html#SearchParam">SearchParam</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="align.html#ACSDefSearchParam">ACSDefSearchParam</a>
+</font></dt><dt><font face="helvetica, arial"><a href="align.html#ExtDefSearchParam">ExtDefSearchParam</a>
+</font></dt><dt><font face="helvetica, arial"><a href="align.html#NIC3DefSearchParam">NIC3DefSearchParam</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="align.html#skyLinesClass">skyLinesClass</a>
+</font></dt></dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ACSDefSearchParam">class <strong>ACSDefSearchParam</strong></a>(<a href="align.html#SearchParam">SearchParam</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="ACSDefSearchParam-__init__"><strong>__init__</strong></a>(self, pardir, modName, lowLim<font color="#909090">=1.55</font>)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ACSHRCCamera">class <strong>ACSHRCCamera</strong></a>(<a href="align.html#Camera">Camera</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="ACSHRCCamera-__init__"><strong>__init__</strong></a>(self, pardir, modName)</dt></dl>
+
+<hr>
+Methods inherited from <a href="align.html#Camera">Camera</a>:<br>
+<dl><dt><a name="ACSHRCCamera-AddFilter"><strong>AddFilter</strong></a>(self, Filter)</dt></dl>
+
+<dl><dt><a name="ACSHRCCamera-GetFilter"><strong>GetFilter</strong></a>(self, ff, PathName)</dt></dl>
+
+<dl><dt><a name="ACSHRCCamera-GetName"><strong>GetName</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="ACSHRCCamera-GetSearchParam"><strong>GetSearchParam</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="ACSHRCCamera-IsEqual"><strong>IsEqual</strong></a>(self, ff)</dt></dl>
+
+<dl><dt><a name="ACSHRCCamera-IsPresent"><strong>IsPresent</strong></a>(self, ff)</dt></dl>
+
+<dl><dt><a name="ACSHRCCamera-RaiseKWError"><strong>RaiseKWError</strong></a>(self, PathName)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ACSWFCCamera">class <strong>ACSWFCCamera</strong></a>(<a href="align.html#Camera">Camera</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="ACSWFCCamera-__init__"><strong>__init__</strong></a>(self, pardir, modName)</dt></dl>
+
+<hr>
+Methods inherited from <a href="align.html#Camera">Camera</a>:<br>
+<dl><dt><a name="ACSWFCCamera-AddFilter"><strong>AddFilter</strong></a>(self, Filter)</dt></dl>
+
+<dl><dt><a name="ACSWFCCamera-GetFilter"><strong>GetFilter</strong></a>(self, ff, PathName)</dt></dl>
+
+<dl><dt><a name="ACSWFCCamera-GetName"><strong>GetName</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="ACSWFCCamera-GetSearchParam"><strong>GetSearchParam</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="ACSWFCCamera-IsEqual"><strong>IsEqual</strong></a>(self, ff)</dt></dl>
+
+<dl><dt><a name="ACSWFCCamera-IsPresent"><strong>IsPresent</strong></a>(self, ff)</dt></dl>
+
+<dl><dt><a name="ACSWFCCamera-RaiseKWError"><strong>RaiseKWError</strong></a>(self, PathName)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Align">class <strong>Align</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Align">Align</a>&nbsp;is&nbsp;the&nbsp;module/class&nbsp;which&nbsp;does&nbsp;all&nbsp;the&nbsp;work&nbsp;for&nbsp;aligning&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;huge&nbsp;set&nbsp;of&nbsp;images&nbsp;from&nbsp;different&nbsp;instruments&nbsp;/&nbsp;filters&nbsp;/&nbsp;etc.<br>
+&nbsp;<br>
+&nbsp;&nbsp;Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;imfiles&nbsp;consists&nbsp;of&nbsp;a&nbsp;list&nbsp;of&nbsp;<a href="#FitsFile">FitsFile</a>&nbsp;instances<br>
+&nbsp;&nbsp;&nbsp;&nbsp;CameraList&nbsp;specifies&nbsp;a&nbsp;list&nbsp;of&nbsp;different&nbsp;<a href="#Camera">Camera</a>&nbsp;objects.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Groups&nbsp;contains&nbsp;a&nbsp;list&nbsp;of&nbsp;different&nbsp;groupings<br>
+&nbsp;&nbsp;&nbsp;&nbsp;CurExtImage&nbsp;specifies&nbsp;an&nbsp;external&nbsp;image&nbsp;off&nbsp;of&nbsp;which&nbsp;to&nbsp;do<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alignments.&nbsp;&nbsp;It&nbsp;should&nbsp;be&nbsp;of&nbsp;class&nbsp;<a href="#FitsFile">FitsFile</a>.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#GlobalBlock">GlobalBlock</a>&nbsp;contains&nbsp;many&nbsp;of&nbsp;global&nbsp;parameters&nbsp;used&nbsp;for&nbsp;logging<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;operations&nbsp;and&nbsp;specifying&nbsp;the&nbsp;overall&nbsp;directory&nbsp;structure.<br>
+&nbsp;<br>
+Basic&nbsp;usage:<br>
+&nbsp;&nbsp;&nbsp;al&nbsp;=&nbsp;align.alignImage(obs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;all&nbsp;the&nbsp;setup<br>
+&nbsp;&nbsp;&nbsp;al.<a href="#Align-makeMatchCats">makeMatchCats</a>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;all&nbsp;sextractor&nbsp;runs;&nbsp;cat&nbsp;generation<br>
+&nbsp;&nbsp;&nbsp;al.<a href="#Align-match">match</a>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;all&nbsp;matching/merging/output'ing&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;al.<a href="#Align-subtractSkies">subtractSkies</a>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;subtract&nbsp;skyval's&nbsp;from&nbsp;simple&nbsp;&amp;&nbsp;mef&nbsp;images<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Align-FixWCS"><strong>FixWCS</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Align-__init__"><strong>__init__</strong></a>(self, imfiles, allShifts, CameraList, GlobalBlock, SkyFile<font color="#909090">=0</font>, idcTab<font color="#909090">=None</font>, CurExtImage<font color="#909090">=None</font>, Groups<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="Align-makeMatchCats"><strong>makeMatchCats</strong></a>(self, SkyFile, irafskytoo)</dt></dl>
+
+<dl><dt><a name="Align-match"><strong>match</strong></a>(self, AlignParam, notrot, intRef<font color="#909090">=None</font>, retry<font color="#909090">=0</font>)</dt><dd><tt>Match&nbsp;sources&nbsp;in&nbsp;the&nbsp;.matchin&nbsp;files&nbsp;using&nbsp;match.&nbsp;If&nbsp;no&nbsp;refFile<br>
+has&nbsp;yet&nbsp;been&nbsp;defined,&nbsp;it&nbsp;calls&nbsp;_chooseRefimage&nbsp;to&nbsp;get&nbsp;one.&nbsp;&nbsp;<br>
+You&nbsp;can&nbsp;specify&nbsp;a&nbsp;default&nbsp;shift&nbsp;file&nbsp;in&nbsp;the&nbsp;case&nbsp;of&nbsp;total&nbsp;match&nbsp;failures;<br>
+if&nbsp;not&nbsp;an&nbsp;absolute&nbsp;path,&nbsp;it&nbsp;assumes&nbsp;the&nbsp;file&nbsp;is&nbsp;in&nbsp;the&nbsp;align&nbsp;directory.<br>
+Optional&nbsp;parameters:<br>
+&nbsp;&nbsp;&nbsp;intRef&nbsp;&nbsp;-&nbsp;&nbsp;specify&nbsp;a&nbsp;reference&nbsp;image&nbsp;internal&nbsp;to&nbsp;the&nbsp;dataset.<br>
+&nbsp;&nbsp;&nbsp;retry&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;running&nbsp;match&nbsp;again&nbsp;without&nbsp;reloading&nbsp;or&nbsp;remaking&nbsp;MatchCats,etc.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note:&nbsp;this&nbsp;only&nbsp;works&nbsp;right&nbsp;if&nbsp;not&nbsp;using&nbsp;an&nbsp;externally&nbsp;supplied<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reference&nbsp;image.</tt></dd></dl>
+
+<dl><dt><a name="Align-recenterImages"><strong>recenterImages</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Align-removeUnpicklable"><strong>removeUnpicklable</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Align-setupImages"><strong>setupImages</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Align-subtractSkies"><strong>subtractSkies</strong></a>(self, useMinSky, deAmp, ForceSub<font color="#909090">=0</font>, omitSimple<font color="#909090">=0</font>, omitMEF<font color="#909090">=0</font>, aveExt<font color="#909090">=0</font>)</dt><dd><tt>Subtract&nbsp;the&nbsp;sky&nbsp;values&nbsp;of&nbsp;all&nbsp;the&nbsp;input&nbsp;FITS&nbsp;images<br>
+(simplefits&nbsp;*and*&nbsp;mef,&nbsp;unless&nbsp;overwritten&nbsp;by&nbsp;optional&nbsp;parameters).<br>
+Update&nbsp;headers&nbsp;to&nbsp;reflect&nbsp;subtraction&nbsp;using&nbsp;ALIGNSKY&nbsp;keyword.<br>
+Optional&nbsp;input&nbsp;parameters:<br>
+&nbsp;&nbsp;&nbsp;ForceSub&nbsp;&nbsp;&nbsp;(def&nbsp;0):&nbsp;&nbsp;if&nbsp;==1,&nbsp;subtract&nbsp;sky&nbsp;even&nbsp;if&nbsp;ALIGNSKY&nbsp;keyword&nbsp;is&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;already&nbsp;in&nbsp;the&nbsp;header.&nbsp;Normally&nbsp;it&nbsp;won't&nbsp;subtract&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;sky&nbsp;if&nbsp;this&nbsp;keyword&nbsp;is&nbsp;already&nbsp;present.<br>
+&nbsp;&nbsp;&nbsp;omitSimple&nbsp;(def&nbsp;0):&nbsp;&nbsp;if&nbsp;==1,&nbsp;omit&nbsp;all&nbsp;processing&nbsp;of&nbsp;simple&nbsp;FITS&nbsp;images<br>
+&nbsp;&nbsp;&nbsp;omitMEF&nbsp;&nbsp;&nbsp;&nbsp;(def&nbsp;0):&nbsp;&nbsp;if&nbsp;==1,&nbsp;omit&nbsp;all&nbsp;processing&nbsp;of&nbsp;simple&nbsp;MEF&nbsp;images<br>
+&nbsp;&nbsp;&nbsp;aveExt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(def&nbsp;0):&nbsp;&nbsp;if&nbsp;==1,&nbsp;subtract&nbsp;average&nbsp;sky&nbsp;from&nbsp;multiple&nbsp;image<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extensions;&nbsp;otherwise,&nbsp;subtract&nbsp;individual&nbsp;sky's.<br>
+&nbsp;&nbsp;&nbsp;<br>
+There's&nbsp;a&nbsp;high&nbsp;danger&nbsp;of&nbsp;confusion&nbsp;if&nbsp;you&nbsp;change&nbsp;any&nbsp;of&nbsp;these&nbsp;options<br>
+from&nbsp;their&nbsp;default&nbsp;values.</tt></dd></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="AlignParam">class <strong>AlignParam</strong></a></font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="AlignParam-__init__"><strong>__init__</strong></a>(self, superalign, tolmatch, default_scale_tol, maxfitrms)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Camera">class <strong>Camera</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Camera">Camera</a>&nbsp;is&nbsp;the&nbsp;class&nbsp;which&nbsp;stores&nbsp;all&nbsp;parameters&nbsp;related&nbsp;to&nbsp;a&nbsp;specific<br>
+camera/instrument<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Camera-AddFilter"><strong>AddFilter</strong></a>(self, Filter)</dt></dl>
+
+<dl><dt><a name="Camera-GetFilter"><strong>GetFilter</strong></a>(self, ff, PathName)</dt></dl>
+
+<dl><dt><a name="Camera-GetName"><strong>GetName</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Camera-GetSearchParam"><strong>GetSearchParam</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Camera-IsEqual"><strong>IsEqual</strong></a>(self, ff)</dt></dl>
+
+<dl><dt><a name="Camera-IsPresent"><strong>IsPresent</strong></a>(self, ff)</dt></dl>
+
+<dl><dt><a name="Camera-RaiseKWError"><strong>RaiseKWError</strong></a>(self, PathName)</dt></dl>
+
+<dl><dt><a name="Camera-__init__"><strong>__init__</strong></a>(self, Name, KWList, updown, OrientAdj)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ExtDefSearchParam">class <strong>ExtDefSearchParam</strong></a>(<a href="align.html#SearchParam">SearchParam</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="ExtDefSearchParam-__init__"><strong>__init__</strong></a>(self, pardir, modName, lowLim<font color="#909090">=1.55</font>)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Filter">class <strong>Filter</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>idctab&nbsp;is&nbsp;the&nbsp;full&nbsp;pathname&nbsp;of&nbsp;the&nbsp;relevant&nbsp;idctab&nbsp;file.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Filter-GetSearchParam"><strong>GetSearchParam</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Filter-IsEqual"><strong>IsEqual</strong></a>(self, ff)</dt></dl>
+
+<dl><dt><a name="Filter-IsPresent"><strong>IsPresent</strong></a>(self, ff)</dt></dl>
+
+<dl><dt><a name="Filter-RaiseKWError"><strong>RaiseKWError</strong></a>(self, PathName)</dt></dl>
+
+<dl><dt><a name="Filter-__init__"><strong>__init__</strong></a>(self, Name, idctab, KWList, SearchParam)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="FitsFile">class <strong>FitsFile</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#FitsFile">FitsFile</a>&nbsp;is&nbsp;the&nbsp;module/class&nbsp;which&nbsp;does&nbsp;object&nbsp;identification&nbsp;/<br>
+matching&nbsp;for&nbsp;individual&nbsp;fits&nbsp;files.&nbsp;<br>
+&nbsp;<br>
+parameters:<br>
+&nbsp;&nbsp;PathName&nbsp;=&nbsp;filename&nbsp;(path&nbsp;+&nbsp;name)<br>
+&nbsp;&nbsp;Asn&nbsp;=&nbsp;association&nbsp;name<br>
+&nbsp;&nbsp;logfile&nbsp;=&nbsp;open&nbsp;file&nbsp;to&nbsp;log&nbsp;information<br>
+&nbsp;&nbsp;<a href="#GlobalBlock">GlobalBlock</a>&nbsp;=&nbsp;<br>
+&nbsp;&nbsp;<a href="#SearchParam">SearchParam</a>&nbsp;=&nbsp;search&nbsp;parameters&nbsp;for&nbsp;stars&nbsp;(added&nbsp;in&nbsp;EvaluateFilt)<br>
+&nbsp;&nbsp;sci&nbsp;=&nbsp;list&nbsp;to&nbsp;accommodate&nbsp;scientific&nbsp;extensions<br>
+&nbsp;&nbsp;NumSci&nbsp;=&nbsp;the&nbsp;number&nbsp;of&nbsp;scientific&nbsp;extensions<br>
+&nbsp;&nbsp;ref&nbsp;=&nbsp;Is&nbsp;reference&nbsp;image<br>
+&nbsp;&nbsp;simpleimage&nbsp;=&nbsp;Is&nbsp;Simple&nbsp;Image&nbsp;(not&nbsp;from&nbsp;telescope&nbsp;or&nbsp;having&nbsp;multiple&nbsp;extensions)<br>
+&nbsp;&nbsp;outscale&nbsp;=&nbsp;<br>
+&nbsp;&nbsp;V2center&nbsp;=<br>
+&nbsp;&nbsp;V3center&nbsp;=<br>
+&nbsp;&nbsp;updown&nbsp;=&nbsp;<br>
+&nbsp;&nbsp;matchFile&nbsp;=<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="FitsFile-ChangeToExtRef"><strong>ChangeToExtRef</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="FitsFile-ChangeToRef"><strong>ChangeToRef</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="FitsFile-CheckExtRefFlags"><strong>CheckExtRefFlags</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="FitsFile-DetermineExtStruct"><strong>DetermineExtStruct</strong></a>(self)</dt><dd><tt>Read&nbsp;the&nbsp;extension&nbsp;struct&nbsp;and&nbsp;populate&nbsp;NumSci,sci</tt></dd></dl>
+
+<dl><dt><a name="FitsFile-DetermineFirstImage"><strong>DetermineFirstImage</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="FitsFile-DetermineShift"><strong>DetermineShift</strong></a>(self, AlignParam, refim, refMatchFile, matchf, defShiftDict)</dt></dl>
+
+<dl><dt><a name="FitsFile-EvaluateFilt"><strong>EvaluateFilt</strong></a>(self, CameraList)</dt></dl>
+
+<dl><dt><a name="FitsFile-FixWCS"><strong>FixWCS</strong></a>(self, refim)</dt></dl>
+
+<dl><dt><a name="FitsFile-SetUpRefAngleDict"><strong>SetUpRefAngleDict</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="FitsFile-SortOutFrame"><strong>SortOutFrame</strong></a>(self)</dt><dd><tt>Get&nbsp;expected&nbsp;shifts&nbsp;of&nbsp;all&nbsp;images&nbsp;relative&nbsp;to&nbsp;the&nbsp;reference&nbsp;image<br>
+from&nbsp;the&nbsp;image&nbsp;headers.&nbsp;This&nbsp;just&nbsp;uses&nbsp;the&nbsp;raw&nbsp;WCS,&nbsp;not&nbsp;the&nbsp;distortion&nbsp;map,<br>
+so&nbsp;beware.</tt></dd></dl>
+
+<dl><dt><a name="FitsFile-__init__"><strong>__init__</strong></a>(self, PathName, Asn, GlobalBlock, SearchParam<font color="#909090">=None</font>, useMinSky<font color="#909090">=0</font>)</dt></dl>
+
+<dl><dt><a name="FitsFile-delMatchDicts"><strong>delMatchDicts</strong></a>(self)</dt><dd><tt>Delete&nbsp;self.<strong>MatchDict</strong>,&nbsp;so&nbsp;can&nbsp;remake&nbsp;with&nbsp;hdr_shifts</tt></dd></dl>
+
+<dl><dt><a name="FitsFile-getHeaderShift"><strong>getHeaderShift</strong></a>(self, refim)</dt></dl>
+
+<dl><dt><a name="FitsFile-makeMatchCat"><strong>makeMatchCat</strong></a>(self, skyLines, irafskytoo)</dt></dl>
+
+<dl><dt><a name="FitsFile-mergeMatchDicts"><strong>mergeMatchDicts</strong></a>(self)</dt><dd><tt>Merge&nbsp;multiple&nbsp;self.<strong>preMatchDict</strong>[i]&nbsp;dict's&nbsp;into&nbsp;1&nbsp;self.<strong>MatchDict</strong></tt></dd></dl>
+
+<dl><dt><a name="FitsFile-recenter"><strong>recenter</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="FitsFile-removeUnpicklable"><strong>removeUnpicklable</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="FitsFile-returnundistortradec"><strong>returnundistortradec</strong></a>(self, scidex, xp, yp)</dt></dl>
+
+<dl><dt><a name="FitsFile-setFinalShifts"><strong>setFinalShifts</strong></a>(self, refim, notrot)</dt><dd><tt>Returns&nbsp;a&nbsp;tuple&nbsp;of&nbsp;final&nbsp;shifts&nbsp;uncertainties&nbsp;for&nbsp;an&nbsp;image.<br>
+The&nbsp;code&nbsp;uses&nbsp;the&nbsp;fitted&nbsp;shifts&nbsp;except&nbsp;in&nbsp;emergencies,&nbsp;and<br>
+then&nbsp;it&nbsp;sets&nbsp;MatchDict[xpix_shift],MatchDict[ypix_shift],&nbsp;etc<br>
+and&nbsp;returns&nbsp;the&nbsp;shifts&nbsp;it&nbsp;decides&nbsp;on.&nbsp;&nbsp;It&nbsp;logs&nbsp;a&nbsp;warning&nbsp;if&nbsp;the<br>
+final&nbsp;shifts&nbsp;differ&nbsp;significantly&nbsp;from&nbsp;the&nbsp;commanded&nbsp;ones.</tt></dd></dl>
+
+<dl><dt><a name="FitsFile-setupIDCinfo"><strong>setupIDCinfo</strong></a>(self, idcName)</dt><dd><tt>Get&nbsp;IDC&nbsp;matrix&nbsp;transformations&nbsp;for&nbsp;each&nbsp;element&nbsp;of&nbsp;self.<strong>sci</strong>[].</tt></dd></dl>
+
+<dl><dt><a name="FitsFile-setupWCS"><strong>setupWCS</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="FitsFile-subtractBack"><strong>subtractBack</strong></a>(self, deAmp, ForceSub<font color="#909090">=0</font>, omitSimple<font color="#909090">=0</font>, omitMEF<font color="#909090">=0</font>, aveExt<font color="#909090">=0</font>)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="GlobalBlock">class <strong>GlobalBlock</strong></a></font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="GlobalBlock-__init__"><strong>__init__</strong></a>(self, logfile, obsAlign, obsPars, obsFits)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="KWList">class <strong>KWList</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#KWList">KWList</a>&nbsp;gives&nbsp;the&nbsp;list&nbsp;of&nbsp;keywords&nbsp;and&nbsp;values&nbsp;unique&nbsp;to&nbsp;a&nbsp;specific<br>
+filter.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="KWList-AddKW"><strong>AddKW</strong></a>(self, key, value)</dt></dl>
+
+<dl><dt><a name="KWList-IsEqual"><strong>IsEqual</strong></a>(self, ff)</dt></dl>
+
+<dl><dt><a name="KWList-IsPresent"><strong>IsPresent</strong></a>(self, ff)</dt><dd><tt>Useful&nbsp;for&nbsp;testing&nbsp;to&nbsp;see&nbsp;if&nbsp;the&nbsp;appropriate&nbsp;keywords&nbsp;are&nbsp;in&nbsp;<br>
+the&nbsp;header&nbsp;at&nbsp;all.&nbsp;&nbsp;Thus&nbsp;for&nbsp;error&nbsp;checkings.</tt></dd></dl>
+
+<dl><dt><a name="KWList-RaiseError"><strong>RaiseError</strong></a>(self, PathName)</dt></dl>
+
+<dl><dt><a name="KWList-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="MatchParam">class <strong>MatchParam</strong></a></font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="MatchParam-__init__"><strong>__init__</strong></a>(self, identity<font color="#909090">=None</font>, minscale<font color="#909090">=1</font>, maxscale<font color="#909090">=1</font>, nobj<font color="#909090">=60</font>, trirad<font color="#909090">=None</font>, medsigclip<font color="#909090">=2.7000000000000002</font>, default_scale_tol<font color="#909090">=0.0030000000000000001</font>, matchrad<font color="#909090">=6</font>, maxfitrms<font color="#909090">=2.0</font>)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="NIC3Camera">class <strong>NIC3Camera</strong></a>(<a href="align.html#Camera">Camera</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="NIC3Camera-__init__"><strong>__init__</strong></a>(self, pardir, modName)</dt></dl>
+
+<hr>
+Methods inherited from <a href="align.html#Camera">Camera</a>:<br>
+<dl><dt><a name="NIC3Camera-AddFilter"><strong>AddFilter</strong></a>(self, Filter)</dt></dl>
+
+<dl><dt><a name="NIC3Camera-GetFilter"><strong>GetFilter</strong></a>(self, ff, PathName)</dt></dl>
+
+<dl><dt><a name="NIC3Camera-GetName"><strong>GetName</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="NIC3Camera-GetSearchParam"><strong>GetSearchParam</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="NIC3Camera-IsEqual"><strong>IsEqual</strong></a>(self, ff)</dt></dl>
+
+<dl><dt><a name="NIC3Camera-IsPresent"><strong>IsPresent</strong></a>(self, ff)</dt></dl>
+
+<dl><dt><a name="NIC3Camera-RaiseKWError"><strong>RaiseKWError</strong></a>(self, PathName)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="NIC3DefSearchParam">class <strong>NIC3DefSearchParam</strong></a>(<a href="align.html#SearchParam">SearchParam</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="NIC3DefSearchParam-__init__"><strong>__init__</strong></a>(self, pardir, modName, lowLim<font color="#909090">=0.5</font>)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="NothingGlobalBlock">class <strong>NothingGlobalBlock</strong></a>(<a href="align.html#GlobalBlock">GlobalBlock</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="NothingGlobalBlock-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Nothinglogfile">class <strong>Nothinglogfile</strong></a></font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Nothinglogfile-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Nothinglogfile-write"><strong>write</strong></a>(self, S)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="SearchParam">class <strong>SearchParam</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#SearchParam">SearchParam</a>&nbsp;is&nbsp;the&nbsp;class&nbsp;which&nbsp;give&nbsp;the&nbsp;parameters&nbsp;used&nbsp;to&nbsp;identify<br>
+stars&nbsp;or&nbsp;other&nbsp;concentrated&nbsp;objects&nbsp;off&nbsp;of&nbsp;which&nbsp;alignment&nbsp;is&nbsp;done.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;Parameters&nbsp;specify&nbsp;the&nbsp;following&nbsp;limits:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lowLim:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;min(2.3*b_axis,fwhm)&nbsp;&gt;=&nbsp;lowLim&nbsp;(e.g.,&nbsp;1.55&nbsp;&nbsp;for&nbsp;WFC)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hiLim:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;max(2.3*a_axis,fwhm)&nbsp;&lt;&nbsp;hiLim&nbsp;&nbsp;(e.g.,&nbsp;20&nbsp;for&nbsp;WFC)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minAxisRat:&nbsp;b_axis/a_axis&nbsp;&gt;&nbsp;minAxisRat&nbsp;&nbsp;&nbsp;(e.g.,&nbsp;0.33&nbsp;for&nbsp;WFC)&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EdgeBuf:&nbsp;&nbsp;&nbsp;&nbsp;Minimum&nbsp;distance&nbsp;(pixels)&nbsp;from&nbsp;image&nbsp;boundary.&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inParFile:&nbsp;&nbsp;Name&nbsp;of&nbsp;Default&nbsp;inParFile<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_lower_pixthresh_:&nbsp;Lower&nbsp;Pixel&nbsp;Threshold<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="SearchParam-__init__"><strong>__init__</strong></a>(self, lowLim, hiLim, minAxisRat, EdgeBuf, inParFile, _lower_pixthresh_)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="StandAlignParam">class <strong>StandAlignParam</strong></a>(<a href="align.html#AlignParam">AlignParam</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="StandAlignParam-__init__"><strong>__init__</strong></a>(self, superalign)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="skyLinesClass">class <strong>skyLinesClass</strong></a></font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="skyLinesClass-__init__"><strong>__init__</strong></a>(self, SkyFile, GlobalBlock)</dt></dl>
+
+<dl><dt><a name="skyLinesClass-checkforfile"><strong>checkforfile</strong></a>(self, shortname)</dt></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-DoAlign"><strong>DoAlign</strong></a>(imfiles, CameraList, ExtImage, logfile, newalign, newpar, newfits, pardir, idcTab<font color="#909090">=None</font>)</dt></dl>
+ <dl><dt><a name="-ReturndefShiftDict"><strong>ReturndefShiftDict</strong></a>(GlobalBlock, refImage)</dt></dl>
+ <dl><dt><a name="-pixelScale"><strong>pixelScale</strong></a>(fext, fname)</dt><dd><tt>Return&nbsp;the&nbsp;pixel&nbsp;scale&nbsp;from&nbsp;the&nbsp;WCS&nbsp;info&nbsp;of&nbsp;the&nbsp;passed&nbsp;fitsfile.</tt></dd></dl>
+ <dl><dt><a name="-subtractextension"><strong>subtractextension</strong></a>(filename, whext, sky, skyrms, deAmp, skykeyword, ForceSub, GlobalBlock)</dt></dl>
+ <dl><dt><a name="-wcsangle"><strong>wcsangle</strong></a>(fext, fname)</dt><dd><tt>Return&nbsp;the&nbsp;pixel&nbsp;scale&nbsp;from&nbsp;the&nbsp;WCS&nbsp;info&nbsp;of&nbsp;the&nbsp;passed&nbsp;fitsfile.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>iraf</strong> = &lt;module 'pyraf.iraf' from '/usr/lib/python2.4/site-packages/pyraf/iraf.pyc'&gt;<br>
+<strong>less_equal</strong> = &lt;UFunc: 'less_equal'&gt;</td></tr></table>
+</body></html>

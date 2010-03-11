@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Introduction &mdash; Apsis v4.2.5 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '4.2.5',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Apsis v4.2.5 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="index.html">Apsis v4.2.5 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>The ACS science team developed <em>Apsis</em> to efficiently process the ~550
+orbits of GTO time we received in exchange for our instrument development and
+calibration work.  <em>Apsis</em> (ACS pipeline science investigation software) is
+designed to be a robust and flexible astronomical data reduction and analysis
+pipeline for processing these data and related observations.  <em>Apsis</em> is
+written in Python using a flexible, modular design.  <em>Apsis</em> was
+used for processing the ACS early release observation (ERO) images of the
+Tadpole and Mice galaxies, the Cone Nebula, and M17 soon after ACS was
+installed on the Hubble Space Telescope, and for almost all team ACS
+observations since then.  It has developed and been used extensively on
+Linux, Solaris, and Mac OSX platforms for processing WFC and HRC data from
+both science and calibration programs.</p>
+<p>An early description of <em>Apsis</em> can be found in <a class="reference external" href="http://adsabs.harvard.edu/abs/2003ASPC..295..257B">Blakeslee et al. (2003).</a></p>
+<div class="section" id="what-it-does">
+<h2>What it does<a class="headerlink" href="#what-it-does" title="Permalink to this headline">¶</a></h2>
+<p>A single <em>Apsis</em> run will process an &#8220;observation object&#8221; consisting of all
+the images of a given field (or mosaic of overlapping fields).  The input
+images to <em>Apsis</em> are the the FLT output images produced by the CALACS
+software (Hack 1999) which is run on all HST/ACS products as part of the
+STScI pipeline processing.  The FLT images are organized into &#8220;associations&#8221;
+of all the images in one filter using FITS format association tables (one per
+filter).</p>
+<p>The observation object is passed through a variety of modules which perform
+the main processing steps:</p>
+<blockquote>
+<ul class="simple">
+<li>Measurement of the offsets and rotation between frames corrected for
+distortion.</li>
+<li>Sky estimation and subtraction.</li>
+<li>Image stacking with cosmic ray (CR) rejection and &#8220;drizzling&#8221; of each
+association on to a tangential-plane pixel grid.</li>
+<li>Construction of error arrays.</li>
+<li>Construction of a multi-band &#8220;detection image&#8221;.</li>
+<li>Object detection and measurement.</li>
+<li>Photometric calibration.</li>
+<li>(Photo-z estimation is now deprecated)</li>
+</ul>
+</blockquote>
+<p>A running log keeps track of progress and records diagnostics.  Other output
+products consist of FITS images (including weights and masks), ASCII
+catalogs, and XML marked messages, catalogs and FITS headers which are used
+for in-house archiving purposes.</p>
+</div>
+<div class="section" id="caveats">
+<h2>Caveats<a class="headerlink" href="#caveats" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="download">
+<h2>Download<a class="headerlink" href="#download" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="dependent-software">
+<h2>Dependent Software<a class="headerlink" href="#dependent-software" title="Permalink to this headline">¶</a></h2>
+<p>In addition to the <em>Apsis</em> source code, the following packages are
+needed for <em>Apsis</em> to run.  Packages indicated with &amp;#042; are included
+with the <a class="reference external" href="http://web.mac.com/npirzkal/Scisoft/Scisoft.html">Scisoft suite</a> of astronomical
+software for Mac OS X.  Version 2009.6.1 for intel based macs,
+<a class="reference external" href="http://www.versiontracker.com/dyn/moreinfo/macosx/20126">available here</a> is known to
+have versions of the software known to work with apsis.  The precise
+versions listed below are known to work with apsis.  Earlier or later versions
+may also work, but we can not guarantee that.  We note versions of the
+software that do not work with apsis.</p>
+<ul class="simple">
+<li><a href="#id1"><span class="problematic" id="id2">`</span></a>python 2.5 and sub versions</li>
+</ul>
+<p>&lt;<a class="reference external" href="http://www.python.org/download/releases/2.5.4/">http://www.python.org/download/releases/2.5.4/</a>&gt;`_&amp;#042;</p>
+<blockquote>
+<ul class="simple">
+<li><strong>warning:</strong> apsis will not work with python 2.6 or higher</li>
+</ul>
+</blockquote>
+<ul class="simple">
+<li>python modules:<ul>
+<li><a href="#id3"><span class="problematic" id="id4">`</span></a>numpy 1.3.0 &lt;<a class="reference external" href="http://sourceforge.net/projects/numpy/files/NumPy/">http://sourceforge.net/projects/numpy/files/NumPy/</a>&gt;`_&amp;#042;</li>
+<li><a href="#id5"><span class="problematic" id="id6">`</span></a>pyfits 2.1.1 &lt;<a class="reference external" href="http://www.stsci.edu/resources/software_hardware/pyfits/Download">http://www.stsci.edu/resources/software_hardware/pyfits/Download</a>&gt;`_&amp;#042;</li>
+</ul>
+</li>
+<li><a href="#id7"><span class="problematic" id="id8">`</span></a>stsci_python 2.8 Download &lt;<a class="reference external" href="http://www.stsci.edu/resources/software_hardware/pyraf/stsci_python/current/download">http://www.stsci.edu/resources/software_hardware/pyraf/stsci_python/current/download</a>&gt;`_&amp;*042;<ul>
+<li>includes pyraf 1.7.1</li>
+<li>includes <cite>pydrizzle 6.3.1 &lt;http://stsdas.stsci.edu/stsci_python_epydoc/docs/pydrizzle/pydrizzle-module.html&gt;</cite></li>
+</ul>
+</li>
+<li><a href="#id9"><span class="problematic" id="id10">`</span></a>iraf 2.14.1 &lt;<a class="reference external" href="http://iraf.noao.edu/">http://iraf.noao.edu/</a>&gt;`_&amp;#042;<ul>
+<li>should include <a href="#id11"><span class="problematic" id="id12">`</span></a>tables/stsdas 3.10 &lt;<a class="reference external" href="http://www.stsci.edu/resources/software_hardware/stsdas/download">http://www.stsci.edu/resources/software_hardware/stsdas/download</a>&gt;`_&amp;#042;</li>
+</ul>
+</li>
+<li><a href="#id13"><span class="problematic" id="id14">`</span></a>sextractor 2.5.0 &lt;<a class="reference external" href="http://astromatic.iap.fr/software/sextractor/">http://astromatic.iap.fr/software/sextractor/</a>&gt;`_&amp;#042;</li>
+<li><a class="reference external" href="http://spiff.rit.edu/match/">match 0.10</a></li>
+<li><a class="reference external" href="http://www.astro.princeton.edu/~schlegel/dust/data/data.html">dust_getval v2000.07.14, version (C+Fortran code)</a><ul>
+<li>Also download dustmaps at 4096 pixel resolution</li>
+</ul>
+</li>
+</ul>
+<p>In addition to the <em>Apsis</em> source code, the following packages are
+needed for <em>Apsis</em> to run.</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.python.org/download/releases/2.5.4/">python 2.5.4</a></li>
+<li><a class="reference external" href="http://iraf.noao.edu/">iraf 2.14.1</a><ul>
+<li>should include <a class="reference external" href="http://www.stsci.edu/resources/software_hardware/stsdas/download">tables/stsdas 3.10</a></li>
+</ul>
+</li>
+<li>pyraf 1.7.1<ul>
+<li>download as part of <a class="reference external" href="http://www.stsci.edu/resources/software_hardware/pyraf/stsci_python/current/download">stsci_python 2.8</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="ftp://ftp.iap.fr/pub/from_users/bertin/sextractor/">sextractor 2.5.0</a></li>
+<li><a class="reference external" href="http://spiff.rit.edu/match/">match 0.10</a></li>
+<li><a class="reference external" href="http://www.astro.princeton.edu/~schlegel/dust/data/data.html">dust_getval v2000.07.14, version (C+Fortran code)</a><ul>
+<li>Also get dustmaps at ???? resolution</li>
+</ul>
+</li>
+<li>python modules:<ul>
+<li><a class="reference external" href="http://sourceforge.net/projects/numpy/files/NumPy/">numpy 1.3.0</a></li>
+<li><a class="reference external" href="http://www.stsci.edu/resources/software_hardware/pyfits/Download">pyfits 2.1.1</a></li>
+<li><a class="reference external" href="http://stsdas.stsci.edu/stsci_python_epydoc/docs/pydrizzle/pydrizzle-module.html">pydrizzle 6.3.1</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="install">
+<h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="">Introduction</a><ul>
+<li><a class="reference external" href="#what-it-does">What it does</a></li>
+<li><a class="reference external" href="#caveats">Caveats</a></li>
+<li><a class="reference external" href="#download">Download</a></li>
+<li><a class="reference external" href="#dependent-software">Dependent Software</a></li>
+<li><a class="reference external" href="#install">Install</a></li>
+</ul>
+</li>
+</ul>
+
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/intro_draft.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="index.html">Apsis v4.2.5 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009, Ken Anderson, John Blakeslee, Rychard Bouwens, Dan Magee, Gerhardt Meurer.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+.. Apsis documentation master file, created by
+   sphinx-quickstart on Wed Jun  3 14:54:18 2009.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Apsis - the ACS data reduction pipeline
+=======================================
+
+*Apsis* is the image processing and analysis pipeline for data from the
+Hubble Space Telescope's (HST) Advanced Camera for Surveys (ACS).  It
+can work with images from any of ACS's three cameras: the Wide Field
+Channel (WFC), the High Resolution Channel (HRC), and the Solar Blind
+Channel (SBC).  
+
+*Apsis* processing includes aligning images, co-adding the images
+observed with the same filter, making a detection image from the
+individual filter images, cataloging the sources found in the detection
+image, measuring photometry for these sources in all filters and
+correcting the results for aperture effects and foreground extinction.
+*Apsis* is written mostly in python with some code in C.  *Apsis* was
+developed for the ACS GTO team and should not be confused with `CALACS
+<http://stsdas.stsci.edu/cgi-bin/gethelp.cgi?calacs>`_ the `STScI
+<http://stsdas.stsci.edu/cgi-bin/>`_ pipeline to
+preform basic calibrations of ACS data.
+
+**Development Team:** Ken Anderson, John Blakeslee, Rychard Bouwens, Dan
+Magee, Gerhardt Meurer, Txitxo Benitez, Nicholas Cross, Felipe
+Menanteau, Andre Martel.
+
+Contents:
+
+.. toctree::
+	:maxdepth: 2
+
+	intro
+	install
+	prelims
+	running
+	modules
+	citation
+	license
+	appendix
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+

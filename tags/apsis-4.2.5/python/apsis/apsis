@@ -1,0 +1,1295 @@
+#!/usr/bin/env python
+
+# $Id: apsis,v 1.67 2006/08/29 06:50:33 jpb Exp $
+# ---------------------------------------------------------------------
+
+__version__      = '$Revision: 1.67 $ '[11:-3]
+__version_date__ = '$Date: 2006/08/29 06:50:33 $ '[7:-3]
+__author__       = "Ken Anderson, <anderson@pha.jhu.edu>"
+
+
+#-------------------------------------------------------------------------------------------#
+#                               Handle Cl Options                  
+#-------------------------------------------------------------------------------------------#
+
+try:
+    import apsisVersion
+    apsis_release = apsisVersion.version
+    apsis_ver_date = apsisVersion.version_date
+    print 'Apsis v' + apsis_release + ' (' + apsis_ver_date + ')'
+except ImportError:
+    apsis_release = __version__
+    print "This is not a released version of Apsis."
+    print "This is revision " +  __version__ + " of apsis."
+
+import sys,path,os,string,getopt
+
+mod  = os.path.basename(sys.argv[0])
+
+usage= '\n\tUsage: '+ mod + ' [options] obs\n\n'\
+       '\t--crlower\tUse dangerously low driz_cr rejection thresholds.\n'\
+       '\t--intRef=<im>\tUse fits file <im> in the dataset as reference image.\n'\
+       '\t--extRef=<im>\tUse external fits file <im> as reference image.\n'\
+       '\t--idctab=<file>\tUse fits IDC table <file> instead of IDCTAB from header.\n'\
+       '\t--justgrism\tThis dataset aligned as a pure grism observation.\n'\
+       '\t--starcluster\tUses the starcluster parameter set for alignment.\n'\
+       '\t--alpixthr=<sig>\tUse this sxtr detection thresh for align.\n'\
+       '\t--noAve\t\tExtension averaging will *not* be done during sky subtraction.\n'\
+       '\t--nosub\t\tNo sky subtraction will be done.\n'\
+       '\t--minSky\tUse minimum sky value from multi extension images.\n'\
+       '\t--keepstep\tDo not try to remove amplifier discontinuity for ACS/WFC.\n'\
+       '\t--skyfile\tLook for a default.skies listing sky values.\n'\
+       '\t--noclean\tIntermediate drizzle products will not be deleted.\n'\
+       '\t--noCRreject\tDo not reject cosmic rays (1-pass drizzling).\n'\
+       '\t--richfield\tUse rich (cluster) field deblend parameters.\n'\
+       '\t--justDriz\tWill quit immediately after drizzling.\n'\
+       '\t--smartstack\tUse optimal median stacking during drizzle.\n'\
+       '\t--noContext\tWill not produce context images in final drizzling.\n'\
+       '\t--keepbits=<number>\tSum of pixel data quality flags to keep during drizzle.\n'\
+       '\t--noGSC \tWill not attempt to correct image WCS by webquery to GSC2.\n'\
+       '\t--nocats\tNo catalogs should be produced for this pipeline run.\n'\
+       '\t--notrot \tDo not use rotation in transform found by \'match\' (use med shifts).\n'\
+       '\t--notrim\tDo not trim detection weight where Nim=1.\n'\
+       '\t--dfilt=<filt> \tUse the distortion model in the IDCTAB for this filter. (Currently disabled)\n'\
+       '\t--excludefilt=<filtname> \tCSV list of filters which will not be included in .\n'\
+       '\t                         \tthe detection image.\n'\
+       '\t--padfac=<f> \tPad linear output size by this factor.\n'\
+       '\t--outsize=<nx>,<ny>\tUse this output N_x,N_y *pix* (comma separated) image size.\n'\
+       '\t--outshift=<dxA>,<dyA>\tApply these overall x,y *ASEC* shifts (csv) in output frame.\n'\
+       '\t--dr_asecpix=<outscale>\tPixel scale of final drizzled image (asec/pix).\n'\
+       '\t--dr_pixfrac=<pixfrac>\tDriz pixfrac ("dropsize") param used for final drizzling.\n'\
+       '\t--dr_kernel=<kernel>\tDriz kernel (square|point|turbo|tophat|lanczos2|lanczos3|gaussian).\n'\
+       '\t--mask=<mask_file>\tExplicitly mask out specific regions in certain input files.\n'\
+       '\t--noXml \tDo not do XML markup of data products.\n'\
+       '\t--OwnIraf \tUse the login.cl file from the users environment.\n'\
+       '\t--testonly \tTest configuration; exit before directory build.\n'\
+       '\t--debug \tPrint full traceback when an exception occurs.\n'\
+       '\t--help\t\tThis message.\n\n'
+
+long_options = ['help',
+                'debug',
+                'testonly',
+                'noAve',
+                'minSky',
+                'nocats',
+                'noGSC',
+                'noContext',
+                'justDriz',
+                'smartstack',
+                'excludefilt=',
+                'nosub',
+                'notrim',
+                'noXml',
+                'starcluster',
+                'justgrism',
+                'keepstep',
+                'notrot',
+                'richfield',
+                'noclean',
+                'crlower',
+                'intRef=',
+                'extRef=',
+                'dr_asecpix=',
+                'dr_pixfrac=',
+                'dr_kernel=',
+                'keepbits=',
+                'idctab=',
+                'skyfile',
+                'noCRreject',
+                'ownIraf',
+                'padfac=',
+                # 'dfilt=',
+                'outsize=',
+                'outshift=',
+                'noContext',
+                'mask='
+                ]
+
+try:
+    opts, arg = getopt.getopt(sys.argv[1:],'',long_options)
+except getopt.GetoptError:
+    # print help information and exit:
+    sys.exit(usage)
+
+if not arg:
+    sys.exit(usage)
+
+# Only ONE observation (argument) can be specified
+if len(arg) != 1:
+    sys.exit(usage)
+
+observation = arg[0]
+if not os.path.isdir(os.path.join(os.environ["INGEST"],observation)):
+    sys.exit("No observation, "+observation+", found in INGEST.")
+
+# initialise the switches.  Default state is off (None).
+
+debug   = None
+testonly= None
+noAve   = None
+minSky  = None
+nocats  = None
+noGSC   = None
+justDriz= None
+smartstack= None
+nosub   = None
+notrim  = None
+padfac  = None
+outsize = None
+outshift= None
+noXml   = None
+ownIraf = None
+starclus= None
+alpixthr= None
+grism   = None
+keepstep= None
+notrot  = None
+noclean = None
+crlower = None
+intRef  = None
+extRef  = None
+idctab  = None
+dfilt   = None
+skyfile = None
+richfield= None
+noContext= None
+excludefilt= None
+dr_asecpix = None
+dr_pixfrac = None
+dr_kernel  = None
+keepbits   = None
+noRej      = None
+superalign = 1
+noContext = None
+MaskFile = None
+
+dr_kernlist = ['square','point','turbo','tophat','lanczos2','lanczos3','gaussian']
+
+cl_switches = []
+if opts:
+    for o, a in opts:
+        if a:
+            cl_switches.append(o+"="+a)
+        else:
+            cl_switches.append(o)
+            
+        if o in ("--help",):
+            sys.exit(usage)
+        print '\n',
+        
+        if o in ("--noAve",):
+            print "Running subtractSkies without extension averaging."
+            noAve = 1
+            continue
+        
+        if o in ("--debug",):
+            print "Using debugging mode."
+            debug = 1
+            continue
+        
+        if o in ("--testonly",):
+            print "Will test configuration and exit before directory build."
+            testonly = 1
+            continue
+        
+        if o in ("--minSky",):
+            print "Will use minimum sky value for mef data."
+            minSky = 1
+            continue
+        
+        if o in ("--nocats",):
+            print "No catalogs will be written for this run."
+            nocats = 1
+            continue
+        
+        if o in ("--noGSC",):
+            print "Will not attempt to correct image WCS by webquery to GSC2."
+            noGSC = 1
+            continue
+        
+        if o in ("--noContext",):
+            print "Will not produce context images during final drizzling."
+            noContext = 1
+            continue
+        
+        if o in ("--justDriz",):
+            print "Will quit immediately after drizzling."
+            justDriz = 1
+            continue
+        
+        if o in ("--richfield",):
+            print "Using rich field deblend parameter set for source detection."
+            richfield = 1
+            continue	
+        
+        if o in ("--nosub",):
+            nosub = 1
+            print "Sky subtraction will not be done."
+            continue
+        
+        if o in ("--ownIraf",):
+            ownIraf = 1
+            print "DANGER! You've set secret 'ownIraf' flag to use your own iraf setup...."
+            continue
+        
+        if o in ("--starcluster",):
+            starclus = 1
+            print "Treating dataset as a starcluster"
+            continue
+        
+        if o in ("--justgrism",):
+            grism = 1
+            print "Treating dataset as a grism observation for align."
+            continue
+        
+        if o in ("--excludefilt",):
+            excludefilt=string.split(a,',')
+            print "Excluding filter(s) ",excludefilt,"from detection image."
+            continue
+        
+        if o in ("--notrot",):
+            notrot = 1
+            print "Will not allow match transforms with rotation (does not affect header trans)."
+            continue
+        
+        if o in ("--keepstep",):
+            keepstep = 1
+            print "Will not try to remove residual amp step in WFC data."
+            continue
+        
+        if o in ("--noclean",):
+            noclean = 1
+            print "No deletion intermediate drizzle products."
+            continue
+        
+        if o in ("--notrim",):
+            notrim = 1
+            print "Will not trim detection weight image where Nim=1 (detects edge CRs)."
+            continue
+	    
+        if o in ("--smartstack",):
+            print "Using optimal median stacking during drizzle."
+            smartstack = 1
+            notrim = 1
+            print "Turning on notrim option for use with smartstack. Will not trim detection weight image."
+            continue
+        
+        if o in ("--padfac",):
+            padfac = float(a)
+            print "Using",padfac,"to rescale output linear image size."
+            continue
+        
+        if o in ("--alpixthr",):
+            alpixthr = float(a)
+            print "Using",alpixthr,"for SXTR pixthresh in align."
+            continue
+        
+        if o in ("--outsize",):
+            if ',' not in a:
+                sys.exit(usage)
+            __nx,__ny = (int(a.split(',')[0]),int(a.split(',')[1]))
+            if min(__nx,__ny) < 2:
+                sys.ext('Outsize dimensions must be > 1')
+            outsize = (__nx,__ny)
+            del __nx,__ny
+            print "Using Nx,Ny = %d,%d for output image size." %(outsize[0],outsize[1])
+            continue
+        
+        if o in ("--outshift",):
+            if ',' not in a:
+                sys.exit(usage)
+            __dx,__dy = (float(a.split(',')[0]),float(a.split(',')[1]))
+            outshift = (__dx,__dy)
+            del __dx,__dy
+            print "Using dx,dy = %G,%G arcsec for overall output image shift." %(outshift[0],outshift[1])
+            continue
+        
+        if o in ("--noXml",):
+            noXml = 1
+            print "Will not do XML markup."
+            continue
+        
+        if o in ("--crlower",):
+            crlower = 1
+            print "Using lower CR rejection thresholds."
+            continue
+        
+        if o in ("--noCRreject",):
+            noRej = 1
+            print "Will not attempt to reject CR's."
+            continue
+        
+        if o in ("--intRef",):
+            intRef = a
+            print "Using",intRef,"as internal match reference image."
+            continue
+        
+        if o in ("--extRef",):
+            extRef = a
+            print "Using",extRef,"as external match reference image."
+            continue
+        
+        if o in ("--dr_asecpix",):
+            dr_asecpix = float(a)
+            print "Using",dr_asecpix,"for output pixel scale in final images."
+            continue
+        
+        if o in ("--dr_pixfrac",):
+            dr_pixfrac = float(a)
+            print "Using",dr_pixfrac,"for final drizzle pixfrac (dropsize) param."
+            continue
+        
+        if o in ("--dr_kernel",):
+            dr_kernel = a
+            if a not in dr_kernlist:
+                sys.exit('drizzle kernel must be one of:\n  '+str(dr_kernlist))
+            else:
+                print "Using",dr_kernel,"drizzle kernel."
+            continue
+        
+        if o in ("--keepbits",):
+            keepbits = int(a)
+            if keepbits < 0 or keepbits > 16384:
+                sys.exit('bit total must be > 0 and < 16384')
+            else:
+                print "Will keep flagged bits indicated by "+str(keepbits)
+            continue
+        
+        if o in ("--idctab",):
+            idctab = a
+            print "Using",idctab,"as IDCTAB reference file."
+            continue
+        
+        if o in ("--noContext",):
+            noContext = 1
+            print "Will not generate context images."
+            continue
+	    
+        if o in ("--mask",):
+            MaskFile = a
+            print "Using",MaskFile,"as mask file."
+            continue
+        
+        if o in ("--skyfile",):
+            skyfile = 1
+            print "Will look for a default.skies file."
+            continue
+
+
+if padfac and outsize:
+    sys.exit("\nAhem. 'padfac' and 'outsize' switches are mutually exclusive.")
+
+#-------------------------------------------------------------------------------------------#
+#                         End command line options handler    
+#-------------------------------------------------------------------------------------------#
+
+# Some imports 
+
+print "\nLoading modules..." 
+
+import time, string
+import glob
+from   shutil import rmtree
+import ingest, msg, filters
+from   pUtil import ptime,jarIt,rmFiles
+
+if dfilt:
+    ACSfilters = filters.ACSFilterInfo()
+    if dfilt not in ACSfilters.all:
+        sys.exit('Sorry, filter '+dfilt+' not a recognized ACS filter.\n')
+    wheel = ACSfilters.getFilterAttr(dfilt,'wheel')
+    if wheel == '1':
+        dfilts = (dfilt,'CLEAR')
+    elif wheel == '2':
+        dfilts = ('CLEAR',dfilt)
+    else:
+        sys.exit('Sorry, '+dfilt+' appears to be an SBC filter.\n')
+    print "Will use IDCTAB row for filter combination: "+str(dfilts)
+    del wheel,ACSfilters
+else:
+    dfilts = (None,None)
+
+# For now use the default coefficients until filter dependent distortion coefficients
+# are implenented in the new align module
+dfilts = (None,None)
+
+#-------------------------------------------------------------------------------------------#
+def jar(obdict,obsdir):
+    """ufunc for the pipeline which will write out the pipeline objects which
+    exist when called. obdict is a dictionary of objects:names which is built
+    as the pipeline progresses.  obsdir is the observation's directory, i.e. obs.root 
+    """
+    pdir = os.path.join(obsdir,'Picklejar')
+
+    # call the jarIt function which gets an object to pickle and a path to put them in, 
+    # This is just so i can recreate a pipeline run if needed.
+    # Of course, for this to be useful, the actual data will need to be online.
+
+    print "pickling pipeline objects..."
+    try:
+	os.mkdir(pdir)
+    except OSError:             # OSError will likely be from the pdir already existing
+	pass
+    for obj in obdict.keys():
+	file = obdict[obj]
+	jarIt(os.path.join(pdir,file),obj)  # ufunc jarIt from pUtil
+    return
+#-------------------------------------------------------------------------------------------#
+
+
+#-------------------------------------------------------------------------------------------#
+
+# function to clear out the dataset's Images directory of the temp iraf junk
+# See Bugzilla bug # 2077 as to why this is present.
+
+def irafCleanup(obs):
+    print "Cleaning up iraf environment..."
+    obs.logfile.write("Cleaning up iraf environment...")
+    curdir = os.getcwd()
+    os.chdir(obs.newfits)
+    try:
+        rmtree("pyraf")              # rmtree func from shutil module
+        obs.logfile.write("Images/pyraf dir removed.")
+    except OSError,err:
+        print "removing pyraf directory failed:"
+        print err
+    try:
+        rmtree("uparm")
+        obs.logfile.write("Images/uparm dir removed.")
+    except OSError,err:
+        print "removing uparm directory failed:"
+        print err
+    try:
+        os.remove("login.cl")
+        obs.logfile.write("Images/login.cl file removed.")
+    except OSError,err:
+        print "failed to remove login.cl file:"
+        print err
+    obs.logfile.write("Done.")
+    return
+
+#-------------------------------------------------------------------------------------------#
+
+# function for printing the full traceback to stdout
+import traceback
+
+def show_tb():
+    """Prints full traceback"""
+    err_head = "%s ERROR %s" % ("-"*30, "-"*30)
+    print err_head
+    traceback.print_exc(file=sys.stdout)
+    print err_head
+
+#-------------------------------------------------------------------------------------------#
+
+#-------------------------------------------------------------------------------------------#
+#                                     PIPELINE BEGIN                                          
+#-------------------------------------------------------------------------------------------#
+
+print "Setting new observation's directory structure..."
+print "initialising various lists for the pipeline run."
+
+obdict      = {}
+errorList   = []
+obs         = ingest.DataSet(observation,ownIraf=ownIraf)
+obdict[obs] = "obs"
+
+if not os.path.isdir(obs.ingestdir):
+    warntxt = "Observation not found in the INGEST area."
+    errorList.append(warntxt)
+    msg.runMessage(cl_switches,errorList,obs)
+    sys.exit(warntxt)
+
+if testonly:
+    sys.exit("\n Everything tests out ok! \n")
+    
+print "Starting directory build and retrieving data from $INGEST."
+try:
+    obs.buildObs()
+except NameError,err:
+    sys.exit("Named Dataset already exists in $DATASETS")
+except IOError,err:
+    sys.exit("buildObs threw an IOError exception:\n"+str(err))
+except Exception,err:
+    warntxt = "buildObs method failed."
+    errorList.append(warntxt)
+    errorList.append(str(err))
+    print warntxt
+    if debug:
+        show_tb()
+    obs.mkMsg()
+    msg.runMessage(cl_switches,errorList,obs)
+    jar(obdict,obs.root)
+    sys.exit(str(err))
+
+print observation," directory built."
+
+try:
+    obs.mkMsg()           # write the module message
+except Exception,err:
+    warntxt = "mkMsg method failed."
+    errorList.append(warntxt)
+    errorList.append(str(err))
+    print warntxt
+    if debug:
+        show_tb()
+    msg.runMessage(cl_switches,errorList,obs)
+    jar(obdict,obs.root)
+    sys.exit(str(err))
+
+jar(obdict,obs.root)
+
+# Now import the rest of the modules.
+
+import wralign, combDither, combFilter
+import filterCatalog, detectionCatalog, colorCatalog
+from  astrometer import WebQueryError
+
+#-------------------------------------------------------------------------------------------#
+##                               Alignment (align.py)
+#-------------------------------------------------------------------------------------------#
+
+print "Calling alignment module..."
+
+if nosub: 
+    irafsky = 0
+    print "Iraf Sky determination turned off."
+else: irafsky = 1
+
+try:
+    FrameSetUp = wralign.FrameSetUpClass()
+    alImage = wralign.alignImage(obs,irafSkyToo=irafsky,grism=grism,starclus=starclus,idcTab=idctab,
+                               keepstep=keepstep,notrot=notrot,useMinSky=minSky,sxtrthresh=alpixthr,
+                               extRefIm=extRef,FrameSetUp=FrameSetUp)
+    obdict[alImage] = "alignImage"
+except Exception,err:
+    warntxt = "Error encountered making alignImage object..."
+    errorList.append(warntxt)
+    errorList.append(str(err))
+    print warntxt
+    if debug:
+        show_tb()
+    msg.runMessage(cl_switches,errorList,obs) # if the constructor fails, alIm won't exist
+    jar(obdict,obs.root)
+    sys.exit(str(err))
+
+try:
+    if skyfile:
+        alImage.makeMatchCats(SkyFile=1)
+    else:
+        alImage.makeMatchCats()
+except Exception,err:
+    warntxt = "Error encountered in making the source catalogs for alignment..."
+    errorList.append(warntxt)
+    errorList.append(str(err))
+    print warntxt
+    if debug:
+        show_tb()
+
+    # Writing the align module message will very likely _fail_ since the
+    # input list tries to append all kinds of calculated attributes which
+    # may not have been calculated yet.  This is the only module which behaves
+    # this way, and I am not quite sure how to handle this other than put it
+    # in a try/except clause which means it won't get written anyway.
+
+    #alImage.mkMsg()            # write the module message 
+
+    msg.runMessage(cl_switches,errorList,obs,alImage)
+    jar(obdict,obs.root)
+    sys.exit(str(err))
+
+print "Determining shifts of images."
+try:
+    if intRef:
+        alImage.match(intRef=intRef,superalign=superalign)
+    else:
+        alImage.match(superalign=superalign)
+except Exception,err:
+    warntxt = "Error encountered running match..."
+    errorList.append(warntxt)
+    errorList.append(str(err))
+    print warntxt
+    #alImage.mkMsg()           # See comment above about this 
+    msg.runMessage(cl_switches,errorList,obs,alImage)
+    jar(obdict,obs.root)
+    sys.exit(str(err))
+
+print "shift determination complete."
+
+if FrameSetUp.outshift:
+   if not outshift:
+       outshift = FrameSetUp.outshift
+   else:
+       dx1,dy1 = FrameSetUp.outshift
+       dx2,dy2 = outshift
+       outshift = (dx1+dx2,dy1+dy2)
+
+   (x,y) = outshift
+   print "Using dx,dy = %G,%G arcsec for overall output image shift." % (x,y)
+
+if FrameSetUp.outsize:
+   outsize = FrameSetUp.outsize
+   (x,y) = outsize
+   print "Using Nx,Ny = %G,%G for output image size." % (x,y)
+
+if FrameSetUp.outscale:
+   dr_asecpix = FrameSetUp.outscale
+   print "Using",dr_asecpix,"for output pixel scale in final images."
+
+if nosub: 
+    print "skipping subtractSkies method as requested."
+    alImage.logfile.write("skipping subtractSkies method as requested.")
+else:
+    print "running subtractSkies method..."
+
+    ## the noAv variable has been set by the command line handler
+    ## it is either 1 (true) or None (false).
+    if noAve:
+        try:
+            alImage.subtractSkies(aveExt=0)
+        except Exception,err:
+             warntxt = "Error encountered in subtractSkies method..."
+             errorList.append(warntxt)
+             errorList.append(str(err))
+             print warntxt
+             if debug:
+                 show_tb()
+             #alImage.mkMsg()           # See comment above about this
+             msg.runMessage(cl_switches,errorList,obs,alImage)
+             jar(obdict,obs.root)
+             sys.exit(str(err))
+    else:
+        try:
+            alImage.subtractSkies(aveExt=1)
+        except Exception,err:
+             warntxt = "Error encountered in subtractSkies method..."
+             errorList.append(warntxt)
+             errorList.append(str(err))
+             print warntxt
+             if debug:
+                 show_tb()
+             #alImage.mkMsg()           # See comment above about this
+             msg.runMessage(cl_switches,errorList,obs,alImage)
+             jar(obdict,obs.root)
+             sys.exit(str(err))
+    print "subtractSkies done."
+
+print "writing module message..."
+try:
+    alImage.mkMsg()           # write the module message 
+except Exception,err:
+    warntxt = "mkMsg method failed."
+    errorList.append(warntxt)
+    errorList.append(str(err))
+    print warntxt
+    if debug:
+        show_tb()
+    msg.runMessage(cl_switches,errorList,obs,alImage)
+    jar(obdict,obs.root)
+    sys.exit(str(err))
+
+print "Deleting unpickleable parts of align object."
+alImage.removeUnpicklable()
+
+jar(obdict,obs.root)
+print "Done."
+#-------------------------------------------------------------------------------------------#
+##                               Drizzling (combDither.py)
+#-------------------------------------------------------------------------------------------#
+
+print "Calling combd module for combining dithered pointings..."
+try:
+    drzImage = combDither.drizzleImage(obs,alImage.MatchDict,
+                                       crlower=crlower,
+                                       smartstack=smartstack,
+                                       notrim=notrim,
+                                       padfac=padfac,
+                                       outsize=outsize,
+                                       outshift=outshift,
+                                       origscale=alImage.outscale,
+                                       noContext=noContext, 
+                                       maskFile=MaskFile, 
+                                       dfilts=dfilts)
+
+    obdict[drzImage]= "drizzleImage"
+except Exception,err:
+    warntxt = "Error encountered making drizzleImage object..."
+    errorList.append(warntxt)
+    errorList.append(str(err))
+    print warntxt
+    if debug:
+        show_tb()
+    msg.runMessage(cl_switches,errorList,obs,alImage)
+    jar(obdict,obs.root)
+    sys.exit(str(err))
+
+# the makeAsn method . . . has been removed
+
+print "Running drizzle/blot/drizzle cycle."
+print "might as well go grab a beer..."
+try:
+    if noclean:
+        if keepbits:
+            print "Received a keepbits value of ", keepbits
+            drzImage.run_all(clean_up=0, userKeepBits=keepbits, asecpix=dr_asecpix,
+                             pixfrac=dr_pixfrac, kernel=dr_kernel, noRej=noRej)
+
+        else:
+            drzImage.run_all(clean_up=0, asecpix=dr_asecpix,
+                             pixfrac=dr_pixfrac, kernel=dr_kernel, noRej=noRej)
+    else:
+        if keepbits:
+            print "Received a keepbits value of ", keepbits
+            drzImage.run_all(asecpix=dr_asecpix, userKeepBits=keepbits, pixfrac=dr_pixfrac,
+                             kernel=dr_kernel, noRej=noRej)                # default is clean_up=1
+        else:
+            drzImage.run_all(asecpix=dr_asecpix, pixfrac=dr_pixfrac, kernel=dr_kernel,
+                             noRej=noRej)
+ 
+except Exception,err:
+    warntxt = "Error encountered drizzling observation images..."
+    errorList.append(warntxt)
+    errorList.append(str(err))
+    print warntxt
+    if debug:
+        show_tb()
+    drzImage.mkMsg()           # write the module message
+    msg.runMessage(cl_switches,errorList,obs,alImage,drzImage)
+    jar(obdict,obs.root)
+    sys.exit(str(err))
+
+if justDriz:
+    rmList = []
+    for key in obs.asnDict.keys():
+        rmList += obs.asnDict[key]
+    # calling irafCleanup fn to clean up the iraf junk...
+    irafCleanup(obs)
+    # call the new pUtil function rmFiles to remove the input images.
+    # This is a space saving action only.
+    print "Calling rmFiles to remove input from the disk."
+    obs.logfile.write("Calling rmFiles to remove input from the disk.")
+    nfiles = rmFiles(obs.newfits,rmList)
+    obs.logfile.write(str(nfiles)+" files removed successfully.")
+    print nfiles,"files removed successfully."
+    msg.runMessage(cl_switches,errorList,obs,alImage,drzImage)
+    obs.logfile.write("End of pipeline run as requested: Quit after drizzling.")
+    donestr = "Apsis, v" + apsis_release + ", finished processing " + obs.newobs + " at " + ptime()
+    obs.logfile.write(donestr + "\n")
+    print donestr
+    sys.exit("End of pipeline run as requested: Quit after drizzling.")
+
+    
+print "making flag images..."
+try:
+    drzImage.makeFlagImage()
+except Exception,err:
+    warntxt = "Error encountered making Flag images..."
+    errorList.append(warntxt)
+    errorList.append(str(err))
+    print warntxt
+    if debug:
+        show_tb()
+    drzImage.mkMsg()           # write the module message
+    msg.runMessage(cl_switches,errorList,obs,alImage,drzImage)
+    jar(obdict,obs.root)
+    sys.exit(str(err))
+
+print "making rms images..."
+try:
+    drzImage.makeRmsImage()
+except Exception,err:
+    warntxt = "Error encountered making RMS images..."
+    errorList.append(warntxt)
+    errorList.append(str(err))
+    print warntxt
+    if debug:
+        show_tb()
+    drzImage.mkMsg()           # write the module message
+    msg.runMessage(cl_switches,errorList,obs,alImage,drzImage)
+    jar(obdict,obs.root)
+    sys.exit(str(err))
+
+if not noGSC:
+    try:
+        drzImage.fixAstrometry(obs)
+    except WebQueryError,err:
+        warntxt = "a WebQueryError exception was raised."
+        print warntxt
+        if debug:
+            show_tb()
+        errorList.append(warntxt)
+        errorList.append(str(err))
+        print "processing will continue without astrometric correction."
+    except Exception,err:
+        warntxt = "An exception was raised in running fixAstrometry."
+        errorList.append(warntxt)
+        errorList.append(str(err))
+        print warntxt
+        print err
+        drzImage.mkMsg()           # write the module message
+        msg.runMessage(cl_switches,errorList,obs,alImage,drzImage)
+        jar(obdict,obs.root)
+        sys.exit(str(err))
+else:
+    print "Skipping astrometric correction, as requested."
+    obs.logfile.write("Skipping astrometer module, as requested. No astrometric correction.")
+    
+    
+if not noXml:
+    print "writing the xml docs..."
+    try:
+        drzImage.writeXml()
+    except Exception,err:
+        warntxt = "Error encountered marking up products..."
+        errorList.append(warntxt)
+        errorList.append(str(err))
+        print warntxt
+        if debug:
+            show_tb()
+        drzImage.mkMsg()           # write the module message
+        msg.runMessage(cl_switches,errorList,obs,alImage,drzImage)
+        jar(obdict,obs.root)
+        sys.exit(str(err))
+
+print "writing the module message."
+try:
+    drzImage.mkMsg()           # write the module message
+except Exception,err:
+    warntxt = "Error encountered writing module message..."
+    errorList.append(warntxt)
+    errorList.append(str(err))
+    print warntxt
+    if debug:
+        show_tb()
+    msg.runMessage(cl_switches,errorList,obs,alImage,drzImage)
+    jar(obdict,obs.root)
+    sys.exit(str(err))
+    
+jar(obdict,obs.root)
+print "Done."
+    
+
+#-------------------------------------------------------------------------------------------#
+#                               Detection Image (combFilter.py)
+#-------------------------------------------------------------------------------------------#
+
+print "Now making detection image..."
+try:
+    detImage = combFilter.detectionImage(obs,excludefilt=excludefilt,noContext=noContext)
+    obdict[detImage] = "detectionImage"
+except combFilter.detectionImageError,err:
+    print err.value
+    print "Likely cause: No non-grism (i.e. non G800L filter) images in dataset."
+    obs.logfile.write("detectionImage constructor threw a detectionImageError exception")
+    obs.logfile.write("Likely cause: No non-grism images in dataset.")
+    obs.logfile.write("Apsis, v"+apsis_release+" exiting at  "+ptime()+"\n")
+    warntxt = "Trapped a detectionImageError exception: No non-grism images in dataset."
+    errorList.append(err.value)
+    errorList.append(warntxt)
+    msg.runMessage(cl_switches,errorList,obs,alImage,drzImage)    
+    sys.exit("Exit spawned by detectionImageError Exception. \nNo non-grism images in dataset.")
+except Exception,err:
+    warntxt = "Error encountered making detectionImage object..."
+    errorList.append(warntxt)
+    errorList.append(str(err))
+    print warntxt
+    if debug:
+        show_tb()
+    msg.runMessage(cl_switches,errorList,obs,alImage,drzImage)
+    jar(obdict,obs.root)
+    sys.exit(str(err))
+
+detImage.setpars()
+try:
+    detImage.getStats()
+except Exception,err:
+    warntxt = "Error encountered in getStats method..."
+    errorList.append(warntxt)
+    errorList.append(str(err))
+    print warntxt
+    if debug:
+        show_tb()
+    detImage.mkMsg()           # write the module message
+    msg.runMessage(cl_switches,errorList,obs,alImage,drzImage,detImage)
+    jar(obdict,obs.root)
+    sys.exit(str(err))
+
+# detectionImage class now has 3 methods available to make the detection Image.
+# This latest uses an inverse variance algorithm.  
+
+try:
+    detImage.mkInvarIm()
+except Exception,err:
+    warntxt = "Error encountered making detection image..."
+    errorList.append(warntxt)
+    errorList.append(str(err))
+    print warntxt
+    if debug:
+        show_tb()
+    detImage.mkMsg()           # write the module message
+    msg.runMessage(cl_switches,errorList,obs,alImage,drzImage,detImage)
+    jar(obdict,obs.root)
+    sys.exit(str(err))
+
+try:
+    detImage.mkWghtIm()
+except Exception,err:
+    warntxt = "Error encountered making detection weight image..."
+    errorList.append(warntxt)
+    errorList.append(str(err))
+    print warntxt
+    if debug:
+        show_tb()
+    detImage.mkMsg()           # write the module message
+    msg.runMessage(cl_switches,errorList,obs,alImage,drzImage,detImage)
+    jar(obdict,obs.root)
+    sys.exit(str(err))
+
+if not noXml:
+    try:
+        detImage.writeXml()
+    except Exception,err:
+        warntxt = "Error encountered marking up products..."
+        errorList.append(warntxt)
+        errorList.append(str(err))
+        print warntxt
+        if debug:
+            show_tb()
+        detImage.mkMsg()           # write the module message
+        msg.runMessage(cl_switches,errorList,obs,alImage,drzImage,detImage)
+        jar(obdict,obs.root)
+        sys.exit(str(err))
+    
+try:
+    detImage.mkMsg()           # write the module message
+except Exception,err:
+    warntxt = "Error encountered marking up products..."
+    errorList.append(warntxt)
+    errorList.append(str(err))
+    print warntxt
+    if debug:
+        show_tb()
+    msg.runMessage(cl_switches,errorList,obs,alImage,drzImage,detImage)
+    jar(obdict,obs.root)
+    sys.exit(str(err))
+    
+jar(obdict,obs.root)
+print "Detection Image made."
+
+## build a remove list for cleaning out the input images to save space.
+rmList = []
+for key in obs.asnDict.keys():
+    rmList += obs.asnDict[key]
+    
+# calling irafCleanup fn to clean up the iraf junk...
+
+irafCleanup(obs)
+
+## command line switch --nocats is checked here.  If true, bug out.
+if nocats:
+    # call the new pUtil function rmFiles to remove the input images.
+    # This is a space saving action only.
+    print "Calling rmFiles to remove input from the disk."
+    obs.logfile.write("Calling rmFiles to remove input from the disk.")
+    nfiles = rmFiles(obs.newfits,rmList)
+    obs.logfile.write(str(nfiles)+" files removed successfully.")
+    print nfiles,"files removed successfully."
+    msg.runMessage(cl_switches,errorList,obs,alImage,drzImage,detImage)
+    obs.logfile.write("End of pipeline run as requested. No catalogs written.")
+    donestr = "Apsis, v" + apsis_release + ", finished processing " + obs.newobs + " at " + ptime()
+    obs.logfile.write(donestr + "\n")
+    print donestr
+    sys.exit("End of pipeline run as requested. No catalogs written.")
+
+
+        #-------------------------------------------------------------------------------------------#
+        #                                     End Of Imaging 
+        #-------------------------------------------------------------------------------------------#
+
+
+
+        #-------------------------------------------------------------------------------------------#
+        #                                     Catalogs Begin
+        #-------------------------------------------------------------------------------------------#
+
+
+            #---------------------------------------------------------------------------------#
+            #                      Detection Catalog (detectionCatalog.py)
+            #---------------------------------------------------------------------------------#
+print "Making source catalog for the detection image..."
+obs.logfile.write("Begin cataloging...")
+# Pass the richfield argument to the detection catalog constructor.
+# richfield indicates the rich field (cluster) par set is to be used.
+
+if richfield:
+    print "Rich field (cluster) parameter set requested."
+    print "Internal module determination of set WFC or HRC"
+    obs.logfile.write("Rich field parameter set requested.")
+else:
+    print "Default catalog parameter set to be used."
+    print "Internal module determination of set WFC or HRC"
+    obs.logfile.write("default parameter set will be used") 
+try:
+    dcat = detectionCatalog.detectionCatalog(obs,richfield)
+    obdict[dcat] = "detectionCatalog"
+except Exception,err:
+    warntxt = "Error encountered making detectionCatalog object..."
+    errorList.append(warntxt)
+    errorList.append(str(err))
+    print warntxt
+    if debug:
+        show_tb()
+    dcat.mkMsg()           # write the module message
+    msg.runMessage(cl_switches,errorList,obs,alImage,drzImage,detImage)
+    jar(obdict,obs.root)
+    sys.exit(str(err))
+
+### The responsibility for running SExtractor using the rms and weight images
+### falls on the pipeline....
+
+wgtfile = detImage.detWgtName
+dcat.setinpar('WEIGHT_TYPE','MAP_WEIGHT')
+dcat.setinpar('WEIGHT_IMAGE',wgtfile)
+dcat.setinpar('INTERP_TYPE','NONE')
+dcat.setpars()
+
+try:
+    dcat.run()
+except Exception,err:
+    warntxt = "Error encountered in run method..."
+    errorList.append(warntxt)
+    errorList.append(str(err))
+    print warntxt
+    if debug:
+        show_tb()
+    dcat.mkMsg()           # write the module message
+    msg.runMessage(cl_switches,errorList,obs,alImage,drzImage,detImage,dcat)
+    jar(obdict,obs.root)
+    sys.exit(str(err))
+
+if not noXml:
+    try:
+        dcat.writeXml()
+    except Exception,err:
+        warntxt =  "Error encountered in writeXml method..."
+        errorList.append(warntxt)
+        errorList.append(str(err))
+        print warntxt
+        if debug:
+            show_tb()
+        dcat.mkMsg()           # write the module message
+        msg.runMessage(cl_switches,errorList,obs,alImage,drzImage,detImage,dcat)
+        jar(obdict,obs.root)
+        sys.exit(str(err))
+
+try:
+    dcat.mkMsg()           # write the module message
+except Exception,err:
+    warntxt = "Error encountered writing module message..."
+    errorList.append(warntxt)
+    errorList.append(str(err))
+    print warntxt
+    if debug:
+        show_tb()
+    msg.runMessage(cl_switches,errorList,obs,alImage,drzImage,detImage,dcat)
+    jar(obdict,obs.root)
+    sys.exit(str(err))
+    
+jar(obdict,obs.root)
+print "Detection catalog and messages written."
+
+#-------------------------------------------------------------------------------------------#
+#                            Filter Catalogs (filterCatalog.py)
+#-------------------------------------------------------------------------------------------#
+# now the filter catalogs.  The run2() method should always be used in the
+# creation of filter catalogs when a detectionImage catalog is available. run()
+# can be called if this is not the case.
+#-------------------------------------------------------------------------------------------#
+
+print "Making source catalogs for the filter images."
+print "This will take a bit..."
+try:
+    fcat = filterCatalog.filterCatalog(obs,richfield)
+    obdict[fcat]= "filterCatalogs"
+except Exception,err:
+    warntxt = "Error encountered making filterCatalog object..."
+    errorList.append(warntxt)
+    errorList.append(str(err))
+    print warntxt
+    if debug:
+        show_tb()
+    fcat.mkMsg()           # write the module message 
+    msg.runMessage(cl_switches,errorList,obs,alImage,drzImage,detImage,dcat)
+    jar(obdict,obs.root)
+    sys.exit(str(err))
+
+### The responsibility for running SExtractor using the rms and weight images
+### falls on the pipeline....
+### Here we set the parameters to use the weight map of the detection image
+### detIm.detWgtName and the RMS map of the filters which came out of 
+### combDither (see obs.rmsImageList).  Each filter has an associated
+### rms map.  We have to set each filter's parameter file individually.
+### This is using the reconfigured setpars method which now takes a fitsfile
+### from the caller and writes the appropriate par file.
+
+fcat.setinpar('WEIGHT_TYPE','MAP_WEIGHT,MAP_RMS')
+fcat.setinpar('INTERP_TYPE','NONE')
+
+for i in range(len(fcat.sciImageList)):
+    im      = fcat.sciImageList[i]
+    rms_im  = fcat.rmsImageList[i]
+    rmsfile = rms_im
+    fcat.setinpar('WEIGHT_IMAGE',wgtfile+','+rmsfile)   # uses the same weight map, wgtfile, as defined above.
+    fcat.setpars(im)
+
+try:
+    fcat.run2()
+except Exception,err:
+    warntxt = "Error encountered in run2 method..."
+    errorList.append(warntxt)
+    errorList.append(str(err))
+    print warntxt
+    if debug:
+        show_tb()
+    fcat.mkMsg()           # write the module message 
+    msg.runMessage(cl_switches,errorList,obs,alImage,drzImage,detImage,dcat,fcat)
+    jar(obdict,obs.root)
+    sys.exit(str(err))
+
+if not noXml:
+    try:
+        fcat.writeXml()
+    except Exception,err:
+        warntxt =  "Error encountered in writeXml method..."
+        errorList.append(warntxt)
+        errorList.append(str(err))
+        print warntxt
+        if debug:
+            show_tb()
+        fcat.mkMsg()           # write the module message 
+        msg.runMessage(cl_switches,errorList,obs,alImage,drzImage,detImage,dcat,fcat)
+        jar(obdict,obs.root)
+        sys.exit(str(err))
+
+try:
+    fcat.mkMsg()           # write the module message 
+except Exception,err:
+    warntxt = "Error encountered writing module message..."
+    errorList.append(warntxt)
+    errorList.append(str(err))
+    print warntxt
+    print err
+    msg.runMessage(cl_switches,errorList,obs,alImage,drzImage,detImage,dcat,fcat)
+    jar(obdict,obs.root)
+    sys.exit(str(err))
+
+jar(obdict,obs.root)
+print "Filter Catalogs written."
+
+#-------------------------------------------------------------------------------------------#
+#                            MultiColor Catalog (colorCatalog.py)
+#-------------------------------------------------------------------------------------------#
+
+print "Instantiating a colorCatalog object for the multicolor catalog..."
+try:
+    ccat = colorCatalog.colorCatalog(obs,fcat.catalogList)
+    obdict[ccat]= "colorCatalog"
+except Exception,err:
+    warntxt = "Error encountered making colorCatalog object..."
+    errorList.append(warntxt)
+    errorList.append(str(err))
+    print warntxt
+    if debug:
+        show_tb()
+    msg.runMessage(cl_switches,errorList,obs,alImage,drzImage,detImage,dcat)
+    jar(obdict,obs.root)
+    sys.exit(str(err))
+
+try:
+    ccat.run()
+except Exception,err:
+    warntxt = "Error encountered in colorCatalog run method..."
+    errorList.append(warntxt)
+    errorList.append(str(err))
+    print warntxt
+    if debug:
+        show_tb()
+    ccat.mkMsg()           # write the module message 
+    msg.runMessage(cl_switches,errorList,obs,alImage,drzImage,detImage,dcat,fcat,ccat)
+    jar(obdict,obs.root)
+    sys.exit(str(err))
+
+if not noXml:
+    try:
+        ccat.writeXml()
+    except Exception,err:
+        print "Error encountered in writeXml method..."
+        warntxt =  "Error encountered in writeXml method..."
+        errorList.append(warntxt)
+        errorList.append(str(err))
+        print warntxt
+        if debug:
+            show_tb()
+        ccat.mkMsg()           # write the module message 
+        msg.runMessage(cl_switches,errorList,obs,alImage,drzImage,detImage,dcat,fcat,ccat)
+        jar(obdict,obs.root)
+        sys.exit(str(err))
+
+try:
+    ccat.mkMsg()           # write the module message 
+except Exception,err:
+    warntxt = "Error encountered writing module message..."
+    errorList.append(warntxt)
+    errorList.append(str(err))
+    print warntxt
+    if debug:
+        show_tb()
+    msg.runMessage(cl_switches,errorList,obs,alImage,drzImage,detImage,dcat,fcat,ccat)
+    jar(obdict,obs.root)
+    sys.exit(str(err))
+    
+jar(obdict,obs.root)
+
+
+#-------------------------------------------------------------------------------------------#
+#                                   Cataloging End
+#-------------------------------------------------------------------------------------------#
+
+
+
+# processing complete. Now, clean up the input files...do not need them hanging around.
+# call the new pUtil function rmFiles to remove the input images. This is a disk space saving 
+# action only.
+
+print "Calling rmFiles to remove input from the disk."
+obs.logfile.write("Calling rmFiles to remove input from the disk.")
+nfiles = rmFiles(obs.newfits,rmList)
+obs.logfile.write(str(nfiles)+" files removed successfully.")
+print nfiles,"files removed successfully."
+
+#---------------------------------------------------------------------------------------#
+#
+#                                   Run Message
+#
+#---------------------------------------------------------------------------------------#
+
+
+print "Writing run-level message..."
+
+# the runMessage function takes any number of objects as arguments to make the run message.
+
+msgfile = msg.runMessage(cl_switches,errorList,obs,alImage,drzImage,detImage,dcat,fcat,ccat)
+
+obs.logfile.write("runMessage.xml file written for "+obs.newobs)
+donestr = "Apsis, v" + apsis_release + ", finished processing " + obs.newobs + " at " + ptime()
+obs.logfile.write(donestr + "\n")
+print "run message written."
+sys.exit(donestr)
+
+
+#---------------------------------------------------------------------------------------#
+#
+#                                  Run Message End
+#
+#---------------------------------------------------------------------------------------#
+

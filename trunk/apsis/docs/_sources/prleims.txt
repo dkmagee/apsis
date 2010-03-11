@@ -1,0 +1,17 @@
+Preliminary steps
+=================
+
+Setting up the environment variables
+************************************
+
+Getting ACS images
+******************
+
+Initial Processing
+******************
+
+Organizing the input files
+**************************
+
+Making Association tables
+*************************

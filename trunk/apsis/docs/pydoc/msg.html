@@ -1,0 +1,133 @@
+
+<!doctype html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module msg</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>msg</strong></big></big> (version 1.11)</font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/meurer/ACS/Pipeline/Apsis/apsis-4.2.4/python/utils/msg.py">/home/meurer/ACS/Pipeline/Apsis/apsis-4.2.4/python/utils/msg.py</a></font></td></tr></table>
+    <p><tt>License<br>
+=======<br>
+&nbsp;<br>
+Copyright&nbsp;(c)&nbsp;2009,&nbsp;The&nbsp;Johns&nbsp;Hopkins&nbsp;University<br>
+&nbsp;<br>
+All&nbsp;rights&nbsp;reserved.<br>
+&nbsp;<br>
+Redistribution&nbsp;and&nbsp;use&nbsp;in&nbsp;source&nbsp;and&nbsp;binary&nbsp;forms,&nbsp;with&nbsp;or&nbsp;without<br>
+modification,&nbsp;are&nbsp;permitted&nbsp;provided&nbsp;that&nbsp;the&nbsp;following&nbsp;conditions&nbsp;are&nbsp;met:<br>
+&nbsp;<br>
+Redistributions&nbsp;of&nbsp;source&nbsp;code&nbsp;must&nbsp;retain&nbsp;the&nbsp;above&nbsp;copyright&nbsp;notice,&nbsp;this<br>
+list&nbsp;of&nbsp;conditions&nbsp;and&nbsp;the&nbsp;following&nbsp;disclaimer.&nbsp;&nbsp;Redistributions&nbsp;in&nbsp;binary<br>
+form&nbsp;must&nbsp;reproduce&nbsp;the&nbsp;above&nbsp;copyright&nbsp;notice,&nbsp;this&nbsp;list&nbsp;of&nbsp;conditions&nbsp;and<br>
+the&nbsp;following&nbsp;disclaimer&nbsp;in&nbsp;the&nbsp;documentation&nbsp;and/or&nbsp;other&nbsp;materials&nbsp;provided<br>
+with&nbsp;the&nbsp;distribution.&nbsp;&nbsp;Neither&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;Johns&nbsp;Hopkins&nbsp;University&nbsp;nor<br>
+the&nbsp;names&nbsp;of&nbsp;its&nbsp;contributors&nbsp;may&nbsp;be&nbsp;used&nbsp;to&nbsp;endorse&nbsp;or&nbsp;promote&nbsp;products<br>
+derived&nbsp;from&nbsp;this&nbsp;software&nbsp;without&nbsp;specific&nbsp;prior&nbsp;written&nbsp;permission.<br>
+&nbsp;<br>
+THIS&nbsp;SOFTWARE&nbsp;IS&nbsp;PROVIDED&nbsp;BY&nbsp;THE&nbsp;COPYRIGHT&nbsp;HOLDERS&nbsp;AND&nbsp;CONTRIBUTORS&nbsp;'AS<br>
+IS'&nbsp;AND&nbsp;ANY&nbsp;EXPRESS&nbsp;OR&nbsp;IMPLIED&nbsp;WARRANTIES,&nbsp;INCLUDING,&nbsp;BUT&nbsp;NOT&nbsp;LIMITED<br>
+TO,&nbsp;THE&nbsp;IMPLIED&nbsp;WARRANTIES&nbsp;OF&nbsp;MERCHANTABILITY&nbsp;AND&nbsp;FITNESS&nbsp;FOR&nbsp;A<br>
+PARTICULAR&nbsp;PURPOSE&nbsp;ARE&nbsp;DISCLAIMED.&nbsp;IN&nbsp;NO&nbsp;EVENT&nbsp;SHALL&nbsp;THE&nbsp;COPYRIGHT<br>
+HOLDER&nbsp;OR&nbsp;CONTRIBUTORS&nbsp;BE&nbsp;LIABLE&nbsp;FOR&nbsp;ANY&nbsp;DIRECT,&nbsp;INDIRECT,&nbsp;INCIDENTAL,<br>
+SPECIAL,&nbsp;EXEMPLARY,&nbsp;OR&nbsp;CONSEQUENTIAL&nbsp;DAMAGES&nbsp;(INCLUDING,&nbsp;BUT&nbsp;NOT&nbsp;LIMITED<br>
+TO,&nbsp;PROCUREMENT&nbsp;OF&nbsp;SUBSTITUTE&nbsp;GOODS&nbsp;OR&nbsp;SERVICES;&nbsp;LOSS&nbsp;OF&nbsp;USE,&nbsp;DATA,&nbsp;OR<br>
+PROFITS;&nbsp;OR&nbsp;BUSINESS&nbsp;INTERRUPTION)&nbsp;HOWEVER&nbsp;CAUSED&nbsp;AND&nbsp;ON&nbsp;ANY&nbsp;THEORY&nbsp;OF<br>
+LIABILITY,&nbsp;WHETHER&nbsp;IN&nbsp;CONTRACT,&nbsp;STRICT&nbsp;LIABILITY,&nbsp;OR&nbsp;TORT&nbsp;(INCLUDING<br>
+NEGLIGENCE&nbsp;OR&nbsp;OTHERWISE)&nbsp;ARISING&nbsp;IN&nbsp;ANY&nbsp;WAY&nbsp;OUT&nbsp;OF&nbsp;THE&nbsp;USE&nbsp;OF&nbsp;THIS<br>
+SOFTWARE,&nbsp;EVEN&nbsp;IF&nbsp;ADVISED&nbsp;OF&nbsp;THE&nbsp;POSSIBILITY&nbsp;OF&nbsp;SUCH&nbsp;DAMAGE.<br>
+&nbsp;<br>
+(This&nbsp;license&nbsp;is&nbsp;based&nbsp;on&nbsp;the&nbsp;BSD&nbsp;license<br>
+&nbsp;<a href="http://www.opensource.org/licenses/bsd-license.html">http://www.opensource.org/licenses/bsd-license.html</a>)</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="path.html">path</a><br>
+</td><td width="25%" valign=top><a href="string.html">string</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="msg.html#pMessage">pMessage</a>
+</font></dt></dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="pMessage">class <strong>pMessage</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>this&nbsp;class&nbsp;provides&nbsp;for&nbsp;a&nbsp;<a href="#pMessage">pMessage</a>&nbsp;object&nbsp;from&nbsp;which&nbsp;pipeline<br>
+xml&nbsp;messages&nbsp;can&nbsp;be&nbsp;made.&nbsp;&nbsp;The&nbsp;constructor&nbsp;receives&nbsp;a&nbsp;dictionary<br>
+of&nbsp;of&nbsp;lists&nbsp;which&nbsp;are&nbsp;built&nbsp;(usually)&nbsp;by&nbsp;the&nbsp;mkMsg&nbsp;methods&nbsp;of&nbsp;the<br>
+various&nbsp;pipeline&nbsp;modules.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="pMessage-__init__"><strong>__init__</strong></a>(self, metaInfo)</dt><dd><tt>constructor&nbsp;for&nbsp;<a href="#pMessage">pMessage</a>.&nbsp;&nbsp;metadict&nbsp;is&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;lists<br>
+provided&nbsp;by&nbsp;the&nbsp;caller.&nbsp;&nbsp;<br>
+format&nbsp;of&nbsp;the&nbsp;dictionary:<br>
+&nbsp;<br>
+{'module':[(key1,*val1,**attr),(key2,*val2,**attr),...]<br>
+&nbsp;'meta'&nbsp;&nbsp;:[(key1,*val1,**attr),(key2,*val2,**attr),...]<br>
+&nbsp;'input'&nbsp;:[(key1,*val1,**attr),(key2,*val2,**attr),...]<br>
+&nbsp;'output':[(key1,*val1,**attr),(key2,*val2,**attr),...]<br>
+&nbsp;...<br>
+}<br>
+The&nbsp;tuples&nbsp;are&nbsp;intended&nbsp;to&nbsp;be&nbsp;python-like&nbsp;argument&nbsp;lists&nbsp;to&nbsp;accomodate<br>
+an&nbsp;optional&nbsp;value&nbsp;and&nbsp;optional&nbsp;keyword&nbsp;parameters&nbsp;which&nbsp;the&nbsp;<br>
+xmlMessage&nbsp;class&nbsp;uses.&nbsp;This&nbsp;class&nbsp;will&nbsp;parse&nbsp;this&nbsp;dictionary&nbsp;and&nbsp;then<br>
+call&nbsp;for&nbsp;an&nbsp;xmlMessage&nbsp;object&nbsp;to&nbsp;be&nbsp;written&nbsp;from&nbsp;the&nbsp;above&nbsp;information.<br>
+The&nbsp;tuples&nbsp;in&nbsp;the&nbsp;above&nbsp;lists&nbsp;will&nbsp;be&nbsp;able&nbsp;to&nbsp;be&nbsp;passed&nbsp;directly&nbsp;to&nbsp;the<br>
+various&nbsp;methods&nbsp;of&nbsp;the&nbsp;xmlMessage&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="pMessage-writeMsg"><strong>writeMsg</strong></a>(self, outfile)</dt><dd><tt>Make&nbsp;and&nbsp;write&nbsp;the&nbsp;pipeline&nbsp;message&nbsp;from&nbsp;the&nbsp;passed&nbsp;information.</tt></dd></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-msgLookUp"><strong>msgLookUp</strong></a>(obs)</dt><dd><tt>poll&nbsp;a&nbsp;directory&nbsp;for&nbsp;new&nbsp;messages&nbsp;from&nbsp;the<br>
+archive.&nbsp;when&nbsp;found,&nbsp;take&nbsp;some&nbsp;action.</tt></dd></dl>
+ <dl><dt><a name="-runMessage"><strong>runMessage</strong></a>(switches, errorlist<font color="#909090">=None</font>, *pObjs)</dt><dd><tt>make&nbsp;a&nbsp;run-level&nbsp;message&nbsp;for&nbsp;a&nbsp;run&nbsp;of&nbsp;the&nbsp;pipeline.&nbsp;&nbsp;The&nbsp;caller<br>
+(pipeline)&nbsp;sends&nbsp;this&nbsp;function&nbsp;a&nbsp;couple&nbsp;lists&nbsp;(command&nbsp;line&nbsp;switches,&nbsp;errorList)<br>
+and&nbsp;a&nbsp;bunch&nbsp;of&nbsp;pipeline&nbsp;module&nbsp;objects&nbsp;which&nbsp;have&nbsp;everything&nbsp;needed&nbsp;to&nbsp;build&nbsp;the&nbsp;<br>
+run&nbsp;message.</tt></dd></dl>
+ <dl><dt><a name="-sleep"><strong>sleep</strong></a>(...)</dt><dd><tt><a href="#-sleep">sleep</a>(seconds)<br>
+&nbsp;<br>
+Delay&nbsp;execution&nbsp;for&nbsp;a&nbsp;given&nbsp;number&nbsp;of&nbsp;seconds.&nbsp;&nbsp;The&nbsp;argument&nbsp;may&nbsp;be<br>
+a&nbsp;floating&nbsp;point&nbsp;number&nbsp;for&nbsp;subsecond&nbsp;precision.</tt></dd></dl>
+ <dl><dt><a name="-writeArchMsg"><strong>writeArchMsg</strong></a>(file)</dt><dd><tt>copy&nbsp;(uses&nbsp;shutil&nbsp;module)&nbsp;a&nbsp;file&nbsp;to&nbsp;the&nbsp;ARCHIVE&nbsp;directory.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>StringTypes</strong> = (&lt;type 'str'&gt;, &lt;type 'unicode'&gt;)<br>
+<strong>__author__</strong> = 'Ken Anderson, anderson@pha.jhu.edu'<br>
+<strong>__version__</strong> = '1.11'<br>
+<strong>__version_date__</strong> = '2004/10/18 22:32:44'<br>
+<strong>apsis_release</strong> = '1.11'</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#7799ee">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Author</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#7799ee"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Ken&nbsp;Anderson,&nbsp;anderson@pha.jhu.edu</td></tr></table>
+</body></html>

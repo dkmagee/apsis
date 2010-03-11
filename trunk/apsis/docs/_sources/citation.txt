@@ -1,0 +1,9 @@
+Citation
+========
+
+If you use Apsis to analyze data that you publish, we'd appreciate it if you
+could acknowledge the fact by including the following citation:
+
+Blakeslee, J.P., Anderson, K.R., Meurer, G.R., and Benitez, N. 2003, in ASP
+Conf. Ser. 295, Astronomical Data Analysis Software and Systems XII,
+ed. H.E. Payne, R.I. Jedjewski, and R.N. Hook, (San Francisco: ASP), 257

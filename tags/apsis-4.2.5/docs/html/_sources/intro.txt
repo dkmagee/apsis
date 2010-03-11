@@ -1,0 +1,58 @@
+Introduction
+============
+
+The ACS science team developed *Apsis* to efficiently process the ~550
+orbits of GTO time we received in exchange for our instrument development and
+calibration work.  *Apsis* (ACS pipeline science investigation software) is
+designed to be a robust and flexible astronomical data reduction and analysis
+pipeline for processing these data and related observations.  *Apsis* is
+written in Python using a flexible, modular design.  *Apsis* was
+used for processing the ACS early release observation (ERO) images of the
+Tadpole and Mice galaxies, the Cone Nebula, and M17 soon after ACS was
+installed on the Hubble Space Telescope, and for almost all team ACS
+observations since then.  It has developed and been used extensively on
+Linux, Solaris, and Mac OSX platforms for processing WFC and HRC data from
+both science and calibration programs.
+
+An early description of *Apsis* can be found in `Blakeslee et al. (2003).
+<http://adsabs.harvard.edu/abs/2003ASPC..295..257B>`_
+ 
+What it does
+************
+
+A single *Apsis* run will process an "observation object" consisting of all
+the images of a given field (or mosaic of overlapping fields).  The input
+images to *Apsis* are the the FLT output images produced by the CALACS
+software (Hack 1999) which is run on all HST/ACS products as part of the
+STScI pipeline processing.  The FLT images are organized into "associations"
+of all the images in one filter using FITS format association tables (one per
+filter).  
+
+The observation object is passed through a variety of modules which perform
+the main processing steps:
+
+    * Measurement of the offsets and rotation between frames corrected for
+      distortion.
+    * Sky estimation and subtraction.
+    * Image stacking with cosmic ray (CR) rejection and "drizzling" of each
+      association on to a tangential-plane pixel grid.
+    * Construction of error arrays.
+    * Construction of a multi-band "detection image".
+    * Object detection and measurement.
+    * Photometric calibration.
+    * (Photo-z estimation is now deprecated)
+
+A running log keeps track of progress and records diagnostics.  Other output
+products consist of FITS images (including weights and masks), ASCII
+catalogs, and XML marked messages, catalogs and FITS headers which are used
+for in-house archiving purposes.
+
+
+Caveats
+*******
+
+ACS dataset are large and the output can become enormous. A typical
+multi-association WFC dataset will need to have ~ 13 GB
+available. Though the final products would be about half that, certain
+steps (drizzle) in processing produce gobs of temp files, which are
+usually removed during processing unless the --noclean switch is used.

@@ -1,0 +1,508 @@
+Running Apsis
+=============
+
+Quickstart
+----------
+
+*Apsis* is run from the command line as follows::
+
+  apsis [options] <dataset>
+
+Where ``[options]`` indicates one or more of the options listed below,
+and ``<dataset>`` is the name of the dataset to be processed.  
+
+*Apsis* looks for a directory named ``<dataset>`` off of the directory
+referenced by the environment variable ``$INGEST``.  The directory
+``<dataset>`` should contain the ACS images (i.e. ``*_flt.fits`` files)
+and association tables (``*_asn.fits``) which reference these images and
+nothing else (see the `Preliminary steps <prelims.html>`_ section for more details).
+
+Note: ``<dataset>`` should not include a trailing slash, ``/``, or
+*Apsis* will crash.
+
+The products produced by *Apsis* as well as a log file and XML output
+are written to a directory named ``<dataset>`` off of the directory
+referenced by the environment variable ``$DATASETS``.
+
+Command line options
+--------------------
+
+*General, and house-keeping options:*
+
+.. cmdoption:: --help 
+
+   gives a quick summary of the command options.
+
+.. cmdoption:: --noXml
+
+   Do not do XML markup of data products.
+
+.. cmdoption:: --testonly 
+
+   Test configuration; exit before directory build.
+
+.. cmdoption:: --debug
+
+   Print full traceback when an exception occurs.
+
+.. cmdoption:: --noclean 
+
+   Intermediate drizzle products will not be deleted.
+
+.. cmdoption:: --justDriz 
+
+   Will quit immediately after drizzling. Detection images and catalogs
+   will not be made.
+
+.. cmdoption:: --noContext 
+
+   Will not produce context images in final drizzling.
+
+.. cmdoption:: --noGSC 
+
+   Will not attempt to correct image WCS by webquery to GSC2.
+
+.. cmdoption:: --nocats 
+
+   No catalogs should be produced for this pipeline run.
+
+.. cmdoption:: --OwnIraf
+
+   Use the login.cl file from the users environment.
+
+*Options directly related to alignment:*
+
+.. cmdoption:: --intRef=<im> 
+
+   Use fits file <im> in the dataset as reference image.
+
+.. cmdoption:: --extRef=<im>
+
+   Use external fits file <im> as reference image.
+
+.. cmdoption:: --justgrism
+
+   This dataset will be aligned as a pure grism observation.
+
+.. cmdoption:: --starcluster 
+
+   Uses the starcluster parameter set for alignment.
+
+.. cmdoption:: --alpixthr=<sig> 
+
+   Use this SExtractor detection threshold for align.
+
+.. cmdoption:: --notrot 
+
+   Do not use rotation in transform found by 'match' (use median shifts).
+
+*Options directly related to sky subtraction:*
+
+.. cmdoption:: --noAve 
+
+   Extension averaging will *not* be done during sky subtraction.
+
+.. cmdoption:: --nosub 
+
+   No sky subtraction will be done.
+
+.. cmdoption:: --minSky 
+
+   Use minimum sky value from multi extension images.
+
+.. cmdoption:: --keepstep 
+
+   Do not try to remove amplifier discontinuity for ACS/WFC.
+
+.. cmdoption:: --skyfile 
+
+   Look for a default.skies file listing sky values.
+
+*Options related to detection image and catalogs:*
+
+.. cmdoption:: --excludefilt=<list> 
+
+   CSV list of filters which will not be included in the detection
+   image.
+
+.. cmdoption:: --richfield 
+
+   Use rich (galaxy cluster) field deblend parameters.
+
+.. cmdoption:: --notrim 
+
+   Do not trim detection weight where Nim=1.
+
+*Options related to geometric distortion:*
+
+.. cmdoption:: --idctab=<file> 
+
+   Use fits IDC table <file> instead of IDCTAB from header.
+
+.. cmdoption:: --dfilt=<filt>
+
+   Use the distortion model in the IDCTAB for this filter. (Currently
+   disabled)
+
+.. cmdoption:: --dr_asecpix=<outscale> 
+
+   Pixel scale of final drizzled image (arcsec/pix).
+
+.. cmdoption:: --dr_pixfrac=<pixfrac> 
+
+   Driz pixfrac ("dropsize") param used for final drizzling.
+
+.. cmdoption:: --dr_kernel=<kernel> 
+
+   Driz kernel (square|point|turbo|tophat|lanczos2|lanczos3|gaussian).
+
+*Options controlling the output image size*
+
+.. cmdoption:: --padfac=<f> 
+
+   Pad linear output size by this factor.
+
+.. cmdoption:: --outsize=<nx>,<ny> 
+
+   Use this output <nx>,<ny> *pixel* (csv) image size.
+
+.. cmdoption:: --outshift=<dx>,<dy> 
+
+   Apply these overall <dx>,<dy> *arcsec* shifts (csv) in output frame.
+
+*Options related to CRs and bad pixel rejection:*
+
+.. cmdoption:: --crlower
+
+   Use dangerously low driz_cr rejection thresholds.
+
+.. cmdoption:: --noCRreject 
+
+   Do not reject cosmic rays (1-pass drizzling).
+
+.. cmdoption:: --keepbits=<bits> 
+
+   Sum of pixel data quality flags to keep during drizzle.
+
+.. cmdoption:: --smartstack
+
+   Use optimal median stacking during drizzle.
+
+.. cmdoption:: --mask=<mask_file>
+
+   Explicitly mask out specific regions in certain input files.
+
+Output directory structure and files
+------------------------------------
+
+*Apsis* writes a series of output files to the ``<dataset>`` directory
+it creates off of the directory set with the ``$DATASETS`` environment
+variable.  
+
+Main directory: <dataset>
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. cmdoption:: <dataset>_proc.log 
+
+   *Apsis* process log file.
+
+.. cmdoption:: <dataset>_runMessage.xml
+
+   This file lists, in XML format, the modules used, input data files
+   and output data files, as well as meta data on when the process was
+   run and by whom.
+
+++++++++++++++++++++++++++++++++++++++
+Catalogs directory: <dataset>/Catalogs
+++++++++++++++++++++++++++++++++++++++
+
+This directory contains plain ASCII format catalogs made by *SExtractor*
+catalogs modified by *Apsis*, and catalogs marked up in XML.  In general,
+files ending with a suffix ``.cat.old`` are made directly by
+*SExtractor*; files with a ``.cat`` suffix are modified SExtractor
+catalogs; and files with a ``.xml`` suffix are XML marked-up version of
+the .cat files.
+
+.. cmdoption:: detectionImage.cat  (.xml)
+
+   *SExtractor* catalog of the detection image, modified by *Apsis*.
+
+.. cmdoption:: <dataset>_<filt>_drz_sci.cat   (.xml, .old.cat)
+
+   Catalog of each filter image created by running *SExtractor* in dual
+   image mode with detections from the detection image and photometry
+   from the filter image.  Here ``<filt>`` is the filter name in lower
+   case.  The ``.old.cat`` version of the file is the *SExtractor*
+   catalog before being modified by *Apsis*.
+
+.. cmdoption:: multicolor.cat
+
+   ASCII file listing the final integrated photometry (magnitude and
+   error) of each object in each filter, corrected for extinction and
+   aperture size.
+
+.. cmdoption:: multicolor.columns
+
+   Description of the columns in ``multicolor.cat``.
+
+.. <full-filter-name>_photometry.xml
+
+   The "_BPZ" photometry that is listed in the ``multicolor.cat`` file
+   is here marked up in XML.
+
+++++++++++++++++++++++++++++++++++
+Images directory: <dataset>/Images
+++++++++++++++++++++++++++++++++++
+
+This directory holds the simple FITS format image output from *Apsis*
+(``.fits`` suffix), files holding XML marked up versions of
+their headers (``_fits.xml`` suffix) and a variety of associated files.
+
+In the following ``<dataset>`` is the dataset name, ``<filt>`` is the
+filter name in lowercase, ``<FILT>`` is the filter name in uppercase,
+``<infile>`` is the base name of an input file excluding the ``.fits``
+suffix (e.g. for an input image ``j90v01ayq_flt.fits`` then ``<infile> =
+j90v01ayq_flt``).
+
+*Detection image and related products*
+
+.. cmdoption:: detectionImage.fits (_fits.xml)
+
+   The output detection image made by summing the filter images and
+   weighting by the inverse variance.
+
+.. cmdoption:: detectionWeight.fits (_fits.xml) 
+
+   The weight image corresponding to the detection Image.  This is a
+   MAP_WEIGHT type weight image in *SExtractor* parlance.
+
+.. cmdoption:: detectionImage_APER.fits (_fits.xml)
+
+   Output aperture image from *SExtractor*.
+
+.. cmdoption:: detectionImage_SEGM.fits (_fits.xml)
+
+   *SExtractor* segmentation image - the pixel value gives the object identification
+   in the output catalog ``detectionImage.cat`` (see `Catalogs directory: <dataset>/Catalogs`_). 
+
+.. cmdoption:: Edgemask.fits
+
+   I am not sure what this file is for\?\?\?\? 
+
+*Filter images and related products*
+
+.. cmdoption:: <dataset>_<filt>_drz_sci.fits (_fits.xml)
+
+   The filter images, one for each filter used in the dataset.  Pixel
+   values are given as electrons (actually it is the count rate in
+   electron/s multiplied by the EXPTIME in the header).
+
+.. cmdoption:: <dataset>_<filt>_drz_sci_weight.fits (_fits.xml)
+
+   The weight image corresponding to each filter image.  This is a
+   MAP_WEIGHT type weight image in *SExtractor* parlance.
+
+.. cmdoption:: <dataset>_<filt>_drz_sci_context.fits (_fits.xml)
+
+   The "context" image produced for each filter image during the drizzle
+   process.  This is a bitmask image where the pixel value encodes which
+   input images were used to create that pixel. More information on
+   context images can be found in the 
+   `drizzle documentation <http://stsdas.stsci.edu/cgi-bin/gethelp.cgi?drizzle>`_.
+
+.. cmdoption:: <dataset>_<filt>_drz_sci_BACK.fits (_fits.xml)
+
+   Background image for each filter, created by *SExtractor* during the
+   cataloging stage.
+
+.. cmdoption:: <dataset>_<filt>_RMS.fits (_fits.xml)
+
+   The error in the pixel values of each filter image.
+
+.. cmdoption:: <dataset>_<filt>_FLAG.fits (_fits.xml)
+
+   Binary bad pixel mask that marks each pixel of the filter images as either
+   bad (1) or good (0).
+
+.. cmdoption:: medriz_<n>.fits
+
+   The median combined version of each filter image, used in the cosmic
+   ray rejection process.  Here ``<n>`` refers to the order in which the
+   filters are processed.  The correspondence with the filters used can
+   be determined by looking at the image headers.
+
+.. cmdoption:: <dataset>_<FILT>_asn.fits
+
+   This is a copy of the association table used to make each filter
+   image. 
+
+.. cmdoption:: <dataset>_<filt>_augmask.fits (_fits.xml)
+
+   I am not sure what these files are.\?\?\?\?
+
+*Products of each input image*
+
+Here ``<n>`` is 1 or 2 and refers to the science extension in the
+original multiextension fits image.  For WFC images ``<n>`` = 1 or 2; for
+HRC (and SBC) images ``<n>`` = 1 (always).
+
+.. cmdoption:: <infile>_SCI_<n>.fits
+
+   Science extension ``<n>`` of ``<infile>.fits`` broken out into a simple fits image.
+
+.. cmdoption:: <infile>_SCI_<n>_cr.fits
+
+   Binary good pixel mask indicating cosmic rays found in the individual
+   frames found when creating the filter images.  These files mark
+   cosmic rays 0 and good pixels 1.
+
+*Temporary files*
+
+These are deleted unless the option ``--noclean`` is used. Here
+``<n>`` is 1 or 2 and refers to the science extension in the original
+multiextension fits image.
+
+.. cmdoption:: _cx_<infile>_SCI_<n>.fits
+
+   The context image for each input image.  This is a binary good pixel
+   bitmask that marks pixels in the output frame where the corresponding
+   simple fits image ``<infile>_SCI_<n>.fits`` contributes with 1, with
+   the remaining unused pixels marked 0.
+
+.. cmdoption:: _wt_<infile>_SCI_<n>.fits
+
+   The weight image for each input image. This indicates the
+   contribution to the output weight from the corresponding simple fits
+   image ``<infile>_SCI_<n>.fits``.
+
+.. cmdoption:: Orig_<infile>_inmask<n>.fits
+
+   Original binary good pixel bitmask in the pixel grid of the
+   corresponding simple fits image ``<infile>_SCI_<n>.fits``. Note that
+   not all the pixels marked bad here (pixel value = 0) are considered
+   bad when creating the corresponding ``_cx_<infile>_SCI_<n>.fits``.
+
+.. cmdoption:: <infile>_inmask<n>.fits
+
+   Binary good pixel bitmask in the pixel grid of the
+   corresponding simple fits image ``<infile>_SCI_<n>.fits``. \?\?\?\? It is
+   not clear to me what the difference between the different inamsk
+   files are ... \?\?\?\?
+
+.. cmdoption:: <infile>_SCI_<n>_bl.fits
+
+   The median drizzled filter image "blotted" back to the pixel grid of
+   the corresponding input simple fits image ``<infile>_SCI_<n>.fits``.
+
+.. cmdoption:: <infile>_SCI_<n>_bl_deriv.fits
+
+   Estimate of the local image "derivative", derived from the median
+   drizzled filter image, in the pixel grid of
+   the corresponding input simple fits image ``<infile>_SCI_<n>.fits``.
+
+.. cmdoption:: <infile>_SCI_<n>_cr.pl
+
+   Like the ``<infile>_SCI_<n>_cr.fits`` files but in pixel list format.
+
+.. cmdoption:: <infile>_coeffs<n>.dat
+
+   The polynomial distortion coefficients extracted from the adopted IDC
+   table corresponding to the simple fits image ``<infile>_SCI_<n>.fits``.
+
+*Files created for internal use by Apsis*
+
+These include ``A``, ``B``, (and other single capital letter variants),
+``medianfilter_input`` and ``medianimages``.
+
+++++++++++++++++++++++++++++++++++++++
+Messages directory: <dataset>/Messages
+++++++++++++++++++++++++++++++++++++++
+
+The files in this directory are named ``<modnam>_module.xml``, where
+''<modnam>'' is the name of the *Apsis* modules that were run on this
+dataset.  Each XML file documents 
+
+  * the module name, version, and dataset name.
+
+  * the dependencies (packages) used, their version, and command line
+    call.  
+
+  * input files, and their various attributes
+
+  * output files, and their various attributes (including predecessor
+    files).
+
+  * error messages
+
+
+++++++++++++++++++++++++++++++++++++++++
+Picklejar directory: <dataset>/Picklejar
+++++++++++++++++++++++++++++++++++++++++
+
+This directory contains python objects that are converted to a string
+representation called a "pickle" and saved to a file.  Since pickles are
+storred in jars these files are referred to as pickle jars.  There is
+one pickle jar describing the dataset, named ``obs``, with the remaining
+files corresponding to each module that was run.
+
+++++++++++++++++++++++++++++++++
+align directory: <dataset>/align
+++++++++++++++++++++++++++++++++
+
+This directory contains files used in the image alignment process. 
+
+.. cmdoption:: <infile>.matchin
+
+   Catalog of each input fits file created by *SExtractor* and then
+   transformed to the first guess output coordinate grid.
+
+.. cmdoption:: <infile>.matchin.stars
+
+   The essential data from ``<infile>.matchin`` pared down to only
+   bright compact sources that can be used in the alignment.
+
+.. cmdoption:: <infile>.matchin.stars
+
+   Describes the first guess transformation required to align
+   ``<infile>``.
+
+.. cmdoption:: <infile>.matchin.super
+
+   \?\?\?\?
+
+.. cmdoption:: shifts_<dataset>_<FILT>.txt
+
+   Gives the estimated x, y, and rotation shifts and their errors of the
+   input files sorted by filter ``<FILT>``.
+
+.. cmdoption:: supermatch.in
+
+   Input file for supermatch.
+
+.. cmdoption:: supermatch.out
+
+   Output from supermatch.  This gives the final x, y, and rotation shifts.
+
+++++++++++++++++++++++++++++++++++
+astrom directory: <dataset>/astrom
+++++++++++++++++++++++++++++++++++
+
+This directory contains files used in aligning the images to the guide
+star catalog reference frame.  These include results from a web query to
+the GSC, *SExtractor* generated catalogs of the filter images, products
+derived from these catalogs, and results of matching the GSC to the
+filter images.  
+
+Detailed description TBD.
+
+++++++++++++++++++++++++++++
+par directory: <dataset>/par
+++++++++++++++++++++++++++++
+
+This directory contains the *SExtractor* configuration files for the
+various *SExtractor* runs done by *Apsis*.  The ``*.inpar`` files set
+the parameters used by *SExtractor* while the ``*.param`` files dictate
+which *SExtractor* measurements will be written to the output catalogs.
+ 
+Detailed description TBD.
+

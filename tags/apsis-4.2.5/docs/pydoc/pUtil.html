@@ -1,0 +1,140 @@
+
+<!doctype html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module pUtil</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>pUtil</strong></big></big> (version 1.7)</font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/meurer/ACS/Pipeline/Apsis/apsis-4.2.4/python/utils/pUtil.py">/home/meurer/ACS/Pipeline/Apsis/apsis-4.2.4/python/utils/pUtil.py</a></font></td></tr></table>
+    <p><tt>License<br>
+=======<br>
+&nbsp;<br>
+Copyright&nbsp;(c)&nbsp;2009,&nbsp;The&nbsp;Johns&nbsp;Hopkins&nbsp;University<br>
+&nbsp;<br>
+All&nbsp;rights&nbsp;reserved.<br>
+&nbsp;<br>
+Redistribution&nbsp;and&nbsp;use&nbsp;in&nbsp;source&nbsp;and&nbsp;binary&nbsp;forms,&nbsp;with&nbsp;or&nbsp;without<br>
+modification,&nbsp;are&nbsp;permitted&nbsp;provided&nbsp;that&nbsp;the&nbsp;following&nbsp;conditions&nbsp;are&nbsp;met:<br>
+&nbsp;<br>
+Redistributions&nbsp;of&nbsp;source&nbsp;code&nbsp;must&nbsp;retain&nbsp;the&nbsp;above&nbsp;copyright&nbsp;notice,&nbsp;this<br>
+list&nbsp;of&nbsp;conditions&nbsp;and&nbsp;the&nbsp;following&nbsp;disclaimer.&nbsp;&nbsp;Redistributions&nbsp;in&nbsp;binary<br>
+form&nbsp;must&nbsp;reproduce&nbsp;the&nbsp;above&nbsp;copyright&nbsp;notice,&nbsp;this&nbsp;list&nbsp;of&nbsp;conditions&nbsp;and<br>
+the&nbsp;following&nbsp;disclaimer&nbsp;in&nbsp;the&nbsp;documentation&nbsp;and/or&nbsp;other&nbsp;materials&nbsp;provided<br>
+with&nbsp;the&nbsp;distribution.&nbsp;&nbsp;Neither&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;Johns&nbsp;Hopkins&nbsp;University&nbsp;nor<br>
+the&nbsp;names&nbsp;of&nbsp;its&nbsp;contributors&nbsp;may&nbsp;be&nbsp;used&nbsp;to&nbsp;endorse&nbsp;or&nbsp;promote&nbsp;products<br>
+derived&nbsp;from&nbsp;this&nbsp;software&nbsp;without&nbsp;specific&nbsp;prior&nbsp;written&nbsp;permission.<br>
+&nbsp;<br>
+THIS&nbsp;SOFTWARE&nbsp;IS&nbsp;PROVIDED&nbsp;BY&nbsp;THE&nbsp;COPYRIGHT&nbsp;HOLDERS&nbsp;AND&nbsp;CONTRIBUTORS&nbsp;'AS<br>
+IS'&nbsp;AND&nbsp;ANY&nbsp;EXPRESS&nbsp;OR&nbsp;IMPLIED&nbsp;WARRANTIES,&nbsp;INCLUDING,&nbsp;BUT&nbsp;NOT&nbsp;LIMITED<br>
+TO,&nbsp;THE&nbsp;IMPLIED&nbsp;WARRANTIES&nbsp;OF&nbsp;MERCHANTABILITY&nbsp;AND&nbsp;FITNESS&nbsp;FOR&nbsp;A<br>
+PARTICULAR&nbsp;PURPOSE&nbsp;ARE&nbsp;DISCLAIMED.&nbsp;IN&nbsp;NO&nbsp;EVENT&nbsp;SHALL&nbsp;THE&nbsp;COPYRIGHT<br>
+HOLDER&nbsp;OR&nbsp;CONTRIBUTORS&nbsp;BE&nbsp;LIABLE&nbsp;FOR&nbsp;ANY&nbsp;DIRECT,&nbsp;INDIRECT,&nbsp;INCIDENTAL,<br>
+SPECIAL,&nbsp;EXEMPLARY,&nbsp;OR&nbsp;CONSEQUENTIAL&nbsp;DAMAGES&nbsp;(INCLUDING,&nbsp;BUT&nbsp;NOT&nbsp;LIMITED<br>
+TO,&nbsp;PROCUREMENT&nbsp;OF&nbsp;SUBSTITUTE&nbsp;GOODS&nbsp;OR&nbsp;SERVICES;&nbsp;LOSS&nbsp;OF&nbsp;USE,&nbsp;DATA,&nbsp;OR<br>
+PROFITS;&nbsp;OR&nbsp;BUSINESS&nbsp;INTERRUPTION)&nbsp;HOWEVER&nbsp;CAUSED&nbsp;AND&nbsp;ON&nbsp;ANY&nbsp;THEORY&nbsp;OF<br>
+LIABILITY,&nbsp;WHETHER&nbsp;IN&nbsp;CONTRACT,&nbsp;STRICT&nbsp;LIABILITY,&nbsp;OR&nbsp;TORT&nbsp;(INCLUDING<br>
+NEGLIGENCE&nbsp;OR&nbsp;OTHERWISE)&nbsp;ARISING&nbsp;IN&nbsp;ANY&nbsp;WAY&nbsp;OUT&nbsp;OF&nbsp;THE&nbsp;USE&nbsp;OF&nbsp;THIS<br>
+SOFTWARE,&nbsp;EVEN&nbsp;IF&nbsp;ADVISED&nbsp;OF&nbsp;THE&nbsp;POSSIBILITY&nbsp;OF&nbsp;SUCH&nbsp;DAMAGE.<br>
+&nbsp;<br>
+(This&nbsp;license&nbsp;is&nbsp;based&nbsp;on&nbsp;the&nbsp;BSD&nbsp;license<br>
+&nbsp;<a href="http://www.opensource.org/licenses/bsd-license.html">http://www.opensource.org/licenses/bsd-license.html</a>)</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="numpy.oldnumeric.html">numpy.oldnumeric</a><br>
+<a href="cPickle.html">cPickle</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+<a href="string.html">string</a><br>
+</td><td width="25%" valign=top><a href="time.html">time</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="pUtil.html#logFile">logFile</a>
+</font></dt></dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="logFile">class <strong>logFile</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>the&nbsp;class&nbsp;provides&nbsp;for&nbsp;a&nbsp;logfile&nbsp;object,&nbsp;which&nbsp;is&nbsp;instantiated&nbsp;by&nbsp;<br>
+the&nbsp;buildObs&nbsp;method&nbsp;of&nbsp;an&nbsp;DataSet&nbsp;object.&nbsp;buildObs&nbsp;passes&nbsp;the&nbsp;logFileName&nbsp;<br>
+attribute&nbsp;to&nbsp;the&nbsp;constructor.&nbsp;Write&nbsp;method&nbsp;appends&nbsp;a&nbsp;passed&nbsp;string<br>
+object&nbsp;to&nbsp;the&nbsp;logfile.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="logFile-__init__"><strong>__init__</strong></a>(self, newobspath)</dt><dd><tt>Initiate&nbsp;log&nbsp;file.</tt></dd></dl>
+
+<dl><dt><a name="logFile-write"><strong>write</strong></a>(self, logFileEntry)</dt><dd><tt>write&nbsp;a&nbsp;string&nbsp;to&nbsp;the&nbsp;log&nbsp;file&nbsp;object.<br>
+Method&nbsp;opens&nbsp;and&nbsp;closes&nbsp;the&nbsp;file&nbsp;for&nbsp;each&nbsp;call.</tt></dd></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-counter"><strong>counter</strong></a>(n, m)</dt><dd><tt>counter&nbsp;returns&nbsp;a&nbsp;list&nbsp;of&nbsp;values&nbsp;from&nbsp;1&nbsp;to&nbsp;m-n+1&nbsp;for&nbsp;range&nbsp;counting.</tt></dd></dl>
+ <dl><dt><a name="-deNAN"><strong>deNAN</strong></a>(a, value<font color="#909090">=0.0</font>)</dt></dl>
+ <dl><dt><a name="-errorSearch"><strong>errorSearch</strong></a>(errout)</dt><dd><tt>searches&nbsp;a&nbsp;passed&nbsp;list&nbsp;of&nbsp;strings&nbsp;for&nbsp;any&nbsp;of&nbsp;a&nbsp;set&nbsp;of&nbsp;error&nbsp;keywords.<br>
+This&nbsp;list&nbsp;will&nbsp;usually&nbsp;be&nbsp;the&nbsp;result&nbsp;of&nbsp;the&nbsp;readlines()&nbsp;method<br>
+called&nbsp;on&nbsp;a&nbsp;fromchild&nbsp;file&nbsp;object&nbsp;from&nbsp;popen2&nbsp;having&nbsp;run&nbsp;a&nbsp;command.</tt></dd></dl>
+ <dl><dt><a name="-fillHeader"><strong>fillHeader</strong></a>(infile)</dt><dd><tt>This&nbsp;function&nbsp;is&nbsp;meant&nbsp;specifically&nbsp;to&nbsp;return&nbsp;a&nbsp;list&nbsp;of&nbsp;headers&nbsp;from&nbsp;ACS&nbsp;catalogs<br>
+(eg&nbsp;Sextractor&nbsp;catalogs)&nbsp;where&nbsp;all&nbsp;gaps&nbsp;in&nbsp;column&nbsp;identifiers&nbsp;have&nbsp;been&nbsp;filled&nbsp;in.<br>
+Only&nbsp;column&nbsp;number&nbsp;and&nbsp;column&nbsp;name&nbsp;are&nbsp;returned.&nbsp;&nbsp;infile&nbsp;can&nbsp;be&nbsp;either&nbsp;a&nbsp;file&nbsp;<br>
+or&nbsp;a&nbsp;file&nbsp;object.&nbsp;Errors&nbsp;raised&nbsp;if&nbsp;file&nbsp;not&nbsp;found&nbsp;or&nbsp;infile&nbsp;is&nbsp;not&nbsp;of&nbsp;type&nbsp;FileType.</tt></dd></dl>
+ <dl><dt><a name="-jarIt"><strong>jarIt</strong></a>(file, obj)</dt><dd><tt>writes&nbsp;a&nbsp;pickle&nbsp;file&nbsp;for&nbsp;a&nbsp;passed&nbsp;object.&nbsp;file&nbsp;can&nbsp;be&nbsp;just&nbsp;a&nbsp;file<br>
+or&nbsp;a&nbsp;path.</tt></dd></dl>
+ <dl><dt><a name="-makeHeaderDict"><strong>makeHeaderDict</strong></a>(cat)</dt><dd><tt>Returns&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;name:column&nbsp;pairs&nbsp;in&nbsp;the&nbsp;header&nbsp;from&nbsp;<br>
+SExtractor&nbsp;catalog.</tt></dd></dl>
+ <dl><dt><a name="-ptime"><strong>ptime</strong></a>()</dt><dd><tt>returns&nbsp;the&nbsp;current&nbsp;date/time&nbsp;in&nbsp;ISO&nbsp;8601&nbsp;standard&nbsp;format.</tt></dd></dl>
+ <dl><dt><a name="-readInParFile"><strong>readInParFile</strong></a>(parfile)</dt><dd><tt>read&nbsp;a&nbsp;par&nbsp;file&nbsp;and&nbsp;return&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;key:value&nbsp;pairs.</tt></dd></dl>
+ <dl><dt><a name="-readParamFile"><strong>readParamFile</strong></a>(paramfile)</dt><dd><tt>read&nbsp;a&nbsp;SExtractor&nbsp;.param&nbsp;file&nbsp;and&nbsp;return&nbsp;a&nbsp;list&nbsp;of&nbsp;key,value&nbsp;tuples.&nbsp;<br>
+Value&nbsp;is&nbsp;either&nbsp;0&nbsp;or&nbsp;1.&nbsp;This&nbsp;is&nbsp;used&nbsp;instead&nbsp;of&nbsp;a&nbsp;dictionary<br>
+as&nbsp;the&nbsp;order&nbsp;of&nbsp;params&nbsp;for&nbsp;output&nbsp;must&nbsp;be&nbsp;preserved&nbsp;for&nbsp;SExtractor&nbsp;<br>
+catalogs.</tt></dd></dl>
+ <dl><dt><a name="-rmFiles"><strong>rmFiles</strong></a>(dir, fileList)</dt><dd><tt>Remove&nbsp;a&nbsp;list&nbsp;of&nbsp;files&nbsp;from&nbsp;directory&nbsp;dir.</tt></dd></dl>
+ <dl><dt><a name="-sourcexy"><strong>sourcexy</strong></a>(catalogfile)</dt><dd><tt>write&nbsp;out&nbsp;an&nbsp;ascii&nbsp;file&nbsp;of&nbsp;object&nbsp;number&nbsp;and&nbsp;x-y&nbsp;pixel&nbsp;coordinates<br>
+from&nbsp;a&nbsp;SExtractor&nbsp;catalog.</tt></dd></dl>
+ <dl><dt><a name="-string_tally"><strong>string_tally</strong></a>(strings)</dt><dd><tt>search&nbsp;a&nbsp;list&nbsp;of&nbsp;strings&nbsp;and&nbsp;find&nbsp;all&nbsp;unique&nbsp;strings&nbsp;and<br>
+number&nbsp;of&nbsp;occurances&nbsp;for&nbsp;each&nbsp;found&nbsp;string.&nbsp;&nbsp;Returns&nbsp;a&nbsp;<br>
+dictionary&nbsp;of&nbsp;unique&nbsp;strings&nbsp;(as&nbsp;keys)&nbsp;with&nbsp;the&nbsp;number&nbsp;of&nbsp;<br>
+occurrences&nbsp;found&nbsp;as&nbsp;the&nbsp;value.<br>
+eg.,<br>
+stringList&nbsp;=&nbsp;['error1','error2','error3','error1','error1','error3']<br>
+&nbsp;<br>
+<a href="#-string_tally">string_tally</a>(stringList)&nbsp;returns<br>
+{'error3':&nbsp;2,&nbsp;'error2':&nbsp;1,&nbsp;'error1':&nbsp;3}</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>StringTypes</strong> = (&lt;type 'str'&gt;, &lt;type 'unicode'&gt;)<br>
+<strong>__author__</strong> = 'Ken Anderson, anderson@pha.jhu.edu'<br>
+<strong>__version__</strong> = '1.7'<br>
+<strong>__version_date__</strong> = '2003/11/11 21:50:14'</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#7799ee">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Author</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#7799ee"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Ken&nbsp;Anderson,&nbsp;anderson@pha.jhu.edu</td></tr></table>
+</body></html>

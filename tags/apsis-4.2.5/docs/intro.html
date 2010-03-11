@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Introduction &mdash; Apsis v4.2.5 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '4.2.5',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Apsis v4.2.5 documentation" href="index.html" />
+    <link rel="next" title="Download and Installation" href="install.html" />
+    <link rel="prev" title="Apsis - the ACS data reduction pipeline" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="install.html" title="Download and Installation"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Apsis - the ACS data reduction pipeline"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Apsis v4.2.5 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>The ACS science team developed <em>Apsis</em> to efficiently process the ~550
+orbits of GTO time we received in exchange for our instrument development and
+calibration work.  <em>Apsis</em> (ACS pipeline science investigation software) is
+designed to be a robust and flexible astronomical data reduction and analysis
+pipeline for processing these data and related observations.  <em>Apsis</em> is
+written in Python using a flexible, modular design.  <em>Apsis</em> was
+used for processing the ACS early release observation (ERO) images of the
+Tadpole and Mice galaxies, the Cone Nebula, and M17 soon after ACS was
+installed on the Hubble Space Telescope, and for almost all team ACS
+observations since then.  It has developed and been used extensively on
+Linux, Solaris, and Mac OSX platforms for processing WFC and HRC data from
+both science and calibration programs.</p>
+<p>An early description of <em>Apsis</em> can be found in <a class="reference external" href="http://adsabs.harvard.edu/abs/2003ASPC..295..257B">Blakeslee et al. (2003).</a></p>
+<div class="section" id="what-it-does">
+<h2>What it does<a class="headerlink" href="#what-it-does" title="Permalink to this headline">¶</a></h2>
+<p>A single <em>Apsis</em> run will process an &#8220;observation object&#8221; consisting of all
+the images of a given field (or mosaic of overlapping fields).  The input
+images to <em>Apsis</em> are the the FLT output images produced by the CALACS
+software (Hack 1999) which is run on all HST/ACS products as part of the
+STScI pipeline processing.  The FLT images are organized into &#8220;associations&#8221;
+of all the images in one filter using FITS format association tables (one per
+filter).</p>
+<p>The observation object is passed through a variety of modules which perform
+the main processing steps:</p>
+<blockquote>
+<ul class="simple">
+<li>Measurement of the offsets and rotation between frames corrected for
+distortion.</li>
+<li>Sky estimation and subtraction.</li>
+<li>Image stacking with cosmic ray (CR) rejection</li>
+<li>&#8220;drizzling&#8221; of each association on to a common tangential-plane pixel grid.</li>
+<li>Construction of error arrays.</li>
+<li>Construction of a multi-band &#8220;detection image&#8221;.</li>
+<li>Object detection and measurement.</li>
+<li>Photometric calibration.</li>
+<li>(Photo-z estimation is now deprecated)</li>
+</ul>
+</blockquote>
+<p>A running log keeps track of progress and records diagnostics.  Output
+products consist of FITS images (including weights and masks), ASCII
+catalogs, and XML messages, catalogs and FITS headers which are used
+for in-house archiving purposes.</p>
+</div>
+<div class="section" id="caveats">
+<h2>Caveats<a class="headerlink" href="#caveats" title="Permalink to this headline">¶</a></h2>
+<p>ACS dataset are large and the output can become enormous. A typical
+multi-association WFC dataset will need to have ~ 13 GB
+available. Though the final products would be about half that, certain
+steps (drizzle) in processing produce gobs of temp files, which are
+usually removed during processing unless the &#8211;noclean switch is used.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="">Introduction</a><ul>
+<li><a class="reference external" href="#what-it-does">What it does</a></li>
+<li><a class="reference external" href="#caveats">Caveats</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="index.html"
+                                  title="previous chapter">Apsis - the ACS data reduction pipeline</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="install.html"
+                                  title="next chapter">Download and Installation</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/intro.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="install.html" title="Download and Installation"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Apsis - the ACS data reduction pipeline"
+             >previous</a> |</li>
+        <li><a href="index.html">Apsis v4.2.5 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009, Ken Anderson, John Blakeslee, Rychard Bouwens, Dan Magee, Gerhardt Meurer.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.3.
+    </div>
+  </body>
+</html>
