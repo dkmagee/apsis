@@ -5,7 +5,7 @@ These functions only rely on IRAF booleans 'yes' and 'no' and PyFITS.
 import pyfits
 import string,os
 import numpy as N
-import iraf
+from pyraf import iraf
 
 yes = iraf.yes
 no = iraf.no

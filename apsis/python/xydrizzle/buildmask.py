@@ -21,7 +21,7 @@ Functions to build mask files for PyDrizzle.
 #                  files before building a new one. 
 #
 import string,os,types
-import iraf 
+from pyraf import iraf 
 
 import fileutil
 import drutil

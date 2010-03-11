@@ -1,0 +1,197 @@
+Running Apsis
+=============
+
+Quickstart
+----------
+
+*Apsis* is run from the command line as follows::
+
+  apsis [options] <dataset>
+
+Where ``[options]`` indicates one or more of the options listed below,
+and ``<dataset>`` is the name of the dataset to be processed.  
+
+*Apsis* looks for a directory named ``<dataset>`` off of the directory
+referenced by the environment variable ``$INGEST``.  The directory
+``<dataset>`` should contain the ACS images (i.e. ``*_flt.fits`` files)
+and association tables (``*_asn.fits``) which reference these images and
+nothing else (see the `Preliminary steps`_ section for more details).
+
+Note: ``<dataset>`` should not include a trailing slash, ``/``, or
+*Apsis* will crash.
+
+The products produced by *Apsis* as well as a log file and XML output
+are written to a directory named ``<dataset>`` off of the directory
+referenced by the environment variable ``$DATASETS``.
+
+Command line options
+--------------------
+
+*General, and house-keeping options:*
+
+.. cmdoption:: --help 
+
+   gives a quick summary of the command options.
+
+.. cmdoption:: --noXml
+
+   Do not do XML markup of data products.
+
+.. cmdoption:: --testonly 
+
+   Test configuration; exit before directory build.
+
+.. cmdoption:: --debug
+
+   Print full traceback when an exception occurs.
+
+.. cmdoption:: --noclean 
+
+   Intermediate drizzle products will not be deleted.
+
+.. cmdoption:: --justDriz 
+
+   Will quit immediately after drizzling. Detection images and catalogs
+   will not be made.
+
+.. cmdoption:: --noContext 
+
+   Will not produce context images in final drizzling.
+
+.. cmdoption:: --noGSC 
+
+   Will not attempt to correct image WCS by webquery to GSC2.
+
+.. cmdoption:: --nocats 
+
+   No catalogs should be produced for this pipeline run.
+
+.. cmdoption:: --OwnIraf
+
+   Use the login.cl file from the users environment.
+
+*Options directly related to alignment:*
+
+.. cmdoption:: --intRef=<im> 
+
+   Use fits file <im> in the dataset as reference image.
+
+.. cmdoption:: --extRef=<im>
+
+   Use external fits file <im> as reference image.
+
+.. cmdoption:: --justgrism
+
+   This dataset will be aligned as a pure grism observation.
+
+.. cmdoption:: --starcluster 
+
+   Uses the starcluster parameter set for alignment.
+
+.. cmdoption:: --alpixthr=<sig> 
+
+   Use this SExtractor detection threshold for align.
+
+.. cmdoption:: --notrot 
+
+   Do not use rotation in transform found by 'match' (use median shifts).
+
+*Options directly related to sky subtraction:*
+
+.. cmdoption:: --noAve 
+
+   Extension averaging will *not* be done during sky subtraction.
+
+.. cmdoption:: --nosub 
+
+   No sky subtraction will be done.
+
+.. cmdoption:: --minSky 
+
+   Use minimum sky value from multi extension images.
+
+.. cmdoption:: --keepstep 
+
+   Do not try to remove amplifier discontinuity for ACS/WFC.
+
+.. cmdoption:: --skyfile 
+
+   Look for a default.skies file listing sky values.
+
+*Options related to detection image and catalogs:*
+
+.. cmdoption:: --excludefilt=<list> 
+
+   CSV list of filters which will not be included in the detection
+   image.
+
+.. cmdoption:: --richfield 
+
+   Use rich (galaxy cluster) field deblend parameters.
+
+.. cmdoption:: --notrim 
+
+   Do not trim detection weight where Nim=1.
+
+*Options related to geometric distortion:*
+
+.. cmdoption:: --idctab=<file> 
+
+   Use fits IDC table <file> instead of IDCTAB from header.
+
+.. cmdoption:: --dfilt=<filt>
+
+   Use the distortion model in the IDCTAB for this filter. (Currently
+   disabled)
+
+.. cmdoption:: --dr_asecpix=<outscale> 
+
+   Pixel scale of final drizzled image (arcsec/pix).
+
+.. cmdoption:: --dr_pixfrac=<pixfrac> 
+
+   Driz pixfrac ("dropsize") param used for final drizzling.
+
+.. cmdoption:: --dr_kernel=<kernel> 
+
+   Driz kernel (square|point|turbo|tophat|lanczos2|lanczos3|gaussian).
+
+*Options controlling the output image size*
+
+.. cmdoption:: --padfac=<f> 
+
+   Pad linear output size by this factor.
+
+.. cmdoption:: --outsize=<nx>,<ny> 
+
+   Use this output <nx>,<ny> *pixel* (csv) image size.
+
+.. cmdoption:: --outshift=<dx>,<dy> 
+
+   Apply these overall <dx>,<dy> *arcsec* shifts (csv) in output frame.
+
+*Options related to CRs and bad pixel rejection:*
+
+.. cmdoption:: --crlower
+
+   Use dangerously low driz_cr rejection thresholds.
+
+.. cmdoption:: --noCRreject 
+
+   Do not reject cosmic rays (1-pass drizzling).
+
+.. cmdoption:: --keepbits=<bits> 
+
+   Sum of pixel data quality flags to keep during drizzle.
+
+.. cmdoption:: --smartstack
+
+   Use optimal median stacking during drizzle.
+
+.. cmdoption:: --mask=<mask_file>
+
+   Explicitly mask out specific regions in certain input files.
+
+Output directory structure and files
+------------------------------------
+

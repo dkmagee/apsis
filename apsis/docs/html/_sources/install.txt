@@ -1,0 +1,148 @@
+Download and Installation
+=========================
+
+Download
+--------
+
+*Apsis* and its reference files can be obtained from `Google Codes
+<http://code.google.com/p/apsis>`_ .
+
+Dependent Software
+------------------
+
+In addition to the *Apsis* source code, the following packages are
+needed for *Apsis* to run.  Packages indicated with \* are included with
+the `Scisoft suite <http://web.mac.com/npirzkal/Scisoft/Scisoft.html>`_
+of astronomical software for Mac OS X.  Version 2009.6.1 for intel based
+macs, `available here <http://www.versiontracker.com/dyn/moreinfo/macosx/20126>`_, is known to
+the relevant software that works with apsis.  The precise versions
+listed below have been tested and work with apsis.  Earlier or later
+versions may also work, but we can not guarantee that.  Here we note
+some versions of the software that do not work with apsis.
+
+* `python 2.5.4 <http://www.python.org/download/releases/2.5.4/>`_ \*
+
+  + **warning:** *Apsis* will not work with *python 2.6* or higher
+
+* python modules: 
+
+  + `numpy 1.3.0 <http://sourceforge.net/projects/numpy/files/NumPy/>`_ \*
+  + `pyfits 2.1.1 <http://www.stsci.edu/resources/software_hardware/pyfits/Download>`_ \*
+
+* `stsci_python 2.8 <http://www.stsci.edu/resources/software_hardware/pyraf/stsci_python/current/download>`_ \*
+
+  + includes *pyraf* 1.7.1 
+  + includes `pydrizzle 6.3.1 <http://stsdas.stsci.edu/stsci_python_epydoc/docs/pydrizzle/pydrizzle-module.html>`_
+
+* `iraf 2.14.1 <http://iraf.noao.edu/>`_ \*
+
+  + should include `tables/stsdas 3.10 <http://www.stsci.edu/resources/software_hardware/stsdas/download>`_ \*
+
+* `sextractor 2.5.0 <http://astromatic.iap.fr/software/sextractor/>`_ \*
+* `match 0.10 <http://spiff.rit.edu/match/>`_ \*
+* `dust_getval v2000.07.14, version (C+Fortran code) <http://www.astro.princeton.edu/~schlegel/dust/data/data.html>`_
+
+  + Download dustmaps at 4096 pixel resolution
+
+
+
+Installation on a Mac OSX system
+--------------------------------
+
+This is realtively easy because most of the required software is
+bundled with *Scisoft*, which includes executables.  So installation
+amounts to mainly a matter of installing *Apsis* and *Scisoft*.  Only
+one additional package is needed, *dust_getval*; it with its reference
+data must be downloaded and the package compiled.  The following is the
+procedure that worked on my intel MacBook (Aug 2009); variations on this
+may also work.
+
+1. Download and install `Scisoft suite 
+   <http://web.mac.com/npirzkal/Scisoft/Scisoft.html>`_ . 
+
+   * click download link at *Scisoft* webpage
+   * click link for intel version
+   * click "Download Scisoft now" link. 
+   * Download the file Scisoft_OSX_macintel_2009.6.1.pkg.zip
+   * double click this file in finder.  This will open the zip file with
+     *Stuffit*.
+   * double click the pkg file
+   * follow the instructions to install
+     
+     + This should put the software in /Applications/scisoft
+
+   * To run scisoft packages you will need to do 
+
+     + "source /Applications/scisoft/all/bin/setup.csh"
+     + I placed this command at the end of my ~/.cshrc file so it is run
+       whenever I startup
+
+2. Download *Apsis* and the *Apsis* reference files and install them.
+
+   * Make a directory for *Apsis*.  I used ~/ACS/Apsis
+   * Go to the `Google Codes <http://code.google.com/p/apsis>`_  web
+     site.
+   * click on the link "apsis-4.2.2.tgz" to download the source code (to the relevant
+     directory, i.e. ~/ACS/Apsis)
+   * unpack using "tar tvzf apsis-4.2.2.tgz"
+
+     + this makes a directory apsis-4.2.2 containing the software
+
+   * click on the link "apsis-4.2_reffiles.tgz" to download the
+     reference files (to the relevant directory, i.e. ~/ACS/Apsis)
+
+     + this makes a directory "reffiles" containing the reference files
+
+3. compile apsis utilities
+
+   * cd ~/ACS/Apsis/apsis-4.2.2/src/apsis_utils
+   * edit Makefile to change CFITSIO path (if necessary)
+   * make
+   * make install
+     (NOTE: the binaries are installed in ~/apsis/bin)
+
+4. make symbolic link for *match*.  (*Apsis* calls this program as
+   "mrmatch"). 
+
+   * cd ~/local/bin
+   * ln -s /Applications/scisoft/i386/Packages/match-0.10/bin/match .
+   * ln -s /Applications/scisoft/i386/Packages/match-0.10/bin/match mrmatch
+
+5. download, compile and install *dust_getval*
+
+   * go to http://www.astro.princeton.edu/~schlegel/dust/data/data.html
+   * click on link "C+FORTRAN code" this will download CodeC.tar.gz
+   * put this somewhere in your $PATH .  I put it in ~/local
+   * cd ~/local
+   * tar xvzf CodeC.tar.gz
+   * cd CodeC
+   * Edit Makefile so that it compiles - make sure the code block
+     following "# COMPILE ON A DEC ALPHA" is uncommented since it uses
+     gcc and g77, and similar blocks for other compilers are commented
+     out.
+   * make all
+   * mkdir ~/local/dust_getval-20000714
+   * mv dust_getval lambert_getval predict_sync predict_thermal
+     ~/local/dustgetval-20000714
+   * cd ~/local/bin
+   * ln -s ./dust_getval-20000714/dust_getval .
+
+6. Install dust maps
+
+   * go to http://www.astro.princeton.edu/~schlegel/dust/data/data.html
+   * click on link "4096 maps" .  This will download "SFD_4096.tar.gz"
+   * unpack this into an apropriate directory:
+
+     - cd ~/ACS/Apsis/reffiles/maps
+     - tar xvzf ~/Downloads/SFD_4096.tar.gz 
+
+Installation on a linux system
+------------------------------
+
+Detailed instructions are not yet written.  The basic process would be
+to:
+
+1. download the individual packages listed above
+2. unpack them in to apropriate directories
+3. make compiled and executable versions as necessary
+4. make sure the executables are in your $PATH

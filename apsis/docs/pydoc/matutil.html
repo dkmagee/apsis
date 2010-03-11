@@ -1,0 +1,214 @@
+
+<!doctype html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module matutil</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>matutil</strong></big></big> (version 1.17)</font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/meurer/ACS/Pipeline/Apsis/apsis-4.2.4/python/utils/matutil.py">/home/meurer/ACS/Pipeline/Apsis/apsis-4.2.4/python/utils/matutil.py</a></font></td></tr></table>
+    <p><tt>License<br>
+=======<br>
+&nbsp;<br>
+Copyright&nbsp;(c)&nbsp;2009,&nbsp;The&nbsp;Johns&nbsp;Hopkins&nbsp;University<br>
+&nbsp;<br>
+All&nbsp;rights&nbsp;reserved.<br>
+&nbsp;<br>
+Redistribution&nbsp;and&nbsp;use&nbsp;in&nbsp;source&nbsp;and&nbsp;binary&nbsp;forms,&nbsp;with&nbsp;or&nbsp;without<br>
+modification,&nbsp;are&nbsp;permitted&nbsp;provided&nbsp;that&nbsp;the&nbsp;following&nbsp;conditions&nbsp;are&nbsp;met:<br>
+&nbsp;<br>
+Redistributions&nbsp;of&nbsp;source&nbsp;code&nbsp;must&nbsp;retain&nbsp;the&nbsp;above&nbsp;copyright&nbsp;notice,&nbsp;this<br>
+list&nbsp;of&nbsp;conditions&nbsp;and&nbsp;the&nbsp;following&nbsp;disclaimer.&nbsp;&nbsp;Redistributions&nbsp;in&nbsp;binary<br>
+form&nbsp;must&nbsp;reproduce&nbsp;the&nbsp;above&nbsp;copyright&nbsp;notice,&nbsp;this&nbsp;list&nbsp;of&nbsp;conditions&nbsp;and<br>
+the&nbsp;following&nbsp;disclaimer&nbsp;in&nbsp;the&nbsp;documentation&nbsp;and/or&nbsp;other&nbsp;materials&nbsp;provided<br>
+with&nbsp;the&nbsp;distribution.&nbsp;&nbsp;Neither&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;Johns&nbsp;Hopkins&nbsp;University&nbsp;nor<br>
+the&nbsp;names&nbsp;of&nbsp;its&nbsp;contributors&nbsp;may&nbsp;be&nbsp;used&nbsp;to&nbsp;endorse&nbsp;or&nbsp;promote&nbsp;products<br>
+derived&nbsp;from&nbsp;this&nbsp;software&nbsp;without&nbsp;specific&nbsp;prior&nbsp;written&nbsp;permission.<br>
+&nbsp;<br>
+THIS&nbsp;SOFTWARE&nbsp;IS&nbsp;PROVIDED&nbsp;BY&nbsp;THE&nbsp;COPYRIGHT&nbsp;HOLDERS&nbsp;AND&nbsp;CONTRIBUTORS&nbsp;'AS<br>
+IS'&nbsp;AND&nbsp;ANY&nbsp;EXPRESS&nbsp;OR&nbsp;IMPLIED&nbsp;WARRANTIES,&nbsp;INCLUDING,&nbsp;BUT&nbsp;NOT&nbsp;LIMITED<br>
+TO,&nbsp;THE&nbsp;IMPLIED&nbsp;WARRANTIES&nbsp;OF&nbsp;MERCHANTABILITY&nbsp;AND&nbsp;FITNESS&nbsp;FOR&nbsp;A<br>
+PARTICULAR&nbsp;PURPOSE&nbsp;ARE&nbsp;DISCLAIMED.&nbsp;IN&nbsp;NO&nbsp;EVENT&nbsp;SHALL&nbsp;THE&nbsp;COPYRIGHT<br>
+HOLDER&nbsp;OR&nbsp;CONTRIBUTORS&nbsp;BE&nbsp;LIABLE&nbsp;FOR&nbsp;ANY&nbsp;DIRECT,&nbsp;INDIRECT,&nbsp;INCIDENTAL,<br>
+SPECIAL,&nbsp;EXEMPLARY,&nbsp;OR&nbsp;CONSEQUENTIAL&nbsp;DAMAGES&nbsp;(INCLUDING,&nbsp;BUT&nbsp;NOT&nbsp;LIMITED<br>
+TO,&nbsp;PROCUREMENT&nbsp;OF&nbsp;SUBSTITUTE&nbsp;GOODS&nbsp;OR&nbsp;SERVICES;&nbsp;LOSS&nbsp;OF&nbsp;USE,&nbsp;DATA,&nbsp;OR<br>
+PROFITS;&nbsp;OR&nbsp;BUSINESS&nbsp;INTERRUPTION)&nbsp;HOWEVER&nbsp;CAUSED&nbsp;AND&nbsp;ON&nbsp;ANY&nbsp;THEORY&nbsp;OF<br>
+LIABILITY,&nbsp;WHETHER&nbsp;IN&nbsp;CONTRACT,&nbsp;STRICT&nbsp;LIABILITY,&nbsp;OR&nbsp;TORT&nbsp;(INCLUDING<br>
+NEGLIGENCE&nbsp;OR&nbsp;OTHERWISE)&nbsp;ARISING&nbsp;IN&nbsp;ANY&nbsp;WAY&nbsp;OUT&nbsp;OF&nbsp;THE&nbsp;USE&nbsp;OF&nbsp;THIS<br>
+SOFTWARE,&nbsp;EVEN&nbsp;IF&nbsp;ADVISED&nbsp;OF&nbsp;THE&nbsp;POSSIBILITY&nbsp;OF&nbsp;SUCH&nbsp;DAMAGE.<br>
+&nbsp;<br>
+(This&nbsp;license&nbsp;is&nbsp;based&nbsp;on&nbsp;the&nbsp;BSD&nbsp;license<br>
+&nbsp;<a href="http://www.opensource.org/licenses/bsd-license.html">http://www.opensource.org/licenses/bsd-license.html</a>)</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="math.html">math</a><br>
+</td><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top><a href="pyfits.html">pyfits</a><br>
+</td><td width="25%" valign=top><a href="string.html">string</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-convertIDCtrans"><strong>convertIDCtrans</strong></a>(Cx, Cy, docheck<font color="#909090">=0</font>, verb<font color="#909090">=0</font>, direction<font color="#909090">='forward'</font>)</dt><dd><tt>Convert&nbsp;IDCtab-style&nbsp;Cx,Cy&nbsp;matrices&nbsp;to&nbsp;a&nbsp;1-d&nbsp;&nbsp;transformation<br>
+coefficient&nbsp;array,&nbsp;the&nbsp;form&nbsp;used&nbsp;in&nbsp;standard&nbsp;drizzle&nbsp;implementation.<br>
+The&nbsp;returned&nbsp;arrays&nbsp;could&nbsp;also&nbsp;be&nbsp;sent&nbsp;to&nbsp;<a href="#-cubinvert">cubinvert</a>().<br>
+***&gt;&nbsp;Input:&nbsp;&nbsp;&nbsp;IDC&nbsp;FITS&nbsp;table&nbsp;file&nbsp;name;&nbsp;chip&nbsp;ID;&nbsp;check&nbsp;indices?<br>
+***&gt;&nbsp;Returns:&nbsp;&lt;xcoeffs[0:],ycoeffs[0:]&gt;&nbsp;1-d&nbsp;transformation&nbsp;arrays.<br>
+e.g.,&nbsp;the&nbsp;mapping&nbsp;for&nbsp;an&nbsp;Norder=3&nbsp;IDCTAB&nbsp;(a&nbsp;4x4&nbsp;matrix)&nbsp;will&nbsp;be:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xcoeff[0]&nbsp;=&nbsp;Cx[0,0]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ycoeff[0]&nbsp;=&nbsp;Cy[0,0]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xcoeff[1]&nbsp;=&nbsp;Cx[1,1]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ycoeff[1]&nbsp;=&nbsp;Cy[1,1]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xcoeff[2]&nbsp;=&nbsp;Cx[1,0]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ycoeff[2]&nbsp;=&nbsp;Cy[1,0]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xcoeff[3]&nbsp;=&nbsp;Cx[2,2]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ycoeff[3]&nbsp;=&nbsp;Cy[2,2]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xcoeff[4]&nbsp;=&nbsp;Cx[2,1]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ycoeff[4]&nbsp;=&nbsp;Cy[2,1]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xcoeff[5]&nbsp;=&nbsp;Cx[2,0]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ycoeff[5]&nbsp;=&nbsp;Cy[2,0]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xcoeff[6]&nbsp;=&nbsp;Cx[3,3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ycoeff[6]&nbsp;=&nbsp;Cy[3,3]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xcoeff[7]&nbsp;=&nbsp;Cx[3,2]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ycoeff[7]&nbsp;=&nbsp;Cy[3,2]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xcoeff[8]&nbsp;=&nbsp;Cx[3,1]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ycoeff[8]&nbsp;=&nbsp;Cy[3,1]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xcoeff[9]&nbsp;=&nbsp;Cx[3,0]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ycoeff[9]&nbsp;=&nbsp;Cy[3,0]</tt></dd></dl>
+ <dl><dt><a name="-cubinvert"><strong>cubinvert</strong></a>(xout, yout, xco, yco, verb<font color="#909090">=1</font>, Err<font color="#909090">=1e-08</font>)</dt><dd><tt>*&nbsp;Invert&nbsp;a&nbsp;2-d&nbsp;cubic&nbsp;distortion&nbsp;using&nbsp;the&nbsp;Newton-Raphson&nbsp;method<br>
+*&nbsp;(i.e.,&nbsp;successive&nbsp;approximation).<br>
+*&nbsp;&nbsp;<br>
+*&nbsp;Takes&nbsp;the&nbsp;following:<br>
+*&nbsp;&nbsp;&nbsp;&nbsp;Xout,&nbsp;Yout&nbsp;-&nbsp;(real)&nbsp;output&nbsp;position&nbsp;from&nbsp;the&nbsp;geometric&nbsp;distortion.<br>
+*&nbsp;&nbsp;&nbsp;&nbsp;Xco,&nbsp;Yco&nbsp;&nbsp;-&nbsp;(real)&nbsp;arrays&nbsp;the&nbsp;cubic&nbsp;distortion&nbsp;coefficients<br>
+*&nbsp;&nbsp;&nbsp;&nbsp;verb&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;(int)&nbsp;1=&gt;&nbsp;print&nbsp;x,y&nbsp;at&nbsp;each&nbsp;iteration;&nbsp;0=&gt;&nbsp;don't&nbsp;print<br>
+*&nbsp;&nbsp;&nbsp;&nbsp;Err&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;(real)&nbsp;accuracy&nbsp;required&nbsp;of&nbsp;the&nbsp;inversion&nbsp;(in&nbsp;X&nbsp;and&nbsp;Y)<br>
+*&nbsp;<br>
+*&nbsp;Returns&nbsp;the&nbsp;real&nbsp;values:<br>
+*&nbsp;&nbsp;&nbsp;&nbsp;x,&nbsp;y&nbsp;&nbsp;-&nbsp;&nbsp;&lt;x,y&gt;&nbsp;position&nbsp;[relative&nbsp;to&nbsp;XREF,YREF]&nbsp;which,&nbsp;when&nbsp;undistorted,<br>
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ends&nbsp;up&nbsp;at&nbsp;the&nbsp;specified&nbsp;(xout,&nbsp;yout),&nbsp;to&nbsp;within&nbsp;&lt;Err&gt;&nbsp;tolerance.<br>
+*&nbsp;<br>
+*&nbsp;This&nbsp;routine&nbsp;is&nbsp;similar&nbsp;to&nbsp;the&nbsp;one&nbsp;used&nbsp;in&nbsp;Richard&nbsp;Hook's&nbsp;blot.f&nbsp;code.<br>
+*&nbsp;It's&nbsp;iterative&nbsp;and&nbsp;therefore&nbsp;slow&nbsp;in&nbsp;principle,&nbsp;but&nbsp;converges&nbsp;pretty&nbsp;fast<br>
+*&nbsp;on&nbsp;the&nbsp;cube&nbsp;roots&nbsp;in&nbsp;practice,&nbsp;especially&nbsp;with&nbsp;the&nbsp;linear&nbsp;1st-order&nbsp;guess.</tt></dd></dl>
+ <dl><dt><a name="-cubxyIDCinvert"><strong>cubxyIDCinvert</strong></a>(x_c, y_c, Cx, Cy, verb<font color="#909090">=1</font>, Err<font color="#909090">=1e-08</font>)</dt><dd><tt>Function&nbsp;to&nbsp;transform&nbsp;back&nbsp;an&nbsp;dedistorted&nbsp;&lt;x_c,&nbsp;y_c&gt;&nbsp;position&nbsp;using<br>
+the&nbsp;inverse&nbsp;of&nbsp;the&nbsp;'forward'&nbsp;IDCtab&nbsp;distortion&nbsp;solution.<br>
+Takes:&nbsp;&nbsp;dedistored&nbsp;&lt;x,y&gt;&nbsp;posn;&nbsp;&lt;Cx,Cy&gt;&nbsp;IDC-like&nbsp;matrices.<br>
+Returns:&nbsp;&nbsp;inverse&nbsp;transformed&nbsp;("redistorted")&nbsp;&lt;x,y&gt;&nbsp;position,&nbsp;DEFINED<br>
+&nbsp;&nbsp;RELATIVE&nbsp;to&nbsp;(XREF,YREF)&nbsp;pixel&nbsp;postion.&nbsp;&nbsp;Use&nbsp;refdict&nbsp;get&nbsp;absolute&nbsp;(x,y).<br>
+*************************************************************************<br>
+************************&gt;&nbsp;&nbsp;&nbsp;NOTE&nbsp;THIS&nbsp;WELL!&nbsp;&nbsp;&nbsp;&lt;**************************<br>
+***&nbsp;&nbsp;The&nbsp;returned&nbsp;x,y&nbsp;"untransformed"&nbsp;or&nbsp;"redistorted"&nbsp;pixel&nbsp;positons&nbsp;***<br>
+***&nbsp;&nbsp;are&nbsp;relative&nbsp;to&nbsp;the&nbsp;"reference&nbsp;position".&nbsp;&nbsp;THEREFORE&nbsp;to&nbsp;get&nbsp;the&nbsp;&nbsp;***<br>
+***&nbsp;&nbsp;absolute&nbsp;(x,y)&nbsp;pixel&nbsp;positions&nbsp;on&nbsp;chip,&nbsp;do&nbsp;the&nbsp;following:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***<br>
+***&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xp,yp&nbsp;=&nbsp;<a href="#-xyIDCinvert">xyIDCinvert</a>(x_arcsec,y_arcsec,Cx,Cy)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***<br>
+***&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xp&nbsp;+=&nbsp;refdict['XREF']&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***<br>
+***&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yp&nbsp;+=&nbsp;refdict['YREF']&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***<br>
+***&nbsp;&nbsp;where&nbsp;&lt;refdict&gt;&nbsp;is&nbsp;returned&nbsp;along&nbsp;with&nbsp;Cx,Cy,Norder&nbsp;by&nbsp;the&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***<br>
+***&nbsp;&nbsp;drutil.readIDCtab()&nbsp;method&nbsp;or,&nbsp;equivalently,&nbsp;<a href="#-getIDCinfo">getIDCinfo</a>()&nbsp;above.&nbsp;***<br>
+***&nbsp;&nbsp;NOTE&nbsp;ALSO:&nbsp;&nbsp;this&nbsp;converts&nbsp;IDC&nbsp;matrices&nbsp;to&nbsp;1-d&nbsp;for&nbsp;each&nbsp;call.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***<br>
+***&nbsp;&nbsp;TO&nbsp;SAVE&nbsp;TIME:&nbsp;&nbsp;Use&nbsp;<a href="#-cubinvert">cubinvert</a>()&nbsp;directly&nbsp;with&nbsp;the&nbsp;1-d&nbsp;arrays.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***<br>
+*************************************************************************</tt></dd></dl>
+ <dl><dt><a name="-getIDCinfo"><strong>getIDCinfo</strong></a>(IDCname, chip, direction<font color="#909090">='forward'</font>, verbose<font color="#909090">=1</font>, filter1<font color="#909090">=None</font>, filter2<font color="#909090">=None</font>)</dt><dd><tt>This&nbsp;function&nbsp;takes&nbsp;IDC&nbsp;file&nbsp;name,&nbsp;chip&nbsp;ID,&nbsp;and&nbsp;optional&nbsp;direction.<br>
+Then&nbsp;it&nbsp;just&nbsp;calls&nbsp;_readIDCtab()&nbsp;and&nbsp;does&nbsp;some&nbsp;error&nbsp;checks.<br>
+Returns:&nbsp;Cx,Cy,refdict,Norder<br>
+e.g.,<br>
+&gt;&gt;&nbsp;Cx,Cy,refdict,Norder&nbsp;=&nbsp;matutil.<a href="#-getIDCinfo">getIDCinfo</a>(idcfile,2)</tt></dd></dl>
+ <dl><dt><a name="-getIDCxy_abstrans"><strong>getIDCxy_abstrans</strong></a>(x, y, IDCname, chip, verb<font color="#909090">=1</font>, direction<font color="#909090">='forward'</font>)</dt><dd><tt>Read&nbsp;IDC&nbsp;table,&nbsp;translate&nbsp;x,y&nbsp;absolute&nbsp;position.<br>
+Takes:&nbsp;&nbsp;&lt;x,y&gt;&nbsp;position&nbsp;(*absolute*&nbsp;-&nbsp;don't&nbsp;subtract&nbsp;off&nbsp;XREF,YREF);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;IDCname&gt;&nbsp;IDC&nbsp;FITS&nbsp;table&nbsp;file&nbsp;name;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chip&nbsp;ID;&nbsp;optional&nbsp;direction&nbsp;(defaults&nbsp;to&nbsp;'forward')<br>
+Returns:&nbsp;&nbsp;transformed&nbsp;&lt;x,y&gt;&nbsp;position.</tt></dd></dl>
+ <dl><dt><a name="-help"><strong>help</strong></a>()</dt></dl>
+ <dl><dt><a name="-makeCDdict"><strong>makeCDdict</strong></a>(pa_deg, pscale)</dt><dd><tt>Given&nbsp;PA(deg)&nbsp;and&nbsp;pixscale,&nbsp;retrun&nbsp;a&nbsp;CD&nbsp;matrix&nbsp;dictionary.</tt></dd></dl>
+ <dl><dt><a name="-printIDC1d"><strong>printIDC1d</strong></a>(Ctuple)</dt><dd><tt>Prints&nbsp;elements&nbsp;of&nbsp;each&nbsp;of&nbsp;a&nbsp;*tuple*&nbsp;of&nbsp;IDCTAB&nbsp;matrices.</tt></dd></dl>
+ <dl><dt><a name="-printIDCmat"><strong>printIDCmat</strong></a>(Cmat)</dt><dd><tt>Prints&nbsp;an&nbsp;IDCTAB&nbsp;matrix&nbsp;is&nbsp;a&nbsp;nicer&nbsp;form&nbsp;than&nbsp;a&nbsp;simple&nbsp;'print'.</tt></dd></dl>
+ <dl><dt><a name="-readIDCtxt"><strong>readIDCtxt</strong></a>(txtfile)</dt><dd><tt>Read&nbsp;the&nbsp;IDC&nbsp;coefficients&nbsp;from&nbsp;a&nbsp;text&nbsp;file&nbsp;with&nbsp;format:<br>
+&nbsp;&nbsp;&nbsp;Cx[0,0]&nbsp;&nbsp;Cy[0,0]<br>
+&nbsp;&nbsp;&nbsp;Cx[0,1]&nbsp;&nbsp;Cy[0,1]<br>
+&nbsp;&nbsp;&nbsp;Cx[1,1]&nbsp;&nbsp;Cy[1,1]<br>
+&nbsp;&nbsp;&nbsp;Cx[0,2]&nbsp;&nbsp;Cy[0,2]<br>
+&nbsp;&nbsp;&nbsp;Cx[1,2]&nbsp;&nbsp;Cy[1,2]<br>
+&nbsp;&nbsp;&nbsp;Cx[2,2]&nbsp;&nbsp;Cy[2,2]<br>
+&nbsp;&nbsp;&nbsp;Cx[0,3]&nbsp;&nbsp;Cy[0,3]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+Comment&nbsp;and&nbsp;blank&nbsp;lines&nbsp;are&nbsp;ignored.<br>
+Returns&nbsp;a&nbsp;tuple&nbsp;consisting&nbsp;of&nbsp;just&nbsp;the&nbsp;Cx,Cy&nbsp;matrices.</tt></dd></dl>
+ <dl><dt><a name="-rotateIDC"><strong>rotateIDC</strong></a>(Cx, Cy, thetDeg)</dt><dd><tt>Rotate&nbsp;the&nbsp;Cx,Cy&nbsp;matrices&nbsp;by&nbsp;specified&nbsp;angle&nbsp;thetdeg&nbsp;(degrees).<br>
+Seems&nbsp;simple,&nbsp;but&nbsp;remember&nbsp;that&nbsp;the&nbsp;distortion&nbsp;solution&nbsp;is&nbsp;ultimately<br>
+tied&nbsp;to&nbsp;the&nbsp;V2,V3&nbsp;coordinate&nbsp;system,&nbsp;which&nbsp;is&nbsp;left-handed,&nbsp;whereas<br>
+the&nbsp;distortion-corrected&nbsp;x,y&nbsp;coordinate&nbsp;system&nbsp;is&nbsp;right-handed.<br>
+If&nbsp;you&nbsp;want&nbsp;to&nbsp;rotate&nbsp;in&nbsp;the&nbsp;V2,V3&nbsp;system,&nbsp;you&nbsp;need&nbsp;to&nbsp;use&nbsp;the<br>
+negative&nbsp;of&nbsp;the&nbsp;angle.&nbsp;&nbsp;So,&nbsp;know&nbsp;what&nbsp;you're&nbsp;really&nbsp;asking&nbsp;for.</tt></dd></dl>
+ <dl><dt><a name="-targroll"><strong>targroll</strong></a>(roll, dec, v2, v3, updown<font color="#909090">=0</font>)</dt><dd><tt>Given&nbsp;the&nbsp;following:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;roll&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;roll&nbsp;angle&nbsp;defined&nbsp;up&nbsp;yonder&nbsp;at&nbsp;V1&nbsp;Axis,&nbsp;i.e.,&nbsp;header&nbsp;PA_V3&nbsp;[deg]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dec&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;declination&nbsp;of&nbsp;target&nbsp;[deg]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;v2&nbsp;position&nbsp;of&nbsp;target&nbsp;[arcsec]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;v3&nbsp;position&nbsp;of&nbsp;target&nbsp;[arcsec]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updown&nbsp;-&nbsp;&nbsp;undistorted&nbsp;target&nbsp;y-axis&nbsp;anti-parallel&nbsp;to&nbsp;V3?&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;troll&nbsp;&nbsp;-&nbsp;&nbsp;the&nbsp;roll&nbsp;angle&nbsp;evaluated&nbsp;at&nbsp;the&nbsp;target,&nbsp;i.e.,&nbsp;the&nbsp;angle&nbsp;V3<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;makes&nbsp;with&nbsp;North&nbsp;at&nbsp;the&nbsp;target&nbsp;position&nbsp;[deg].<br>
+Basic&nbsp;algorithm&nbsp;from&nbsp;C.&nbsp;Cox.</tt></dd></dl>
+ <dl><dt><a name="-xyIDCinvert"><strong>xyIDCinvert</strong></a>(xout, yout, Cx, Cy, verb<font color="#909090">=1</font>, Err<font color="#909090">=1e-08</font>)</dt><dd><tt>Function&nbsp;to&nbsp;transform&nbsp;back&nbsp;a&nbsp;dedistorted&nbsp;&lt;x_c,&nbsp;y_c&gt;&nbsp;position&nbsp;using&nbsp;the<br>
+inverse&nbsp;of&nbsp;the&nbsp;'forward'&nbsp;IDCtab&nbsp;distortion&nbsp;solution.&nbsp;The&nbsp;inverse&nbsp;is&nbsp;solved<br>
+for&nbsp;iteratively&nbsp;using&nbsp;the&nbsp;Newton-Raphson&nbsp;method&nbsp;(successive&nbsp;approximation).<br>
+&nbsp;<br>
+Takes:<br>
+&nbsp;&nbsp;&nbsp;xout,yout&nbsp;-&nbsp;(real)&nbsp;output&nbsp;(dedistorted)&nbsp;x,y&nbsp;from&nbsp;the&nbsp;distortion&nbsp;model.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Cx,&nbsp;Cy&nbsp;&nbsp;&nbsp;-&nbsp;(real)&nbsp;2-d&nbsp;IDC&nbsp;arrays<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;verb&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;(int)&nbsp;1=&gt;&nbsp;print&nbsp;x,y&nbsp;at&nbsp;each&nbsp;iteration;&nbsp;0=&gt;&nbsp;don't&nbsp;print<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Err&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;(real)&nbsp;accuracy&nbsp;required&nbsp;of&nbsp;the&nbsp;inversion&nbsp;(in&nbsp;X&nbsp;and&nbsp;Y)<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x,&nbsp;y&nbsp;&nbsp;-&nbsp;&nbsp;distorted&nbsp;grid&nbsp;&lt;x,y&gt;&nbsp;position&nbsp;[relative&nbsp;to&nbsp;XREF,YREF]&nbsp;which,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when&nbsp;undistorted,&nbsp;ends&nbsp;up&nbsp;back&nbsp;at&nbsp;the&nbsp;specified&nbsp;(xout,&nbsp;yout),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;within&nbsp;&lt;Err&gt;&nbsp;tolerance.<br>
+*************************************************************************<br>
+************************&gt;&nbsp;&nbsp;&nbsp;NOTE&nbsp;THIS&nbsp;WELL!&nbsp;&nbsp;&nbsp;&lt;**************************<br>
+***&nbsp;&nbsp;The&nbsp;returned&nbsp;x,y&nbsp;"untransformed"&nbsp;or&nbsp;"redistorted"&nbsp;pixel&nbsp;positons&nbsp;***<br>
+***&nbsp;&nbsp;are&nbsp;relative&nbsp;to&nbsp;the&nbsp;"reference&nbsp;position".&nbsp;&nbsp;THEREFORE&nbsp;to&nbsp;get&nbsp;the&nbsp;&nbsp;***<br>
+***&nbsp;&nbsp;absolute&nbsp;(x,y)&nbsp;pixel&nbsp;positions&nbsp;on&nbsp;chip,&nbsp;do&nbsp;the&nbsp;following:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***<br>
+***&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xp,yp&nbsp;=&nbsp;<a href="#-xyIDCinvert">xyIDCinvert</a>(x_arcsec,y_arcsec,Cx,Cy)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***<br>
+***&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xp&nbsp;+=&nbsp;refdict['XREF']&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***<br>
+***&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yp&nbsp;+=&nbsp;refdict['YREF']&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***<br>
+***&nbsp;&nbsp;where&nbsp;&lt;refdict&gt;&nbsp;is&nbsp;returned&nbsp;with&nbsp;Cx,Cy,Norder&nbsp;by&nbsp;<a href="#-getIDCinfo">getIDCinfo</a>().&nbsp;&nbsp;&nbsp;***<br>
+***&nbsp;&nbsp;NOTE&nbsp;ALSO:&nbsp;&nbsp;this&nbsp;routine&nbsp;now&nbsp;no&nbsp;longer&nbsp;converts&nbsp;matrices&nbsp;to&nbsp;1-d&nbsp;&nbsp;***<br>
+***&nbsp;&nbsp;&nbsp;&nbsp;but&nbsp;just&nbsp;works&nbsp;directly&nbsp;with&nbsp;2-d&nbsp;Cx,Cy.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***<br>
+*************************************************************************<br>
+*************************************************************************</tt></dd></dl>
+ <dl><dt><a name="-xyIDCtrans"><strong>xyIDCtrans</strong></a>(x, y, Cx, Cy, verb<font color="#909090">=0</font>)</dt><dd><tt>Function&nbsp;to&nbsp;transform&nbsp;an&nbsp;x,y&nbsp;position&nbsp;using&nbsp;IDCtab&nbsp;distortion&nbsp;solution.<br>
+Takes:&nbsp;&nbsp;&lt;x,y&gt;&nbsp;posn;&nbsp;&lt;Cx,Cy&gt;&nbsp;IDC-like&nbsp;matrices;&nbsp;&lt;Norder&gt;&nbsp;polynomial&nbsp;order<br>
+Returns:&nbsp;&nbsp;transformed&nbsp;(distorted&nbsp;or&nbsp;undistorted)&nbsp;&lt;x,y&gt;&nbsp;position.<br>
+**************************************************************************<br>
+***************************&gt;&nbsp;&nbsp;&nbsp;&nbsp;NOTE&nbsp;WELL!&nbsp;&nbsp;&nbsp;&nbsp;&lt;***************************<br>
+***&nbsp;&nbsp;Assumes&nbsp;that&nbsp;input&nbsp;&lt;x,y&gt;&nbsp;are&nbsp;relative&nbsp;to&nbsp;the&nbsp;"reference&nbsp;position"&nbsp;***<br>
+***&nbsp;&nbsp;THEREFORE,&nbsp;to&nbsp;transform&nbsp;raw&nbsp;(x,y)&nbsp;pixel&nbsp;positions,&nbsp;YOU,&nbsp;dear&nbsp;user,***<br>
+***&nbsp;&nbsp;MUST&nbsp;do&nbsp;the&nbsp;following:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***<br>
+***&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;x&nbsp;-&nbsp;refdict['XREF']&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***<br>
+***&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;=&nbsp;y&nbsp;-&nbsp;refdict['YREF']&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***<br>
+***&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xc,yc&nbsp;=&nbsp;<a href="#-xyIDCtrans">xyIDCtrans</a>(x,&nbsp;y,&nbsp;Cx,&nbsp;Cy)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***<br>
+***&nbsp;&nbsp;where&nbsp;&lt;refdict&gt;&nbsp;is&nbsp;the&nbsp;python&nbsp;dictionary&nbsp;returned&nbsp;by&nbsp;the&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***<br>
+***&nbsp;&nbsp;drutil.readIDCtab()&nbsp;method&nbsp;or,&nbsp;equivalently,&nbsp;<a href="#-getIDCinfo">getIDCinfo</a>()&nbsp;above&nbsp;&nbsp;&nbsp;***<br>
+***&nbsp;&nbsp;(this&nbsp;dictionary&nbsp;is&nbsp;populated&nbsp;from&nbsp;the&nbsp;IDC&nbsp;FITS&nbsp;Table&nbsp;header).&nbsp;&nbsp;&nbsp;&nbsp;***<br>
+**************************************************************************<br>
+**************************************************************************</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>InverMaxIter</strong> = 500<br>
+<strong>InversionTol</strong> = 1e-08<br>
+<strong>__author__</strong> = 'J Blakeslee, jpb@pha.jhu.edu'<br>
+<strong>__version__</strong> = '1.17'<br>
+<strong>__version_date__</strong> = '2006/07/21 20:19:42'</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#7799ee">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Author</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#7799ee"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">J&nbsp;Blakeslee,&nbsp;jpb@pha.jhu.edu</td></tr></table>
+</body></html>

@@ -1,5 +1,5 @@
 import os,string
-import iraf
+from pyraf import iraf
 import numpy
 from numpy import char as chararray 
 

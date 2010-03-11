@@ -5,7 +5,7 @@ import numpy as N
 
 import xydrizzle, drutil, fileutil
 
-import iraf
+from pyraf import iraf
 
 # Convenience definitions...
 yes = iraf.yes

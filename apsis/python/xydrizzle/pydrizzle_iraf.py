@@ -1,5 +1,5 @@
 import os
-import iraf
+from pyraf import iraf
 
 no = iraf.no
 yes = iraf.yes

@@ -1,0 +1,335 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Running Apsis &mdash; Apsis v5.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '5.0.0',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Apsis v5.0.0 documentation" href="index.html" />
+    <link rel="next" title="Modules" href="modules.html" />
+    <link rel="prev" title="Preliminary steps" href="prelims.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="modules.html" title="Modules"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="prelims.html" title="Preliminary steps"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Apsis v5.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="running-apsis">
+<h1>Running Apsis<a class="headerlink" href="#running-apsis" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="quickstart">
+<h2>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h2>
+<p><em>Apsis</em> is run from the command line as follows:</p>
+<div class="highlight-python"><pre>apsis [options] &lt;dataset&gt;</pre>
+</div>
+<p>Where <tt class="docutils literal"><span class="pre">[options]</span></tt> indicates one or more of the options listed below,
+and <tt class="docutils literal"><span class="pre">&lt;dataset&gt;</span></tt> is the name of the dataset to be processed.</p>
+<p><em>Apsis</em> looks for a directory named <tt class="docutils literal"><span class="pre">&lt;dataset&gt;</span></tt> off of the directory
+referenced by the environment variable <tt class="docutils literal"><span class="pre">$INGEST</span></tt>.  The directory
+<tt class="docutils literal"><span class="pre">&lt;dataset&gt;</span></tt> should contain the ACS images (i.e. <tt class="docutils literal"><span class="pre">*_flt.fits</span></tt> files)
+and association tables (<tt class="docutils literal"><span class="pre">*_asn.fits</span></tt>) which reference these images and
+nothing else (see the <a href="#id1"><span class="problematic" id="id2">`Preliminary steps`_</span></a> section for more details).</p>
+<p>Note: <tt class="docutils literal"><span class="pre">&lt;dataset&gt;</span></tt> should not include a trailing slash, <tt class="docutils literal"><span class="pre">/</span></tt>, or
+<em>Apsis</em> will crash.</p>
+<p>The products produced by <em>Apsis</em> as well as a log file and XML output
+are written to a directory named <tt class="docutils literal"><span class="pre">&lt;dataset&gt;</span></tt> off of the directory
+referenced by the environment variable <tt class="docutils literal"><span class="pre">$DATASETS</span></tt>.</p>
+</div>
+<div class="section" id="command-line-options">
+<h2>Command line options<a class="headerlink" href="#command-line-options" title="Permalink to this headline">¶</a></h2>
+<p><em>General, and house-keeping options:</em></p>
+<dl class="cmdoption">
+<dt id="cmdoption--help">
+<tt class="descname">--help</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption--help" title="Permalink to this definition">¶</a></dt>
+<dd>gives a quick summary of the command options.</dd></dl>
+
+<dl class="cmdoption">
+<dt id="cmdoption--noXml">
+<tt class="descname">--noXml</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption--noXml" title="Permalink to this definition">¶</a></dt>
+<dd>Do not do XML markup of data products.</dd></dl>
+
+<dl class="cmdoption">
+<dt id="cmdoption--testonly">
+<tt class="descname">--testonly</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption--testonly" title="Permalink to this definition">¶</a></dt>
+<dd>Test configuration; exit before directory build.</dd></dl>
+
+<dl class="cmdoption">
+<dt id="cmdoption--debug">
+<tt class="descname">--debug</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption--debug" title="Permalink to this definition">¶</a></dt>
+<dd>Print full traceback when an exception occurs.</dd></dl>
+
+<dl class="cmdoption">
+<dt id="cmdoption--noclean">
+<tt class="descname">--noclean</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption--noclean" title="Permalink to this definition">¶</a></dt>
+<dd>Intermediate drizzle products will not be deleted.</dd></dl>
+
+<dl class="cmdoption">
+<dt id="cmdoption--justDriz">
+<tt class="descname">--justDriz</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption--justDriz" title="Permalink to this definition">¶</a></dt>
+<dd>Will quit immediately after drizzling. Detection images and catalogs
+will not be made.</dd></dl>
+
+<dl class="cmdoption">
+<dt id="cmdoption--noContext">
+<tt class="descname">--noContext</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption--noContext" title="Permalink to this definition">¶</a></dt>
+<dd>Will not produce context images in final drizzling.</dd></dl>
+
+<dl class="cmdoption">
+<dt id="cmdoption--noGSC">
+<tt class="descname">--noGSC</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption--noGSC" title="Permalink to this definition">¶</a></dt>
+<dd>Will not attempt to correct image WCS by webquery to GSC2.</dd></dl>
+
+<dl class="cmdoption">
+<dt id="cmdoption--nocats">
+<tt class="descname">--nocats</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption--nocats" title="Permalink to this definition">¶</a></dt>
+<dd>No catalogs should be produced for this pipeline run.</dd></dl>
+
+<dl class="cmdoption">
+<dt id="cmdoption--OwnIraf">
+<tt class="descname">--OwnIraf</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption--OwnIraf" title="Permalink to this definition">¶</a></dt>
+<dd>Use the login.cl file from the users environment.</dd></dl>
+
+<p><em>Options directly related to alignment:</em></p>
+<dl class="cmdoption">
+<dt id="cmdoption--intRef">
+<tt class="descname">--intRef</tt><tt class="descclassname">=&lt;im&gt;</tt><a class="headerlink" href="#cmdoption--intRef" title="Permalink to this definition">¶</a></dt>
+<dd>Use fits file &lt;im&gt; in the dataset as reference image.</dd></dl>
+
+<dl class="cmdoption">
+<dt id="cmdoption--extRef">
+<tt class="descname">--extRef</tt><tt class="descclassname">=&lt;im&gt;</tt><a class="headerlink" href="#cmdoption--extRef" title="Permalink to this definition">¶</a></dt>
+<dd>Use external fits file &lt;im&gt; as reference image.</dd></dl>
+
+<dl class="cmdoption">
+<dt id="cmdoption--justgrism">
+<tt class="descname">--justgrism</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption--justgrism" title="Permalink to this definition">¶</a></dt>
+<dd>This dataset will be aligned as a pure grism observation.</dd></dl>
+
+<dl class="cmdoption">
+<dt id="cmdoption--starcluster">
+<tt class="descname">--starcluster</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption--starcluster" title="Permalink to this definition">¶</a></dt>
+<dd>Uses the starcluster parameter set for alignment.</dd></dl>
+
+<dl class="cmdoption">
+<dt id="cmdoption--alpixthr">
+<tt class="descname">--alpixthr</tt><tt class="descclassname">=&lt;sig&gt;</tt><a class="headerlink" href="#cmdoption--alpixthr" title="Permalink to this definition">¶</a></dt>
+<dd>Use this SExtractor detection threshold for align.</dd></dl>
+
+<dl class="cmdoption">
+<dt id="cmdoption--notrot">
+<tt class="descname">--notrot</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption--notrot" title="Permalink to this definition">¶</a></dt>
+<dd>Do not use rotation in transform found by &#8216;match&#8217; (use median shifts).</dd></dl>
+
+<p><em>Options directly related to sky subtraction:</em></p>
+<dl class="cmdoption">
+<dt id="cmdoption--noAve">
+<tt class="descname">--noAve</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption--noAve" title="Permalink to this definition">¶</a></dt>
+<dd>Extension averaging will <em>not</em> be done during sky subtraction.</dd></dl>
+
+<dl class="cmdoption">
+<dt id="cmdoption--nosub">
+<tt class="descname">--nosub</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption--nosub" title="Permalink to this definition">¶</a></dt>
+<dd>No sky subtraction will be done.</dd></dl>
+
+<dl class="cmdoption">
+<dt id="cmdoption--minSky">
+<tt class="descname">--minSky</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption--minSky" title="Permalink to this definition">¶</a></dt>
+<dd>Use minimum sky value from multi extension images.</dd></dl>
+
+<dl class="cmdoption">
+<dt id="cmdoption--keepstep">
+<tt class="descname">--keepstep</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption--keepstep" title="Permalink to this definition">¶</a></dt>
+<dd>Do not try to remove amplifier discontinuity for ACS/WFC.</dd></dl>
+
+<dl class="cmdoption">
+<dt id="cmdoption--skyfile">
+<tt class="descname">--skyfile</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption--skyfile" title="Permalink to this definition">¶</a></dt>
+<dd>Look for a default.skies file listing sky values.</dd></dl>
+
+<p><em>Options related to detection image and catalogs:</em></p>
+<dl class="cmdoption">
+<dt id="cmdoption--excludefilt">
+<tt class="descname">--excludefilt</tt><tt class="descclassname">=&lt;list&gt;</tt><a class="headerlink" href="#cmdoption--excludefilt" title="Permalink to this definition">¶</a></dt>
+<dd>CSV list of filters which will not be included in the detection
+image.</dd></dl>
+
+<dl class="cmdoption">
+<dt id="cmdoption--richfield">
+<tt class="descname">--richfield</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption--richfield" title="Permalink to this definition">¶</a></dt>
+<dd>Use rich (galaxy cluster) field deblend parameters.</dd></dl>
+
+<dl class="cmdoption">
+<dt id="cmdoption--notrim">
+<tt class="descname">--notrim</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption--notrim" title="Permalink to this definition">¶</a></dt>
+<dd>Do not trim detection weight where Nim=1.</dd></dl>
+
+<p><em>Options related to geometric distortion:</em></p>
+<dl class="cmdoption">
+<dt id="cmdoption--idctab">
+<tt class="descname">--idctab</tt><tt class="descclassname">=&lt;file&gt;</tt><a class="headerlink" href="#cmdoption--idctab" title="Permalink to this definition">¶</a></dt>
+<dd>Use fits IDC table &lt;file&gt; instead of IDCTAB from header.</dd></dl>
+
+<dl class="cmdoption">
+<dt id="cmdoption--dfilt">
+<tt class="descname">--dfilt</tt><tt class="descclassname">=&lt;filt&gt;</tt><a class="headerlink" href="#cmdoption--dfilt" title="Permalink to this definition">¶</a></dt>
+<dd>Use the distortion model in the IDCTAB for this filter. (Currently
+disabled)</dd></dl>
+
+<dl class="cmdoption">
+<dt id="cmdoption--dr_asecpix">
+<tt class="descname">--dr_asecpix</tt><tt class="descclassname">=&lt;outscale&gt;</tt><a class="headerlink" href="#cmdoption--dr_asecpix" title="Permalink to this definition">¶</a></dt>
+<dd>Pixel scale of final drizzled image (arcsec/pix).</dd></dl>
+
+<dl class="cmdoption">
+<dt id="cmdoption--dr_pixfrac">
+<tt class="descname">--dr_pixfrac</tt><tt class="descclassname">=&lt;pixfrac&gt;</tt><a class="headerlink" href="#cmdoption--dr_pixfrac" title="Permalink to this definition">¶</a></dt>
+<dd>Driz pixfrac (&#8220;dropsize&#8221;) param used for final drizzling.</dd></dl>
+
+<dl class="cmdoption">
+<dt id="cmdoption--dr_kernel">
+<tt class="descname">--dr_kernel</tt><tt class="descclassname">=&lt;kernel&gt;</tt><a class="headerlink" href="#cmdoption--dr_kernel" title="Permalink to this definition">¶</a></dt>
+<dd>Driz kernel (square|point|turbo|tophat|lanczos2|lanczos3|gaussian).</dd></dl>
+
+<p><em>Options controlling the output image size</em></p>
+<dl class="cmdoption">
+<dt id="cmdoption--padfac">
+<tt class="descname">--padfac</tt><tt class="descclassname">=&lt;f&gt;</tt><a class="headerlink" href="#cmdoption--padfac" title="Permalink to this definition">¶</a></dt>
+<dd>Pad linear output size by this factor.</dd></dl>
+
+<dl class="cmdoption">
+<dt id="cmdoption--outsize">
+<tt class="descname">--outsize</tt><tt class="descclassname">=&lt;nx&gt;,&lt;ny&gt;</tt><a class="headerlink" href="#cmdoption--outsize" title="Permalink to this definition">¶</a></dt>
+<dd>Use this output &lt;nx&gt;,&lt;ny&gt; <em>pixel</em> (csv) image size.</dd></dl>
+
+<dl class="cmdoption">
+<dt id="cmdoption--outshift">
+<tt class="descname">--outshift</tt><tt class="descclassname">=&lt;dx&gt;,&lt;dy&gt;</tt><a class="headerlink" href="#cmdoption--outshift" title="Permalink to this definition">¶</a></dt>
+<dd>Apply these overall &lt;dx&gt;,&lt;dy&gt; <em>arcsec</em> shifts (csv) in output frame.</dd></dl>
+
+<p><em>Options related to CRs and bad pixel rejection:</em></p>
+<dl class="cmdoption">
+<dt id="cmdoption--crlower">
+<tt class="descname">--crlower</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption--crlower" title="Permalink to this definition">¶</a></dt>
+<dd>Use dangerously low driz_cr rejection thresholds.</dd></dl>
+
+<dl class="cmdoption">
+<dt id="cmdoption--noCRreject">
+<tt class="descname">--noCRreject</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption--noCRreject" title="Permalink to this definition">¶</a></dt>
+<dd>Do not reject cosmic rays (1-pass drizzling).</dd></dl>
+
+<dl class="cmdoption">
+<dt id="cmdoption--keepbits">
+<tt class="descname">--keepbits</tt><tt class="descclassname">=&lt;bits&gt;</tt><a class="headerlink" href="#cmdoption--keepbits" title="Permalink to this definition">¶</a></dt>
+<dd>Sum of pixel data quality flags to keep during drizzle.</dd></dl>
+
+<dl class="cmdoption">
+<dt id="cmdoption--smartstack">
+<tt class="descname">--smartstack</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption--smartstack" title="Permalink to this definition">¶</a></dt>
+<dd>Use optimal median stacking during drizzle.</dd></dl>
+
+<dl class="cmdoption">
+<dt id="cmdoption--mask">
+<tt class="descname">--mask</tt><tt class="descclassname">=&lt;mask_file&gt;</tt><a class="headerlink" href="#cmdoption--mask" title="Permalink to this definition">¶</a></dt>
+<dd>Explicitly mask out specific regions in certain input files.</dd></dl>
+
+</div>
+<div class="section" id="output-directory-structure-and-files">
+<h2>Output directory structure and files<a class="headerlink" href="#output-directory-structure-and-files" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="">Running Apsis</a><ul>
+<li><a class="reference external" href="#quickstart">Quickstart</a></li>
+<li><a class="reference external" href="#command-line-options">Command line options</a></li>
+<li><a class="reference external" href="#output-directory-structure-and-files">Output directory structure and files</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="prelims.html"
+                                  title="previous chapter">Preliminary steps</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="modules.html"
+                                  title="next chapter">Modules</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/running.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="modules.html" title="Modules"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="prelims.html" title="Preliminary steps"
+             >previous</a> |</li>
+        <li><a href="index.html">Apsis v5.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009, Ken Anderson, John Blakeslee, Rychard Bouwens, Dan Magee.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.3.
+    </div>
+  </body>
+</html>

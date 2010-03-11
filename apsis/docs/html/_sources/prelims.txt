@@ -1,0 +1,126 @@
+Preliminary steps
+=================
+
+Setting up the environment variables
+------------------------------------
+
+*Apsis* needs to have a variety of environment variables set for it to
+run properly.  The *Apsis* installation comes with a command file
+``apsis_setup.csh`` that sets these variables.  This should be copied to
+some place in your $PATH.  You should edit it so that the environment
+variables point to the right directories, etc. Before you run *Apsis*
+you should source this file, i.e. ``source apsis_setup.csh`` so that the
+environment variables are set properly.
+
+The following are the environment variables you will most likely need to
+personalize:
+
+**$ACS_PIPE**
+    is the path to the *Apsis* root directory, i.e. where you installed
+    *Apsis*. 
+
+**$INGEST** is the directory where *Apsis* looks for input
+    datasets. These will be directories within ``$INGEST``.
+
+**$DATASETS**
+    is the directory where *Apsis* will put the output data. It will
+    put the data into a directory it creates in ``$DATSASETS``.
+
+The following environment variables are also used, but are less likely
+to require personalization, if you did a standard *Apsis* installation
+and ``source apsis_setup.csh``.
+
+**$PATH**
+    is the list of directories that are searched for commands or
+    executables that are run on the command line.  Elements in path are
+    separated by a colon (:).  The ``$PATH`` is read from left to right and
+    the first found occurrence of an executable is used.  ``$PATH`` must
+    include the directory containing the *Apsis* software as well as any
+    other directory where dependent software executables may be
+    located. 
+
+**$PYTHONPATH**
+    is the list of directories that are searched for python scripts.
+
+**$PIPELINE** 
+    points to the directory containing the *Apsis* reference data.
+
+**$jref**
+    is the directory containing the reference files library. This
+    directory contains the IDC tables used to described the geometric
+    distortion of ACS.  These files are typically referenced in the fits
+    images containing and usually have names like ``*_idc.fits``.
+
+**$DUST_DIR**
+    tells *dust_getval* where to find the dust maps it uses.
+    Specifically, ``$DUST_DIR`` should point to the directory containing
+    the subdirectory ``maps`` which containg the dust maps in fits
+    format. 
+
+**$NUMERIX**
+    should be set to ``numpy``.
+
+Initial Processing
+------------------
+
+Before processing with *Apsis*, raw ACS images should be run through the
+STScI ACS calibration pipeline `CALACS
+<http://stsdas.stsci.edu/cgi-bin/gethelp.cgi?calacs>`_.  *CALACS* does
+the basic processing including overscan correction, bias subtraction,
+dark correction, flatfielding, and Cosmic Ray (CR) rejection of CR split
+frames.  *Apsis* uses the output images from *CALACS* as its input data.
+*Apsis* can use either processed single frames, having names
+``*_flt.fits``, or the CR rejection combined images, having names like
+``*_crj.fits``.  However, the CR rejection done by *Apsis* is superior
+to the algorithm used by *CALACS*, and *Apsis* can also remove the small
+alignment differences in the images comprising a CR split pair.  Hence,
+better results are obtained by processsing just the ``*_flt.fits``
+images. 
+
+Getting ACS images
+------------------
+
+ACS images can be obtained from `MAST
+<http://archive.stsci.edu/hst/>`_, the Multimission Archive at STScI.
+You will need to have an account on MAST to retrieve data.  While a
+variety of data products from ACS observations can be obtained from
+MAST, the only ones relevant for *Apsis* are the single frame *CALACS*
+calibrated images, as discussed above.  These have names like
+``*_flt.fits``. 
+
+Organizing the input files
+--------------------------
+
+All the data to be processed in a single *Apsis* run is organized into a
+a directory known as a "dataset".  This directory must be a subdirectory
+off of the **$INGEST** directory, discussed above. The name of this
+directory is then the dataset name.  The dataset directory should only
+contain *CALACS* processed input images (``_flt.fits`` files) and
+association tables (``_asn.fits`` files).  A dataset can only contain
+images obtained with the same ACS camera, (i.e. no mixing of WFC, HRC,
+and SBC images), but may contain images using different filters and at
+different telescope offset positions.  For *Apsis* to work properly, the
+sky area covered should be contiguous.  The fits format association
+tables tell *Apsis* which ACS images are to be combined together and are
+discussed below.
+
+Making Association tables
+-------------------------
+
+In order to determine which images should be combined to produce an
+output frame, *Apsis* uses `association tables
+<http://www.stsci.edu/hst/acs/documents/handbooks/DataHandbookv5/acs_Ch22.html>`_.
+For *Apsis* to work properly, there should be one association table for
+each set of images taken with a given filter.  These images will be
+combined into one output "filter" image.  The
+table should list all the ``_flt.fits`` frames taken with the filter,
+and there should be one association for each filter used in the
+dataset.  One way to create association tables is to use the script
+*autoasndir* which determines all the filters used in the images in a
+given directory, and writes an association table for each filter. 
+
+The pyraf module `buildasn.py
+<http://stsdas.stsci.edu/pyraf/stscidocs/pydrizzle_pkg/pydrizzle_api/pydrizzle.buildasn-module.html>`_
+can also be used to make custom association tables.
+
+

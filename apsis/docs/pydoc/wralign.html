@@ -1,0 +1,129 @@
+
+<!doctype html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module wralign</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>wralign</strong></big></big> (version 1.34)</font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/meurer/ACS/Pipeline/Apsis/apsis-4.2.4/python/apsis/wralign.py">/home/meurer/ACS/Pipeline/Apsis/apsis-4.2.4/python/apsis/wralign.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;$Id:&nbsp;wralign.py,v&nbsp;0.1&nbsp;2003/11/11&nbsp;21:51:02&nbsp;anderson&nbsp;Exp&nbsp;$<br>
+#&nbsp;---------------------------------------------------------------------<br>
+#&nbsp;Wrapper&nbsp;module&nbsp;for&nbsp;the&nbsp;new&nbsp;align&nbsp;module&nbsp;which&nbsp;conforms&nbsp;to&nbsp;the&nbsp;old&nbsp;align&nbsp;interface</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="amputil.html">amputil</a><br>
+<a href="fUtil.html">fUtil</a><br>
+<a href="math.html">math</a><br>
+</td><td width="25%" valign=top><a href="matutil.html">matutil</a><br>
+<a href="os.html">os</a><br>
+<a href="pUtil.html">pUtil</a><br>
+</td><td width="25%" valign=top><a href="popen2.html">popen2</a><br>
+<a href="pyfits.html">pyfits</a><br>
+<a href="string.html">string</a><br>
+</td><td width="25%" valign=top><a href="subprocess.html">subprocess</a><br>
+<a href="time.html">time</a><br>
+<a href="wcsclass.html">wcsclass</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="wralign.html#FrameSetUpClass">FrameSetUpClass</a>
+</font></dt><dt><font face="helvetica, arial"><a href="wralign.html#alignImage">alignImage</a>
+</font></dt></dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="FrameSetUpClass">class <strong>FrameSetUpClass</strong></a></font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="FrameSetUpClass-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="FrameSetUpClass-setoutscale"><strong>setoutscale</strong></a>(self, outscale)</dt></dl>
+
+<dl><dt><a name="FrameSetUpClass-setoutshift"><strong>setoutshift</strong></a>(self, x, y)</dt></dl>
+
+<dl><dt><a name="FrameSetUpClass-setoutsize"><strong>setoutsize</strong></a>(self, x, y)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="alignImage">class <strong>alignImage</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Intended&nbsp;to&nbsp;have&nbsp;the&nbsp;same&nbsp;API&nbsp;as&nbsp;the&nbsp;old&nbsp;apsis&nbsp;AlignImage&nbsp;object<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="alignImage-__init__"><strong>__init__</strong></a>(self, obs, extRefIm<font color="#909090">=0</font>, idcTab<font color="#909090">=None</font>, Edgebuf<font color="#909090">=12</font>, irafSkyToo<font color="#909090">=1</font>, nebula<font color="#909090">=0</font>, grism<font color="#909090">=0</font>, starclus<font color="#909090">=0</font>, keepstep<font color="#909090">=0</font>, notrot<font color="#909090">=None</font>, useMinSky<font color="#909090">=0</font>, FrameSetUp<font color="#909090">=None</font>, sxtrthresh<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="alignImage-makeMatchCats"><strong>makeMatchCats</strong></a>(self, SkyFile<font color="#909090">=0</font>)</dt></dl>
+
+<dl><dt><a name="alignImage-match"><strong>match</strong></a>(self, intRef<font color="#909090">=''</font>, superalign<font color="#909090">=None</font>, retry<font color="#909090">=0</font>)</dt></dl>
+
+<dl><dt><a name="alignImage-mkMsg"><strong>mkMsg</strong></a>(self)</dt><dd><tt>create&nbsp;and&nbsp;write&nbsp;module&nbsp;level&nbsp;message&nbsp;for&nbsp;this&nbsp;class.<br>
+Most&nbsp;of&nbsp;this&nbsp;is&nbsp;just&nbsp;compiling&nbsp;the&nbsp;info.&nbsp;meta&nbsp;is&nbsp;a&nbsp;dictionary<br>
+of&nbsp;lists&nbsp;where&nbsp;each&nbsp;list&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;tuples&nbsp;describing&nbsp;the<br>
+tag&nbsp;lines&nbsp;for&nbsp;the&nbsp;particular&nbsp;section&nbsp;of&nbsp;the&nbsp;message.&nbsp;&nbsp;This&nbsp;tuple&nbsp;<br>
+format&nbsp;conforms&nbsp;to&nbsp;that&nbsp;used&nbsp;by&nbsp;the&nbsp;xmlMessage&nbsp;class&nbsp;which&nbsp;is<br>
+modeled&nbsp;on&nbsp;basic&nbsp;python&nbsp;argument&nbsp;passing,&nbsp;i.e.&nbsp;(key,*value,**attr).</tt></dd></dl>
+
+<dl><dt><a name="alignImage-removeUnpicklable"><strong>removeUnpicklable</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="alignImage-subtractSkies"><strong>subtractSkies</strong></a>(self, ForceSub<font color="#909090">=0</font>, omitSimple<font color="#909090">=0</font>, omitMEF<font color="#909090">=0</font>, aveExt<font color="#909090">=0</font>)</dt></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-arange"><strong>arange</strong></a>(...)</dt><dd><tt><a href="#-arange">arange</a>([start,]&nbsp;stop[,&nbsp;step,],&nbsp;dtype=None)<br>
+&nbsp;<br>
+For&nbsp;integer&nbsp;arguments,&nbsp;just&nbsp;like&nbsp;range()&nbsp;except&nbsp;it&nbsp;returns&nbsp;an&nbsp;array<br>
+whose&nbsp;type&nbsp;can&nbsp;be&nbsp;specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;dtype.&nbsp;&nbsp;If&nbsp;dtype<br>
+is&nbsp;not&nbsp;specified,&nbsp;the&nbsp;type&nbsp;of&nbsp;the&nbsp;result&nbsp;is&nbsp;deduced&nbsp;from&nbsp;the&nbsp;type&nbsp;of<br>
+the&nbsp;arguments.<br>
+&nbsp;<br>
+For&nbsp;floating&nbsp;point&nbsp;arguments,&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;result&nbsp;is&nbsp;ceil((stop&nbsp;-<br>
+start)/step).&nbsp;&nbsp;This&nbsp;rule&nbsp;may&nbsp;result&nbsp;in&nbsp;the&nbsp;last&nbsp;element&nbsp;of&nbsp;the&nbsp;result<br>
+being&nbsp;greater&nbsp;than&nbsp;stop.</tt></dd></dl>
+ <dl><dt><a name="-where"><strong>where</strong></a>(...)</dt><dd><tt><a href="#-where">where</a>(condition,&nbsp;|&nbsp;x,&nbsp;y)<br>
+&nbsp;<br>
+The&nbsp;result&nbsp;is&nbsp;shaped&nbsp;like&nbsp;condition&nbsp;and&nbsp;has&nbsp;elements&nbsp;of&nbsp;x&nbsp;and&nbsp;y&nbsp;where<br>
+condition&nbsp;is&nbsp;respectively&nbsp;true&nbsp;or&nbsp;false.&nbsp;&nbsp;If&nbsp;x&nbsp;or&nbsp;y&nbsp;are&nbsp;not&nbsp;given,<br>
+then&nbsp;it&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;condition.nonzero().<br>
+&nbsp;<br>
+To&nbsp;group&nbsp;the&nbsp;indices&nbsp;by&nbsp;element,&nbsp;rather&nbsp;than&nbsp;dimension,&nbsp;use<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;transpose(<a href="#-where">where</a>(condition,&nbsp;|&nbsp;x,&nbsp;y))<br>
+&nbsp;<br>
+instead.&nbsp;This&nbsp;always&nbsp;results&nbsp;in&nbsp;a&nbsp;2d&nbsp;array,&nbsp;with&nbsp;a&nbsp;row&nbsp;of&nbsp;indices&nbsp;for<br>
+each&nbsp;element&nbsp;that&nbsp;satisfies&nbsp;the&nbsp;condition.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>__version__</strong> = '1.34'<br>
+<strong>iraf</strong> = &lt;module 'pyraf.iraf' from '/usr/lib/python2.4/site-packages/pyraf/iraf.pyc'&gt;<br>
+<strong>less_equal</strong> = &lt;ufunc 'less_equal'&gt;<br>
+<strong>pyversion</strong> = '2.4.3 (#1, Jan 14 2008, 18:32:40) <font color="#c040c0">\n</font>[GCC 4.1.2 20070626 (Red Hat 4.1.2-14)]'<br>
+<strong>version</strong> = '2.4.3 (#1, Jan 14 2008, 18:32:40) <font color="#c040c0">\n</font>[GCC 4.1.2 20070626 (Red Hat 4.1.2-14)]'</td></tr></table>
+</body></html>

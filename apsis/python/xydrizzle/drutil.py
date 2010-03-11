@@ -10,7 +10,7 @@ tasks.
 #  
 
 import string,os
-import iraf
+from pyraf import iraf
 
 import numpy as N
 

@@ -1,0 +1,116 @@
+
+<!doctype html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module amputil</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>amputil</strong></big></big> (version 1.3)</font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/meurer/ACS/Pipeline/Apsis/apsis-4.2.4/python/utils/amputil.py">/home/meurer/ACS/Pipeline/Apsis/apsis-4.2.4/python/utils/amputil.py</a></font></td></tr></table>
+    <p><tt>License<br>
+=======<br>
+&nbsp;<br>
+Copyright&nbsp;(c)&nbsp;2009,&nbsp;The&nbsp;Johns&nbsp;Hopkins&nbsp;University<br>
+&nbsp;<br>
+All&nbsp;rights&nbsp;reserved.<br>
+&nbsp;<br>
+Redistribution&nbsp;and&nbsp;use&nbsp;in&nbsp;source&nbsp;and&nbsp;binary&nbsp;forms,&nbsp;with&nbsp;or&nbsp;without<br>
+modification,&nbsp;are&nbsp;permitted&nbsp;provided&nbsp;that&nbsp;the&nbsp;following&nbsp;conditions&nbsp;are&nbsp;met:<br>
+&nbsp;<br>
+Redistributions&nbsp;of&nbsp;source&nbsp;code&nbsp;must&nbsp;retain&nbsp;the&nbsp;above&nbsp;copyright&nbsp;notice,&nbsp;this<br>
+list&nbsp;of&nbsp;conditions&nbsp;and&nbsp;the&nbsp;following&nbsp;disclaimer.&nbsp;&nbsp;Redistributions&nbsp;in&nbsp;binary<br>
+form&nbsp;must&nbsp;reproduce&nbsp;the&nbsp;above&nbsp;copyright&nbsp;notice,&nbsp;this&nbsp;list&nbsp;of&nbsp;conditions&nbsp;and<br>
+the&nbsp;following&nbsp;disclaimer&nbsp;in&nbsp;the&nbsp;documentation&nbsp;and/or&nbsp;other&nbsp;materials&nbsp;provided<br>
+with&nbsp;the&nbsp;distribution.&nbsp;&nbsp;Neither&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;Johns&nbsp;Hopkins&nbsp;University&nbsp;nor<br>
+the&nbsp;names&nbsp;of&nbsp;its&nbsp;contributors&nbsp;may&nbsp;be&nbsp;used&nbsp;to&nbsp;endorse&nbsp;or&nbsp;promote&nbsp;products<br>
+derived&nbsp;from&nbsp;this&nbsp;software&nbsp;without&nbsp;specific&nbsp;prior&nbsp;written&nbsp;permission.<br>
+&nbsp;<br>
+THIS&nbsp;SOFTWARE&nbsp;IS&nbsp;PROVIDED&nbsp;BY&nbsp;THE&nbsp;COPYRIGHT&nbsp;HOLDERS&nbsp;AND&nbsp;CONTRIBUTORS&nbsp;'AS<br>
+IS'&nbsp;AND&nbsp;ANY&nbsp;EXPRESS&nbsp;OR&nbsp;IMPLIED&nbsp;WARRANTIES,&nbsp;INCLUDING,&nbsp;BUT&nbsp;NOT&nbsp;LIMITED<br>
+TO,&nbsp;THE&nbsp;IMPLIED&nbsp;WARRANTIES&nbsp;OF&nbsp;MERCHANTABILITY&nbsp;AND&nbsp;FITNESS&nbsp;FOR&nbsp;A<br>
+PARTICULAR&nbsp;PURPOSE&nbsp;ARE&nbsp;DISCLAIMED.&nbsp;IN&nbsp;NO&nbsp;EVENT&nbsp;SHALL&nbsp;THE&nbsp;COPYRIGHT<br>
+HOLDER&nbsp;OR&nbsp;CONTRIBUTORS&nbsp;BE&nbsp;LIABLE&nbsp;FOR&nbsp;ANY&nbsp;DIRECT,&nbsp;INDIRECT,&nbsp;INCIDENTAL,<br>
+SPECIAL,&nbsp;EXEMPLARY,&nbsp;OR&nbsp;CONSEQUENTIAL&nbsp;DAMAGES&nbsp;(INCLUDING,&nbsp;BUT&nbsp;NOT&nbsp;LIMITED<br>
+TO,&nbsp;PROCUREMENT&nbsp;OF&nbsp;SUBSTITUTE&nbsp;GOODS&nbsp;OR&nbsp;SERVICES;&nbsp;LOSS&nbsp;OF&nbsp;USE,&nbsp;DATA,&nbsp;OR<br>
+PROFITS;&nbsp;OR&nbsp;BUSINESS&nbsp;INTERRUPTION)&nbsp;HOWEVER&nbsp;CAUSED&nbsp;AND&nbsp;ON&nbsp;ANY&nbsp;THEORY&nbsp;OF<br>
+LIABILITY,&nbsp;WHETHER&nbsp;IN&nbsp;CONTRACT,&nbsp;STRICT&nbsp;LIABILITY,&nbsp;OR&nbsp;TORT&nbsp;(INCLUDING<br>
+NEGLIGENCE&nbsp;OR&nbsp;OTHERWISE)&nbsp;ARISING&nbsp;IN&nbsp;ANY&nbsp;WAY&nbsp;OUT&nbsp;OF&nbsp;THE&nbsp;USE&nbsp;OF&nbsp;THIS<br>
+SOFTWARE,&nbsp;EVEN&nbsp;IF&nbsp;ADVISED&nbsp;OF&nbsp;THE&nbsp;POSSIBILITY&nbsp;OF&nbsp;SUCH&nbsp;DAMAGE.<br>
+&nbsp;<br>
+(This&nbsp;license&nbsp;is&nbsp;based&nbsp;on&nbsp;the&nbsp;BSD&nbsp;license<br>
+&nbsp;<a href="http://www.opensource.org/licenses/bsd-license.html">http://www.opensource.org/licenses/bsd-license.html</a>)</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="fUtil.html">fUtil</a><br>
+</td><td width="25%" valign=top><a href="math.html">math</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-arange"><strong>arange</strong></a>(...)</dt><dd><tt><a href="#-arange">arange</a>([start,]&nbsp;stop[,&nbsp;step,],&nbsp;dtype=None)<br>
+&nbsp;<br>
+For&nbsp;integer&nbsp;arguments,&nbsp;just&nbsp;like&nbsp;range()&nbsp;except&nbsp;it&nbsp;returns&nbsp;an&nbsp;array<br>
+whose&nbsp;type&nbsp;can&nbsp;be&nbsp;specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;dtype.&nbsp;&nbsp;If&nbsp;dtype<br>
+is&nbsp;not&nbsp;specified,&nbsp;the&nbsp;type&nbsp;of&nbsp;the&nbsp;result&nbsp;is&nbsp;deduced&nbsp;from&nbsp;the&nbsp;type&nbsp;of<br>
+the&nbsp;arguments.<br>
+&nbsp;<br>
+For&nbsp;floating&nbsp;point&nbsp;arguments,&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;result&nbsp;is&nbsp;ceil((stop&nbsp;-<br>
+start)/step).&nbsp;&nbsp;This&nbsp;rule&nbsp;may&nbsp;result&nbsp;in&nbsp;the&nbsp;last&nbsp;element&nbsp;of&nbsp;the&nbsp;result<br>
+being&nbsp;greater&nbsp;than&nbsp;stop.</tt></dd></dl>
+ <dl><dt><a name="-getside"><strong>getside</strong></a>(colist, sky, thresh)</dt><dd><tt>return&nbsp;clipped&nbsp;ave&nbsp;of&nbsp;colist</tt></dd></dl>
+ <dl><dt><a name="-getsideMed"><strong>getsideMed</strong></a>(colist, sky, thresh)</dt><dd><tt>return&nbsp;clipped&nbsp;median&nbsp;of&nbsp;colist</tt></dd></dl>
+ <dl><dt><a name="-getstep"><strong>getstep</strong></a>(ff, sky, sig, A1maxcol<font color="#909090">=-1</font>, ext<font color="#909090">=0</font>, nsig<font color="#909090">=3.5</font>, verb<font color="#909090">=1</font>, dowrite<font color="#909090">=0</font>)</dt><dd><tt>find&nbsp;size&nbsp;of&nbsp;step&nbsp;across&nbsp;amplifier&nbsp;boundary.<br>
+Returns&nbsp;a&nbsp;tuple:&nbsp;&nbsp;(stepsize,error,Nr),<br>
+where&nbsp;error&nbsp;is&nbsp;uncertainty&nbsp;and&nbsp;Nr&nbsp;tells&nbsp;how&nbsp;many&nbsp;values&nbsp;went<br>
+into&nbsp;median&nbsp;estimate.&nbsp;&nbsp;This&nbsp;one&nbsp;uses&nbsp;3&nbsp;cols&nbsp;on&nbsp;each&nbsp;side.</tt></dd></dl>
+ <dl><dt><a name="-getstep2col"><strong>getstep2col</strong></a>(ff, sky, sig, A1maxcol<font color="#909090">=-1</font>, ext<font color="#909090">=0</font>, nsig<font color="#909090">=2.7000000000000002</font>, verb<font color="#909090">=1</font>, dowrite<font color="#909090">=0</font>)</dt><dd><tt>find&nbsp;size&nbsp;of&nbsp;step&nbsp;across&nbsp;amplifier&nbsp;boundary.<br>
+Returns&nbsp;a&nbsp;tuple:&nbsp;&nbsp;(stepsize,error,Nr),&nbsp;&nbsp;where&nbsp;error&nbsp;is&nbsp;uncertainty<br>
+and&nbsp;Nr&nbsp;tells&nbsp;how&nbsp;many&nbsp;values&nbsp;went&nbsp;into&nbsp;median&nbsp;estimate.&nbsp;&nbsp;This&nbsp;version<br>
+uses&nbsp;2&nbsp;cols&nbsp;on&nbsp;each&nbsp;side&nbsp;of&nbsp;amplifier&nbsp;boundary.</tt></dd></dl>
+ <dl><dt><a name="-getstep3col"><strong>getstep3col</strong></a>(ff, sky, sig, A1maxcol<font color="#909090">=-1</font>, ext<font color="#909090">=0</font>, nsig<font color="#909090">=3.5</font>, verb<font color="#909090">=1</font>, dowrite<font color="#909090">=0</font>)</dt><dd><tt>find&nbsp;size&nbsp;of&nbsp;step&nbsp;across&nbsp;amplifier&nbsp;boundary.<br>
+Returns&nbsp;a&nbsp;tuple:&nbsp;&nbsp;(stepsize,error,Nr),<br>
+where&nbsp;error&nbsp;is&nbsp;uncertainty&nbsp;and&nbsp;Nr&nbsp;tells&nbsp;how&nbsp;many&nbsp;values&nbsp;went<br>
+into&nbsp;median&nbsp;estimate.&nbsp;&nbsp;This&nbsp;one&nbsp;uses&nbsp;3&nbsp;cols&nbsp;on&nbsp;each&nbsp;side.</tt></dd></dl>
+ <dl><dt><a name="-okcheck"><strong>okcheck</strong></a>(x, mean, thresh)</dt></dl>
+ <dl><dt><a name="-where"><strong>where</strong></a>(...)</dt><dd><tt><a href="#-where">where</a>(condition,&nbsp;|&nbsp;x,&nbsp;y)<br>
+&nbsp;<br>
+The&nbsp;result&nbsp;is&nbsp;shaped&nbsp;like&nbsp;condition&nbsp;and&nbsp;has&nbsp;elements&nbsp;of&nbsp;x&nbsp;and&nbsp;y&nbsp;where<br>
+condition&nbsp;is&nbsp;respectively&nbsp;true&nbsp;or&nbsp;false.&nbsp;&nbsp;If&nbsp;x&nbsp;or&nbsp;y&nbsp;are&nbsp;not&nbsp;given,<br>
+then&nbsp;it&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;condition.nonzero().<br>
+&nbsp;<br>
+To&nbsp;group&nbsp;the&nbsp;indices&nbsp;by&nbsp;element,&nbsp;rather&nbsp;than&nbsp;dimension,&nbsp;use<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;transpose(<a href="#-where">where</a>(condition,&nbsp;|&nbsp;x,&nbsp;y))<br>
+&nbsp;<br>
+instead.&nbsp;This&nbsp;always&nbsp;results&nbsp;in&nbsp;a&nbsp;2d&nbsp;array,&nbsp;with&nbsp;a&nbsp;row&nbsp;of&nbsp;indices&nbsp;for<br>
+each&nbsp;element&nbsp;that&nbsp;satisfies&nbsp;the&nbsp;condition.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>__author__</strong> = 'J. Blakeslee &lt;jpb@pha.jhu.edu&gt;'<br>
+<strong>__version__</strong> = '1.3'<br>
+<strong>__version_date__</strong> = '2006/07/21 20:17:22'<br>
+<strong>less_equal</strong> = &lt;ufunc 'less_equal'&gt;</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#7799ee">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Author</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#7799ee"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">J.&nbsp;Blakeslee&nbsp;&lt;jpb@pha.jhu.edu&gt;</td></tr></table>
+</body></html>
